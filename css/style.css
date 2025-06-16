@@ -1,6 +1,11 @@
+header,
+.product-list {
+  width: 70vw;
+  padding: 0 15vw;
+}
+
 /* header */
 header {
-  width: 70vw;
   height: 90px;
   
   display: flex;
@@ -8,8 +13,6 @@ header {
   justify-content: space-between;
 
   box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.1);
-
-  padding: 0 15vw;
 }
 
 .logo-search {
@@ -97,7 +100,7 @@ main {
 .main-slide button {
   width: 60px;
   background: none;
-  
+
   z-index: 1;
   margin: 0 3vw;
 }
@@ -113,11 +116,47 @@ main {
 }
 
 /* 상품 리스트 */
+.product-list ul{
+  margin-top: 80px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 70px;
+}
+
+.product-list li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-list li a {
+  width: clamp(180px, 20vw, 380px);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
 .product-list img {
-  width: 380px;
-  height: 380px;
+  height: clamp(180px, 20vw, 380px);
   object-fit: cover;
 }
 
+.store-name {
+  color: #767676;
+}
 
+.product-name {
+  font-size: 18px;
+  width: 100%;
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.price {
+  font-size: 24px;
+  font-weight: 700;
+}
 
