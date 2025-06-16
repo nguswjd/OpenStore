@@ -70,14 +70,8 @@
   padding-top: 34px;
 
   width: clamp(300px, 70vw, 550px);
-  border-radius: 0 0 10px 10px;
-  border-top: 1px solid #C4C4C4;
-
-  /* 수정필요 */
-  /* 구매회원일떄 */
   border-radius: 0 10px 10px 10px;
-  /* 판매회원일때 */
-  /* border-radius: 10px 0 10px 10px; */
+  border-top: 1px solid #C4C4C4;
 
   background-color: #fff;
 
