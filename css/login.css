@@ -96,13 +96,18 @@
   height: 60px;
 }
 
-
 #loginForm div > input {
   border-bottom: 1px solid #C4C4C4;
 }
 
 #loginForm div > input::placeholder{
   color: #767676;
+}
+
+#login-error {
+  text-align: start;
+  margin: 20px 0 -10px clamp(20px, 5vw, 40px);
+  color: red;
 }
 
 #loginForm > button {
