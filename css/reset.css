@@ -1,3 +1,5 @@
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+
 * {
   margin: 0;
   padding: 0;
@@ -6,9 +8,9 @@
   list-style: none;
 
   color: #000;
+  font-family: 'Spoqa Han Sans Neo', 'sans-serif';
   font-size: 16px;
   font-weight: 400;
-  
   font-style: normal;
 }
 
@@ -21,8 +23,9 @@
   overflow: hidden;
 }
 
-.hidden {
-  display: none;
+/* important 사용해도 되는지,, 우선사용인걸로 알고 있는데,. 하지만 이렇게 한쓰면 loginPage에서 class적용이 안돼요 ㅜㅜ */
+.a11y-hidden {
+  display: none !important;
 }
 
 input,
@@ -32,6 +35,10 @@ button {
   font-size: inherit;
   font-weight: inherit;
   border: none;
+}
+
+button {
+  background: none;
 }
 
 input:focus {

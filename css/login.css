@@ -1,0 +1,18 @@
+.loginPage {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginPage h2 img {
+  width: 238px;
+}
+
+.login {
+  margin-top: 70px;
+}
+
