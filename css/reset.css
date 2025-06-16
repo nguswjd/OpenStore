@@ -36,6 +36,6 @@ button {
 
 input:focus {
   cursor: text;
+  outline: none;
 }
-
 
