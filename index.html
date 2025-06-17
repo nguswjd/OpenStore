@@ -46,7 +46,7 @@
     </header>
 
     <!-- ===== 메인 페이지 ===== -->
-    <div class="mainPage">
+    <div class="mainPage a11y-hidden">
         <main>
             <!-- 메인 슬라이드 -->
             <section class="main-slide">
@@ -206,7 +206,7 @@
     </div>
 
     <!-- ===== 회원가입 페이지 ===== -->
-    <div class="joinPage a11y-hidden">
+    <div class="joinPage">
         <h2>
             <img src="assets/icons/Logo-hodu.png" alt="호두마켓 로고">
         </h2>
@@ -235,7 +235,7 @@
                 <label for="join-repw">비밀번호 재확인</label>
                 <input id="join-repw" type="password" name="join-repw" required>
 
-                <p id="join-error" aria-live="polite"></p>
+                <p id="join-error"></p>
 
                 <!-- 이름 입력 -->
                 <label for="join-name">이름</label>
@@ -244,15 +244,28 @@
                 <!-- 휴대폰 번호 입력 -->
                 <label for="join-number">휴대폰번호</label>
                 <div class="user-number">
-                    <select name="join-number" id="join-number" required>
+                    <select name="join-number" id="join-number">
                         <option value="010">010</option>
                         <option value="011">011</option>
                         <option value="016">016</option>
                         <option value="017">017</option>
                         <option value="018">018</option>
                     </select>
-                    <input type="text" id="user-number-mid" name="user-number-mid" maxlength="4" required>
-                    <input type="text" id="user-number-end" name="user-number-end" maxlength="4" required>
+                    <input type="text" id="user-number-mid" name="user-number-mid" maxlength="4">
+                    <input type="text" id="user-number-end" name="user-number-end" maxlength="4">
+                </div>
+
+                <div class="join-seller">
+                  <!-- 사업자 등록번호 -->
+                  <label for="join-businessNum">사업자등록번호</label>
+                  <div class="join-businessNum">
+                      <input id="join-businessNum" type="text" name="join-businessNum" required>
+                      <button type="button" class="businessClickBtn">인증</button>
+                  </div>
+
+                  <!-- 스토어 이름 -->
+                  <label for="join-storeName">스토어이름</label>
+                  <input id="join-storeName" type="text" name="join-storeName" required>
                 </div>
             </form>
         </section>
