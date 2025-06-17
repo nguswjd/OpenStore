@@ -1,6 +1,6 @@
 /* ===== 공통 페이지 레이아웃 ===== */
-.loginPage,
-.joinPage {
+header,
+main {
   width: 100vw;
   margin: 100px 0;
 
@@ -10,8 +10,7 @@
   gap: 50px;
 }
 
-.loginPage h2 img,
-.joinPage h2 img {
+header h1 img {
   width: clamp(200px, 20vw, 238px);
 }
 
@@ -104,7 +103,7 @@
   border-radius: 5px;
 }
 
-.login-footer {
+footer {
   margin-top: 30px;
   display: flex;
   gap: 10px;
@@ -245,7 +244,7 @@ label[for="join-name"] {
 }
 
 /* ===== 폼 하단 영역 ===== */
-.form-footer {
+footer {
   max-width: 550px;
   display: flex;
   flex-direction: column;
@@ -282,7 +281,7 @@ label[for="join-name"] {
   background-image: url('../assets/icons/check-fill-box.svg');
 }
 
-.joinPage label,
+main label,
 .checkbox-agree > label {
   color: #767676;
 }
@@ -293,7 +292,7 @@ label[for="join-name"] {
   color: #767676;
 }
 
-.form-footer > button {
+footer > button {
   margin: 15px 0 30px;
   width: 85%;
   height: 60px;

@@ -7,12 +7,11 @@
     <title>HODU</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/login-join.css">
     <script src="js/main.js" defer></script>
+    <script src="js/loginAPI.js" defer></script>
 </head>
 <body>
-    <!-- ===== 공통 헤더 ===== -->
-    <header id="header-page">
+    <header>
         <section class="logo-search">
             <h1>
                 <img src="assets/icons/Logo-hodu.png" alt="호두마켓 로고">
@@ -30,257 +29,136 @@
             <h2 class="sr-only">장바구니 및 로그인</h2>
             <ul>
                 <li>
-                    <button>
+                    <a href="#">
                         <img src="assets/icons/icon-shopping-cart.svg" alt="장바구니">
                         <span>장바구니</span>
-                    </button>
+                    </a>
                 </li>
                 <li>
-                    <button id="login-btn">
+                    <a href="login.html">
                         <img src="assets/icons/icon-user.svg" alt="마이페이지">
-                        <span>로그인</span>
-                    </button>
+                        로그인
+                    </a>
                 </li>
             </ul>
         </section>
     </header>
 
-    <!-- ===== 메인 페이지 ===== -->
-    <div class="mainPage">
-        <main>
-            <!-- 메인 슬라이드 -->
-            <section class="main-slide">
-                <h2 class="sr-only">페이지 소개 슬라이드</h2>
-                <button>
-                    <img src="assets/icons/icon-swiper-1.svg" alt="왼쪽으로 슬라이드 넘기기">
-                </button>
+    <main>
+        <!-- 메인 슬라이드 -->
+        <section class="main-slide">
+            <h2 class="sr-only">페이지 소개 슬라이드</h2>
+            <button>
+                <img src="assets/icons/icon-swiper-1.svg" alt="왼쪽으로 슬라이드 넘기기">
+            </button>
 
-                <ul class="main-slide-list">
-                    <li>
-                        <!-- TODO: 이미지 수정 필요 -->
-                        <!-- <img src="assets/products/딥러닝_무릎담요.png" alt="슬라이드 이미지"> -->
-                    </li>
-                </ul>
+            <ul class="main-slide-list">
+                <li>
+                    <!-- TODO: 이미지 수정 필요 -->
+                    <!-- <img src="assets/products/딥러닝_무릎담요.png" alt="슬라이드 이미지"> -->
+                </li>
+            </ul>
 
-                <button>
-                    <img src="assets/icons/icon-swiper-2.svg" alt="오른쪽으로 슬라이드 넘기기">
-                </button>
-            </section>
+            <button>
+                <img src="assets/icons/icon-swiper-2.svg" alt="오른쪽으로 슬라이드 넘기기">
+            </button>
+        </section>
 
-            <!-- 상품 목록 -->
-            <section class="product-list">
-                <h2 class="sr-only">상품 목록</h2>
+        <!-- 상품 목록 -->
+        <section class="product-list">
+            <h2 class="sr-only">상품 목록</h2>
+            <ul>
+                <li>
+                    <a href="#">
+                        <img src="assets/products/Hack_Your_Life_노트북파우치.jpg" alt="Hack Your Life 개발자 노트북 파우치">
+                        <p class="store-name">우당탕탕 라이캣의 실험실</p>
+                        <p class="product-name">Hack Your Life 개발자 노트북 파우치</p>
+                        <p class="price">29,000<span>원</span></p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="assets/products/네_개발자입니다_금속키링.jpg" alt="네 개발잡니다 개발자키링 금속키링">
+                        <p class="store-name">제주코딩베이스캠프</p>
+                        <p class="product-name">네 개발잡니다 개발자키링 금속키링</p>
+                        <p class="price">29,000<span>원</span></p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="assets/products/딥러닝_무릎담요.png" alt="딥러닝 개발자 무릎담요">
+                        <p class="store-name">백앤드글로벌</p>
+                        <p class="product-name">딥러닝 개발자 무릎담요</p>
+                        <p class="price">29,000<span>원</span></p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="assets/products/라이캣의_실험실_스티커팩.jpg" alt="우당탕탕 라이캣의 실험실 스티커팩">
+                        <p class="store-name">코딩엔유</p>
+                        <p class="product-name">우당탕탕 라이캣의 실험실 스티커팩</p>
+                        <p class="price">29,000<span>원</span></p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="assets/products/버그잡는_개리씨_키링.jpg" alt="버그를 Java라 버그잡는 개리씨 키링">
+                        <p class="store-name">파이썬스쿨</p>
+                        <p class="product-name">버그를 Java라 버그잡는 개리씨 키링 개발자 키링키링키리링</p>
+                        <p class="price">29,000<span>원</span></p>
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div>
+            <!-- 푸터 네비게이션 -->
+            <section class="footer-nav">
+                <h2 class="sr-only">호두마켓 상세 약관</h2>
+                <nav>
+                    <ul>
+                        <li><a href="#">호두샵 소개</a></li>
+                        <li><a href="#">이용약관</a></li>
+                        <li class="policy-link"><a href="#">개인정보처리방침</a></li>
+                        <li><a href="#">전자금융거래약관</a></li>
+                        <li><a href="#">청소년보호정책</a></li>
+                        <li><a href="#">제휴문의</a></li>
+                    </ul>
+                </nav>
+                
+                <!-- 소셜 미디어 링크 -->
                 <ul>
                     <li>
                         <a href="#">
-                            <img src="assets/products/Hack_Your_Life_노트북파우치.jpg" alt="Hack Your Life 개발자 노트북 파우치">
-                            <p class="store-name">우당탕탕 라이캣의 실험실</p>
-                            <p class="product-name">Hack Your Life 개발자 노트북 파우치</p>
-                            <p class="price">29,000<span>원</span></p>
+                            <img src="assets/icons/icon-insta.svg" alt="인스타그램">
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="assets/products/네_개발자입니다_금속키링.jpg" alt="네 개발잡니다 개발자키링 금속키링">
-                            <p class="store-name">제주코딩베이스캠프</p>
-                            <p class="product-name">네 개발잡니다 개발자키링 금속키링</p>
-                            <p class="price">29,000<span>원</span></p>
+                            <img src="assets/icons/icon-fb.svg" alt="페이스북">
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="assets/products/딥러닝_무릎담요.png" alt="딥러닝 개발자 무릎담요">
-                            <p class="store-name">백앤드글로벌</p>
-                            <p class="product-name">딥러닝 개발자 무릎담요</p>
-                            <p class="price">29,000<span>원</span></p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="assets/products/라이캣의_실험실_스티커팩.jpg" alt="우당탕탕 라이캣의 실험실 스티커팩">
-                            <p class="store-name">코딩엔유</p>
-                            <p class="product-name">우당탕탕 라이캣의 실험실 스티커팩</p>
-                            <p class="price">29,000<span>원</span></p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="assets/products/버그잡는_개리씨_키링.jpg" alt="버그를 Java라 버그잡는 개리씨 키링">
-                            <p class="store-name">파이썬스쿨</p>
-                            <p class="product-name">버그를 Java라 버그잡는 개리씨 키링 개발자 키링키링키리링</p>
-                            <p class="price">29,000<span>원</span></p>
+                            <img src="assets/icons/icon-yt.svg" alt="유튜브">
                         </a>
                     </li>
                 </ul>
             </section>
-        </main>
 
-        <!-- ===== 푸터 ===== -->
-        <footer>
-            <div>
-                <!-- 푸터 네비게이션 -->
-                <section class="footer-nav">
-                    <h2 class="sr-only">호두마켓 상세 약관</h2>
-                    <nav>
-                        <ul>
-                            <li><a href="#">호두샵 소개</a></li>
-                            <li><a href="#">이용약관</a></li>
-                            <li class="policy-link"><a href="#">개인정보처리방침</a></li>
-                            <li><a href="#">전자금융거래약관</a></li>
-                            <li><a href="#">청소년보호정책</a></li>
-                            <li><a href="#">제휴문의</a></li>
-                        </ul>
-                    </nav>
-                    
-                    <!-- 소셜 미디어 링크 -->
-                    <ul>
-                        <li>
-                            <a href="#">
-                                <img src="assets/icons/icon-insta.svg" alt="인스타그램">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="assets/icons/icon-fb.svg" alt="페이스북">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="assets/icons/icon-yt.svg" alt="유튜브">
-                            </a>
-                        </li>
-                    </ul>
-                </section>
-
-                <!-- 사업자 정보 -->
-                <section>
-                    <h2 class="sr-only">호두마켓 사업자정보</h2>
-                    <address>
-                        <strong>(주)HODU SHOP</strong><br>
-                        제주특별자치도 제주시 동광고 137 제주코딩베이스캠프<br>
-                        사업자등록번호 : 000-0000-0000 | 통신판매업<br>
-                        대표 : 김호두
-                    </address>
-                </section>
-            </div>
-        </footer>
-    </div>
-    
-    <!-- ===== 로그인 페이지 ===== -->
-    <div class="loginPage a11y-hidden">
-        <h2>
-            <img src="assets/icons/Logo-hodu.png" alt="호두마켓 로고">
-        </h2>
-
-        <section class="login-container">
-            <h2 class="sr-only">로그인 창</h2>
-            <!-- 로그인 탭 -->
-            <div class="tab-login">
-                <button class="focusBtn" id="buyer-btn">구매회원 로그인</button>
-                <button class="not-focusBtn" id="seller-btn">판매회원 로그인</button>
-            </div>
-
-            <!-- 로그인 폼 -->
-            <form id="loginForm" action="#" method="post">
-                <div>
-                    <label for="user-id" class="sr-only">아이디</label>
-                    <input id="user-id" type="text" name="user-id" placeholder="아이디">
-                </div>
-                <div>
-                    <label for="user-pw" class="sr-only">비밀번호</label>
-                    <input id="user-pw" type="password" name="user-pw" placeholder="비밀번호">
-                </div>
-                
-                <p id="login-error" aria-live="polite"></p>
-                <button type="submit">로그인</button>
-            </form>
-        </section>
-
-        <!-- 로그인 하단 메뉴 -->
-        <section class="login-footer">
-            <h2 class="sr-only">회원가입 / 비밀번호찾기</h2>
-            <button class="joinBtn">회원가입</button>
-            <span>|</span>
-            <button>비밀번호 찾기</button>
-        </section>
-    </div>
-
-    <!-- ===== 회원가입 페이지 ===== -->
-    <div class="joinPage a11y-hidden">
-        <h2>
-            <img src="assets/icons/Logo-hodu.png" alt="호두마켓 로고">
-        </h2>
-
-        <section class="join-container">
-            <h2 class="sr-only">회원가입 창</h2>
-            <!-- 회원가입 탭 -->
-            <div class="tab-join">
-                <button class="focusBtn" id="buyer-join-btn">구매회원가입</button>
-                <button class="not-focusBtn" id="seller-join-btn">판매회원가입</button>
-            </div>
-
-            <!-- 회원가입 폼 -->
-            <form id="joinForm" action="#" method="post">
-                <!-- 아이디 입력 -->
-                <label for="join-id">아이디</label>
-                <div class="join-check-id">
-                    <input id="join-id" type="text" name="user-id" required>
-                    <button type="button" class="id-checkBtn">중복확인</button>
-                </div>
-
-                <!-- 비밀번호 입력 -->
-                <label for="join-pw">비밀번호</label>
-                <input id="join-pw" type="password" name="join-pw" required>
-
-                <label for="join-repw">비밀번호 재확인</label>
-                <input id="join-repw" type="password" name="join-repw" required>
-
-                <p id="join-error"></p>
-
-                <!-- 이름 입력 -->
-                <label for="join-name">이름</label>
-                <input id="join-name" type="text" name="join-name" required>
-
-                <!-- 휴대폰 번호 입력 -->
-                <label for="join-number">휴대폰번호</label>
-                <div class="user-number">
-                    <select name="join-number" id="join-number">
-                        <option value="010">010</option>
-                        <option value="011">011</option>
-                        <option value="016">016</option>
-                        <option value="017">017</option>
-                        <option value="018">018</option>
-                    </select>
-                    <input type="text" id="user-number-mid" name="user-number-mid" maxlength="4">
-                    <input type="text" id="user-number-end" name="user-number-end" maxlength="4">
-                </div>
-
-                <div class="join-seller a11y-hidden">
-                  <!-- 사업자 등록번호 -->
-                  <label for="join-businessNum">사업자등록번호</label>
-                  <div class="join-businessNum">
-                      <input id="join-businessNum" type="text" name="join-businessNum">
-                      <button type="button" class="businessClickBtn">인증</button>
-                  </div>
-
-                  <!-- 스토어 이름 -->
-                  <label for="join-storeName">스토어이름</label>
-                  <input id="join-storeName" type="text" name="join-storeName">
-                </div>
-            </form>
-        </section>
-
-        <!-- 회원가입 하단 -->
-        <section class="form-footer">
-            <h2 class="sr-only">회원가입 폼 제출</h2>
-            <div class="checkbox-agree">
-                <input type="checkbox" name="agree" id="agree" required>
-                <label for="agree">
-                    호두샵의 <span>이용약관</span> 및 <span>개인정보처리방침</span>에 대한 내용을 확인하였고 동의합니다.
-                </label>
-            </div>
-            <button type="submit" form="joinForm">가입하기</button>
-        </section>
-    </div>
+            <!-- 사업자 정보 -->
+            <section>
+                <h2 class="sr-only">호두마켓 사업자정보</h2>
+                <address>
+                    <strong>(주)HODU SHOP</strong><br>
+                    제주특별자치도 제주시 동광고 137 제주코딩베이스캠프<br>
+                    사업자등록번호 : 000-0000-0000 | 통신판매업<br>
+                    대표 : 김호두
+                </address>
+            </section>
+        </div>
+    </footer>
 </body>
 </html>

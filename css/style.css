@@ -71,18 +71,18 @@ header {
   gap: 26px;
 }
 
-.user-menu ul li button {
+.user-menu ul li a {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.user-menu ul li button img {
+.user-menu ul li a img {
   width: 32px;
   margin-bottom: 4px;
 }
 
-.user-menu ul li button p {
+.user-menu ul li a p {
   font-size: 12px;
   color: #767676;
 }
