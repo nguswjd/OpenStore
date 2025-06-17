@@ -1,9 +1,9 @@
+/* ===== 공통 페이지 레이아웃 ===== */
 .loginPage,
 .joinPage {
   width: 100vw;
-  height: calc(100vh + 100px);
   margin: 100px 0;
-
+  
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,7 +15,7 @@
   width: clamp(200px, 20vw, 238px);
 }
 
-/* 로그인 창 */
+/* ===== 공통 탭 스타일 ===== */
 .tab-login,
 .tab-join {
   font-size: 0;
@@ -30,10 +30,8 @@
   padding: 25px 0 35px;
 
   border: 1px solid #c4c4c4;
-
   border-radius: 10px;
-
-  background-color: #F2F2F2;
+  background-color: #f2f2f2;
 }
 
 .tab-login button.focusBtn,
@@ -50,15 +48,18 @@
   z-index: 20;
 }
 
+/* ===== 공통 컨테이너 ===== */
 .login-container,
 .join-container {
   width: 550px;
 }
 
-#loginForm {
+/* ===== 공통 폼 스타일 ===== */
+#loginForm,
+#joinForm {
   margin-top: -15px;
   padding-top: 34px;
-  
+
   border: 1px solid #c4c4c4;
   border-radius: 0 10px 10px 10px;
 
@@ -69,6 +70,10 @@
 
   display: flex;
   flex-direction: column;
+}
+
+/* ===== 로그인 폼 ===== */
+#loginForm {
   text-align: center;
   gap: 6px;
 }
@@ -76,9 +81,7 @@
 #loginForm input {
   width: 85%;
   height: 60px;
-
   padding-left: 10px;
-
   border-bottom: 1px solid #c4c4c4;
 }
 
@@ -86,21 +89,8 @@
   color: #767676;
 }
 
-#login-error,
-#join-error {
-  text-align: start;
-  margin: 20px 0 0 clamp(20px, 5vw, 40px);
-  color: #EB5757;
-  font-weight: 500;
-}
-
-#join-error {
-  margin: 0 0 10px;
-}
-
 #loginForm > button {
   margin: 15px 0 30px;
-
   width: 85%;
   height: 60px;
 
@@ -108,47 +98,43 @@
 
   font-size: 18px;
   font-weight: 700;
+
   color: #fff;
-  background-color: #21BF48;
+  background-color: #21bf48;
   border-radius: 5px;
 }
 
 .login-footer {
   margin-top: 30px;
-
   display: flex;
   gap: 10px;
 }
 
-/* 회원가입창 */
+/* ===== 회원가입 폼 ===== */
 #joinForm {
-  margin-top: -15px;
-  padding-top: 34px;
   padding: 40px 35px 20px;
-  
-  border: 1px solid #c4c4c4;
-  border-radius: 0 10px 10px 10px;
-
-  background-color: #fff;
-
-  position: relative;
-  z-index: 10;
-
-  display: flex;
-  flex-direction: column;
   gap: 10px;
+}
+
+/* 공통 입력 필드 스타일 */
+#join-pw,
+#join-repw,
+#join-name,
+#join-number,
+#user-number-mid,
+#user-number-end {
+  height: 54px;
+  border-radius: 5px;
+  border: 1px solid #c4c4c4;
 }
 
 #join-pw,
 #join-repw,
 #join-name {
   width: 100%;
-  height: 54px;
-  
-  border-radius: 5px;
-  border: 1px solid #c4c4c4;
 }
 
+/* 아이디 입력 섹션 */
 .join-check-id {
   font-size: 0;
 }
@@ -156,36 +142,25 @@
 #join-id,
 .id-checkBtn {
   font-size: 16px;
-  display: inline-block;
+  /* display: inline-block; */
+  height: 54px;
+  border-radius: 5px;
 }
 
 #join-id {
   width: calc(70% - 2px);
-  height: 54px;
-
   margin-right: 2%;
-  
-  border-radius: 5px;
   border: 1px solid #c4c4c4;
 }
 
 .id-checkBtn {
   width: 28%;
-  height: 54px;
-
-  border-radius: 5px;
-
   font-weight: 500;
   color: #fff;
-  background-color: #21BF48;
+  background-color: #21bf48;
 }
 
-.checkbox-agree span {
-  font-weight: 700;
-  text-decoration: underline;
-  color: #767676;
-}
-
+/* 비밀번호 필드 체크 아이콘 */
 #join-pw,
 #join-repw {
   background-image: url('../assets/icons/icon-check-off.svg');
@@ -194,6 +169,7 @@
   background-size: 28px 28px;
 }
 
+/* 전화번호 입력 */
 .user-number {
   display: flex;
   gap: 10px;
@@ -203,13 +179,10 @@
 #user-number-mid,
 #user-number-end {
   width: 33.333%;
-  height: 54px;
-
   text-align: center;
-  border-radius: 5px;
-  border: 1px solid #c4c4c4;
 }
 
+/* ===== 공통 포커스 스타일 ===== */
 #join-number:focus,
 #join-id:focus,
 #join-pw:focus,
@@ -217,10 +190,25 @@
 #join-name:focus,
 #user-number-mid:focus,
 #user-number-end:focus {
-  border-color: #21BF48;
+  border-color: #21bf48;
   outline: none;
 }
 
+/* ===== 에러 메시지 ===== */
+#login-error,
+#join-error {
+  text-align: start;
+  margin: 20px 0 0 clamp(20px, 5vw, 40px);
+
+  color: #eb5757;
+  font-weight: 500;
+}
+
+#join-error {
+  margin: 0 0 10px;
+}
+
+/* ===== 폼 하단 영역 ===== */
 .form-footer {
   max-width: 550px;
   display: flex;
@@ -236,9 +224,14 @@
   color: #767676;
 }
 
+.checkbox-agree span {
+  font-weight: 700;
+  text-decoration: underline;
+  color: #767676;
+}
+
 .form-footer > button {
   margin: 15px 0 30px;
-
   width: 85%;
   height: 60px;
 
@@ -246,8 +239,8 @@
 
   font-size: 18px;
   font-weight: 700;
+
   color: #fff;
-  background-color: #C4C4C4;
+  background-color: #c4c4c4;
   border-radius: 5px;
 }
-
