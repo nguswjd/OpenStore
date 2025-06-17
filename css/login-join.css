@@ -51,8 +51,7 @@ z-index: 20;
 }
 
 /* ===== 공통 폼 스타일 ===== */
-#loginForm,
-#joinForm {
+form {
   margin-top: -15px;
   padding-top: 34px;
 
@@ -106,7 +105,7 @@ z-index: 20;
   gap: 10px;
 }
 
-/* ===== 회원가입 폼 ===== */
+/* ====joinForm= 회원가입 폼 ===== */
 #joinForm {
   padding: 40px 35px 20px;
   gap: 10px;
