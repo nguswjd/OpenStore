@@ -14,11 +14,13 @@
 }
 
 /* 로그인 창 */
-.tab-login {
+.tab-login,
+.tab-join {
   font-size: 0;
 }
 
-.tab-login button {
+.tab-login button,
+.tab-join button {
   /* 패딩값 계산 후 수정 필요 */
   padding: 25px 60px 35px;
 
@@ -32,7 +34,8 @@
   background-color: #F2F2F2;
 }
 
-.tab-login button.focusBtn {
+.tab-login button.focusBtn,
+.tab-join button.focusBtn {
   background-color: #fff;
 
   border-bottom: none;
@@ -50,7 +53,7 @@
   padding-top: 34px;
   
   border: 1px solid #c4c4c4;
-  border-radius: 10px;
+  border-radius: 0 10px;
 
   background-color: #fff;
 
@@ -102,3 +105,5 @@
   display: flex;
   gap: 10px;
 }
+
+/* 회원가입창 */

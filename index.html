@@ -7,7 +7,7 @@
     <title>HODU</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/login-join.css">
     <script src = "js/main.js" defer></script>
 </head>
 <body>
@@ -193,7 +193,7 @@
         <img src="assets/icons/Logo-hodu.png" alt="호두마켓 로고">
       </h2>
 
-      <section class="login-container">
+      <section>
         <h2 class="sr-only">로그인 창</h2>
         <div class="tab-login">
           <button class="focusBtn" id="buyer-btn">구매회원 로그인</button>
@@ -217,7 +217,6 @@
 
           <button type="submit">로그인</button>
         </form>
-
       </section>
 
       <section class="login-footer">
@@ -230,7 +229,61 @@
 
     <!-- join Page -->
     <div class="joinPage a11y-hidden">
+      <h2>
+        <img src="assets/icons/Logo-hodu.png" alt="호두마켓 로고">
+      </h2>
 
+      <section>
+        <h2 class="sr-only">회원가입 창</h2>
+        <div class="tab-join">
+          <button class="focusBtn" id="buyer-btn">구매회원가입</button>
+          <button class="not-focusBtn" id="seller-btn">판매회원가입</button>
+        </div>
+
+        <!-- action, 메서드 방법 수정 필요 -->
+        <form id="joinForm" action="#">
+          <div>
+            <label for="join-id">아이디</label>
+            <input id="join-id" type="text" name="user-id">
+            <button>중복확인</button>
+          </div>
+
+          <div>
+            <label for="join-pw">비밀번호</label>
+            <input id="join-pw" type="password" name="join-pw">
+            <img src="assets/icons/icon-check-off.svg" alt="비밀번호 입력 미완료">
+          </div>
+
+          <div>
+            <label for="user-repw">비밀번호 재확인</label>
+            <input id="join-repw" type="password" name="join-repw">
+            <img src="assets/icons/icon-check-off.svg" alt="비밀번호 일치 실패">
+
+            <!-- 에러 메시지 표시용 -->
+            <p id="join-error"></p>
+          </div>
+
+          <label for="join-name">이름</label>
+          <input id="join-name" type="text" name="join-name">
+
+          <label for="join-number">휴대폰번호</label>
+          <select name="join-number" id="join-number">
+            <option value="010">010</option>
+            <option value="011">011</option>
+            <option value="016">016</option>
+            <option value="017">017</option>
+            <option value="018">018</option>
+          </select>
+          
+          <input type="text" id="user-number-mid" name="user-number-mid" maxlength="4">
+
+          <input type="text" id="user-number-end" name="user-number-end" maxlength="4">
+
+          <input type="checkbox" id="agree" name="agree" required>
+          <label for="agree">호두샵의 <a href="#">이용약관</a> 및 <a href="#">개인정보처리방침</a>에 대한 내용을 확인하였고 동의합니다.</label>
+          <button type="submit">가입하기</button>
+        </form>
+      </section>
     </div>
 </body>
 </html>
