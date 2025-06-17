@@ -60,3 +60,13 @@ function clicksellernBtn() {
 buyerBtn.addEventListener("click", clickbuyBtn);
 sellerBtn.addEventListener("click", clicksellernBtn);
 
+// joinBtn 클릭시 회원가입 페이지 이동
+const joinPage = document.querySelector(".joinPage");
+const joinBtn = document.querySelector(".joinBtn");
+
+function clickJoin() {
+  loginPage.classList.add("a11y-hidden");
+  joinPage.classList.remove("a11y-hidden");
+}
+
+joinBtn.addEventListener("click", clickJoin);

@@ -76,8 +76,9 @@
 
 #login-error {
   text-align: start;
-  margin: 20px 0 -10px clamp(20px, 5vw, 40px);
-  color: red;
+  margin: 20px 0 0 clamp(20px, 5vw, 40px);
+  color: #EB5757;
+  font-weight: 500;
 }
 
 #loginForm > button {
