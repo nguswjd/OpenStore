@@ -1,16 +1,18 @@
-.loginPage {
+.loginPage,
+.joinPage {
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh + 100px);
+  margin: 100px 0;
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  gap: 50px;
 }
 
-.loginPage h2 img {
+.loginPage h2 img,
+.joinPage h2 img {
   width: clamp(200px, 20vw, 238px);
-  margin-bottom: 70px;
 }
 
 /* 로그인 창 */
@@ -21,11 +23,11 @@
 
 .tab-login button,
 .tab-join button {
-  /* 패딩값 계산 후 수정 필요 */
-  padding: 25px 60px 35px;
-
   font-size: 18px;
   font-weight: 500;
+
+  width: 50%;
+  padding: 25px 0 35px;
 
   border: 1px solid #c4c4c4;
 
@@ -38,14 +40,19 @@
 .tab-join button.focusBtn {
   background-color: #fff;
 
+  padding: 25px 0 22px;
+
   border-bottom: none;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 
-  padding: 25px 60px 22px;
-
   position: relative;
   z-index: 20;
+}
+
+.login-container,
+.join-container {
+  width: 550px;
 }
 
 #loginForm {
@@ -70,6 +77,8 @@
   width: 85%;
   height: 60px;
 
+  padding-left: 10px;
+
   border-bottom: 1px solid #c4c4c4;
 }
 
@@ -77,11 +86,16 @@
   color: #767676;
 }
 
-#login-error {
+#login-error,
+#join-error {
   text-align: start;
   margin: 20px 0 0 clamp(20px, 5vw, 40px);
   color: #EB5757;
   font-weight: 500;
+}
+
+#join-error {
+  margin: 0 0 10px;
 }
 
 #loginForm > button {
@@ -107,3 +121,133 @@
 }
 
 /* 회원가입창 */
+#joinForm {
+  margin-top: -15px;
+  padding-top: 34px;
+  padding: 40px 35px 20px;
+  
+  border: 1px solid #c4c4c4;
+  border-radius: 0 10px;
+
+  background-color: #fff;
+
+  position: relative;
+  z-index: 10;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#join-pw,
+#join-repw,
+#join-name {
+  width: 100%;
+  height: 54px;
+  
+  border-radius: 5px;
+  border: 1px solid #c4c4c4;
+}
+
+.join-check-id {
+  font-size: 0;
+}
+
+#join-id,
+.id-checkBtn {
+  font-size: 16px;
+  display: inline-block;
+}
+
+#join-id {
+  width: calc(70% - 2px);
+  height: 54px;
+
+  margin-right: 2%;
+  
+  border-radius: 5px;
+  border: 1px solid #c4c4c4;
+}
+
+.id-checkBtn {
+  width: 28%;
+  height: 54px;
+
+  border-radius: 5px;
+
+  font-weight: 500;
+  color: #fff;
+  background-color: #21BF48;
+}
+
+.checkbox-agree span {
+  font-weight: 700;
+  text-decoration: underline;
+  color: #767676;
+}
+
+#join-pw,
+#join-repw {
+  background-image: url('../assets/icons/icon-check-off.svg');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 28px 28px;
+}
+
+.user-number {
+  display: flex;
+  gap: 10px;
+}
+
+#join-number,
+#user-number-mid,
+#user-number-end {
+  width: 33.333%;
+  height: 54px;
+
+  text-align: center;
+  border-radius: 5px;
+  border: 1px solid #c4c4c4;
+}
+
+#join-number:focus,
+#join-id:focus,
+#join-pw:focus,
+#join-repw:focus,
+#join-name:focus,
+#user-number-mid:focus,
+#user-number-end:focus {
+  border-color: #21BF48;
+  outline: none;
+}
+
+.form-footer {
+  max-width: 550px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.checkbox-agree {
+  padding: 0 7.5%;
+}
+
+.checkbox-agree > label {
+  color: #767676;
+}
+
+.form-footer > button {
+  margin: 15px 0 30px;
+
+  width: 85%;
+  height: 60px;
+
+  align-self: center;
+
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  background-color: #C4C4C4;
+  border-radius: 5px;
+}
+

@@ -35,8 +35,11 @@ function Errormsg(e) {
 loginForm.addEventListener("submit", Errormsg);
 
 // 판매 회원 / 구매회원 버튼 클릭
+const joinForm = document.getElementById("joinForm");
 const buyerBtn = document.getElementById("buyer-btn");
 const sellerBtn = document.getElementById("seller-btn");
+const buyerjoinBtn = document.getElementById("buyer-join-btn");
+const sellerjoinBtn = document.getElementById("seller-join-btn");
 
 function clickbuyBtn() {
   buyerBtn.classList.remove("not-focusBtn");
@@ -57,8 +60,60 @@ function clicksellernBtn() {
   loginForm.style.borderRadius = '10px 0 10px 10px';
 }
 
+function clickbuyjoinBtn() {
+  buyerjoinBtn.classList.remove("not-focusBtn");
+  buyerjoinBtn.classList.add("focusBtn");
+  sellerjoinBtn.classList.remove("focusBtn");
+  sellerjoinBtn.classList.add("not-focusBtn");
+  
+  joinForm.style.borderRadius = '0 10px 10px 10px';
+}
+
+function clicksellernjoinBtn() {
+  sellerjoinBtn.classList.remove("not-focusBtn");
+  sellerjoinBtn.classList.add("focusBtn");
+  buyerjoinBtn.classList.remove("focusBtn");
+  buyerjoinBtn.classList.add("not-focusBtn");
+
+  joinForm.style.borderRadius = '10px 0 10px 10px';
+}
+
 buyerBtn.addEventListener("click", clickbuyBtn);
 sellerBtn.addEventListener("click", clicksellernBtn);
+buyerjoinBtn.addEventListener("click", clickbuyjoinBtn);
+sellerjoinBtn.addEventListener("click", clicksellernjoinBtn);
+
+// 위와 같은 코드임
+// const buyerBtn = document.getElementById("buyer-btn");
+// const sellerBtn = document.getElementById("seller-btn");
+// const buyerjoinBtn = document.getElementById("buyer-join-btn");
+// const sellerjoinBtn = document.getElementById("seller-join-btn");
+
+// function toggleFocus(activeBtn, inactiveBtn, borderRadius) {
+//   activeBtn.classList.add("focusBtn");
+//   activeBtn.classList.remove("not-focusBtn");
+
+//   inactiveBtn.classList.add("not-focusBtn");
+//   inactiveBtn.classList.remove("focusBtn");
+
+//   loginForm.style.borderRadius = borderRadius;
+// }
+
+// buyerBtn.addEventListener("click", () => {
+//   toggleFocus(buyerBtn, sellerBtn, '0 10px 10px 10px');
+// });
+
+// sellerBtn.addEventListener("click", () => {
+//   toggleFocus(sellerBtn, buyerBtn, '10px 0 10px 10px');
+// });
+
+// buyerjoinBtn.addEventListener("click", () => {
+//   toggleFocus(buyerjoinBtn, sellerjoinBtn, '0 10px 10px 10px');
+// });
+
+// sellerjoinBtn.addEventListener("click", () => {
+//   toggleFocus(sellerjoinBtn, buyerjoinBtn, '10px 0 10px 10px');
+// });
 
 // joinBtn 클릭시 회원가입 페이지 이동
 const joinPage = document.querySelector(".joinPage");
