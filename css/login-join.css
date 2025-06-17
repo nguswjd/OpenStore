@@ -3,7 +3,7 @@
 .joinPage {
   width: 100vw;
   margin: 100px 0;
-  
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -218,6 +218,32 @@
 
 .checkbox-agree {
   padding: 0 7.5%;
+
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.checkbox-agree,
+.checkbox-agree > label,
+.checkbox-agree input {
+  cursor: pointer;
+}
+
+.checkbox-agree input[type="checkbox"] {
+  appearance: none;
+  margin-top: 2px;
+  width: 16px;
+  height: 16px;
+  
+  background-image: url('../assets/icons/check-box.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+}
+
+.checkbox-agree input[type="checkbox"]:checked {
+  background-image: url('../assets/icons/check-fill-box.svg');
 }
 
 .checkbox-agree > label {
