@@ -60,7 +60,7 @@
   padding-top: 34px;
   
   border: 1px solid #c4c4c4;
-  border-radius: 0 10px;
+  border-radius: 0 10px 10px 10px;
 
   background-color: #fff;
 
@@ -127,7 +127,7 @@
   padding: 40px 35px 20px;
   
   border: 1px solid #c4c4c4;
-  border-radius: 0 10px;
+  border-radius: 0 10px 10px 10px;
 
   background-color: #fff;
 
