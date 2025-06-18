@@ -1,7 +1,7 @@
 // DOM
 const buyerBtn = document.getElementById("buyer-btn");
 const sellerBtn = document.getElementById("seller-btn");
-const joinSeller = document.getElementById("join-seller");
+const userStore = document.getElementById("userstore");
 
 const joinForm = document.getElementById("joinForm");
 
@@ -17,8 +17,10 @@ const phoneFirst = document.getElementById("join-number");
 const phoneMid = document.getElementById("user-number-mid");
 const phoneEnd = document.getElementById("user-number-end");
 
-const businessNUm = document.getElementById("join-businessNum");
-const verifybusinessNUm = document.getElementById("verify-business");
+const businessNum = document.getElementById("join-businessNum");
+const businessContainer = document.getElementById("businessNumContainer");
+const verifybusinessNum = document.getElementById("verify-business");
+const businessInput = document.getElementById("join-businessNum");
 
 const storeName = document.getElementById("join-storeName");
 
@@ -247,35 +249,35 @@ function inputPhone() {
 
   // 상위 필수 입력란들 체크
   if (userId.value === '') {
-    const idMsg = document.createElement("p");
-    idMsg.textContent = "필수 정보입니다.";
-    idMsg.style.color = "#EB5757";
-    idMsg.style.margin = "10px 0";
-    idCheckBtn.parentNode.appendChild(idMsg);
+    const Msg = document.createElement("p");
+    Msg.textContent = "필수 정보입니다.";
+    Msg.style.color = "#EB5757";
+    Msg.style.margin = "10px 0";
+    idCheckBtn.parentNode.appendChild(Msg);
   }
 
   if (userPw.value === '') {
-    const pwMsg = document.createElement("p");
-    pwMsg.textContent = "필수 정보입니다.";
-    pwMsg.style.color = "#EB5757";
-    pwMsg.style.margin = "10px 0";
-    userPw.parentNode.appendChild(pwMsg);
+    const Msg = document.createElement("p");
+    Msg.textContent = "필수 정보입니다.";
+    Msg.style.color = "#EB5757";
+    Msg.style.margin = "10px 0";
+    userPw.parentNode.appendChild(Msg);
   }
 
   if (pwCheck.value === '') {
-    const pwCheckMsg = document.createElement("p");
-    pwCheckMsg.textContent = "필수 정보입니다.";
-    pwCheckMsg.style.color = "#EB5757";
-    pwCheckMsg.style.margin = "10px 0";
-    pwCheck.parentNode.appendChild(pwCheckMsg);
+    const Msg = document.createElement("p");
+    Msg.textContent = "필수 정보입니다.";
+    Msg.style.color = "#EB5757";
+    Msg.style.margin = "10px 0";
+    pwCheck.parentNode.appendChild(Msg);
   }
 
   if (userName.value === '') {
-    const nameMsg = document.createElement("p");
-    nameMsg.textContent = "필수 정보입니다.";
-    nameMsg.style.color = "#EB5757";
-    nameMsg.style.margin = "10px 0";
-    userName.parentNode.appendChild(nameMsg);
+    const Msg = document.createElement("p");
+    Msg.textContent = "필수 정보입니다.";
+    Msg.style.color = "#EB5757";
+    Msg.style.margin = "10px 0";
+    userName.parentNode.appendChild(Msg);
   }
 }
 
@@ -328,6 +330,24 @@ function chlickInput(e) {
     msg.style.color = "#EB5757";
     msg.style.margin = "10px 0";
     idCheckBtn.parentNode.appendChild(msg);
+    hasError = true;
+  }
+
+  if (businessNum.value === '') {
+    const msg = document.createElement("p");
+    msg.textContent = "필수 정보입니다.";
+    msg.style.color = "#EB5757";
+    msg.style.margin = "10px 0";
+    businessContainer.appendChild(msg);
+    hasError = true;
+  }
+
+  if (storeName.value === '') {
+    const msg = document.createElement("p");
+    msg.textContent = "필수 정보입니다.";
+    msg.style.color = "#EB5757";
+    msg.style.margin = "10px 0";
+    storeName.parentNode.appendChild(msg);
     hasError = true;
   }
 
@@ -403,8 +423,9 @@ function clickbuyBtn() {
   sellerBtn.classList.remove("focusBtn");
   sellerBtn.classList.add("not-focusBtn");
 
-  joinSeller.classList.add("hidden");
-  
+  businessContainer.classList.add("hidden");
+  userStore.classList.add("hidden");
+
   loginForm.style.borderRadius = '0 10px 10px 10px';
 }
 
@@ -415,10 +436,150 @@ function clicksellernBtn() {
   buyerBtn.classList.remove("focusBtn");
   buyerBtn.classList.add("not-focusBtn");
 
-  joinSeller.classList.remove("hidden");
+  businessContainer.classList.remove("hidden");
+  userStore.classList.remove("hidden");
 
   loginForm.style.borderRadius = '10px 0 10px 10px';
 }
 
+function businessCheck() {
+  // 기존 메시지 제거
+  const existing = businessNum.parentNode.querySelector("p");
+  if (existing) existing.remove();
+
+  // 상위 필수 항목 누락 메시지 제거
+  const idMsg = idCheckBtn.parentNode.querySelector("p");
+  if (idMsg) idMsg.remove();
+
+  const pwMsg = userPw.parentNode.querySelector("p");
+  if (pwMsg) pwMsg.remove();
+
+  const pwCheckMsg = pwCheck.parentNode.querySelector("p");
+  if (pwCheckMsg) pwCheckMsg.remove();
+
+  const nameMsg = userName.parentNode.querySelector("p");
+  if (nameMsg) nameMsg.remove();
+
+  const phoneMsg = userNumContainer.parentNode.querySelector("p");
+  if (phoneMsg) phoneMsg.remove();
+
+  // 필수 항목 검사
+  if (userId.value === '') {
+    const msg = document.createElement("p");
+    msg.textContent = "필수 정보입니다.";
+    msg.style.color = "#EB5757";
+    msg.style.margin = "10px 0";
+    idCheckBtn.parentNode.appendChild(msg);
+  }
+
+  if (userPw.value === '') {
+    const msg = document.createElement("p");
+    msg.textContent = "필수 정보입니다.";
+    msg.style.color = "#EB5757";
+    msg.style.margin = "10px 0";
+    userPw.parentNode.appendChild(msg);
+  }
+
+  if (pwCheck.value === '') {
+    const msg = document.createElement("p");
+    msg.textContent = "필수 정보입니다.";
+    msg.style.color = "#EB5757";
+    msg.style.margin = "10px 0";
+    pwCheck.parentNode.appendChild(msg);
+  }
+
+  if (userName.value === '') {
+    const msg = document.createElement("p");
+    msg.textContent = "필수 정보입니다.";
+    msg.style.color = "#EB5757";
+    msg.style.margin = "10px 0";
+    userName.parentNode.appendChild(msg);
+  }
+
+  if (phoneMid.value === '' || phoneEnd.value === '') {
+    const msg = document.createElement("p");
+    msg.textContent = "필수 정보입니다.";
+    msg.style.color = "#EB5757";
+    msg.style.margin = "10px 0";
+    userNumContainer.parentNode.appendChild(msg);
+  }
+}
+
+function storeInput() {
+  // 기존 메시지 제거
+  const existing = businessNum.parentNode.querySelector("p");
+  if (existing) existing.remove();
+
+  // 상위 필수 항목 누락 메시지 제거
+  const idMsg = idCheckBtn.parentNode.querySelector("p");
+  if (idMsg) idMsg.remove();
+
+  const pwMsg = userPw.parentNode.querySelector("p");
+  if (pwMsg) pwMsg.remove();
+
+  const pwCheckMsg = pwCheck.parentNode.querySelector("p");
+  if (pwCheckMsg) pwCheckMsg.remove();
+
+  const nameMsg = userName.parentNode.querySelector("p");
+  if (nameMsg) nameMsg.remove();
+
+  const phoneMsg = userNumContainer.parentNode.querySelector("p");
+  if (phoneMsg) phoneMsg.remove();
+
+  const businessMsg = businessContainer.parentNode.querySelector("p");
+  if (businessMsg) businessMsg.remove();
+
+  // 필수 항목 검사
+  if (userId.value === '') {
+    const msg = document.createElement("p");
+    msg.textContent = "필수 정보입니다.";
+    msg.style.color = "#EB5757";
+    msg.style.margin = "10px 0";
+    idCheckBtn.parentNode.appendChild(msg);
+  }
+
+  if (userPw.value === '') {
+    const msg = document.createElement("p");
+    msg.textContent = "필수 정보입니다.";
+    msg.style.color = "#EB5757";
+    msg.style.margin = "10px 0";
+    userPw.parentNode.appendChild(msg);
+  }
+
+  if (pwCheck.value === '') {
+    const msg = document.createElement("p");
+    msg.textContent = "필수 정보입니다.";
+    msg.style.color = "#EB5757";
+    msg.style.margin = "10px 0";
+    pwCheck.parentNode.appendChild(msg);
+  }
+
+  if (userName.value === '') {
+    const msg = document.createElement("p");
+    msg.textContent = "필수 정보입니다.";
+    msg.style.color = "#EB5757";
+    msg.style.margin = "10px 0";
+    userName.parentNode.appendChild(msg);
+  }
+
+  if (phoneMid.value === '' || phoneEnd.value === '') {
+    const msg = document.createElement("p");
+    msg.textContent = "필수 정보입니다.";
+    msg.style.color = "#EB5757";
+    msg.style.margin = "10px 0";
+    userNumContainer.parentNode.appendChild(msg);
+  }
+
+  if (businessNum.value === '') {
+    const msg = document.createElement("p");
+    msg.textContent = "필수 정보입니다.";
+    msg.style.color = "#EB5757";
+    msg.style.margin = "10px 0";
+    businessContainer.appendChild(msg);
+  }
+}
+
 buyerBtn.addEventListener("click", clickbuyBtn);
 sellerBtn.addEventListener("click", clicksellernBtn);
+businessInput.addEventListener("input", businessCheck);
+storeName.addEventListener("input", storeInput);
