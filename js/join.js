@@ -29,6 +29,8 @@ const baseUrl = 'https://api.wenivops.co.kr/services/open-market/';
 
 // 전역변수
 let isIdChecked = false;
+let isBuyer = true;
+
 
 // 공통 메시지 표시 함수
 function showMsg(parentElement, text, color = "#EB5757") {
@@ -293,46 +295,87 @@ function chlickInput(e) {
   if (hasError) {
     return;
   }
-    
-  // 실제 회원가입 API 호출
-  const phoneNumber = phoneFirst.value + phoneMid.value + phoneEnd.value;
-
-  if (phoneNumber.length >= 10 && phoneNumber.length <= 11) {
-
-  const loginInfo = {
-    username: userId.value,
-    password: userPw.value,
-    name: userName.value,
-    phone_number: phoneNumber
-  };
-  // console.log(loginInfo);
-
-  fetch(`${baseUrl}accounts/buyer/signup/`, {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify(loginInfo),
-  })
-    .then(res => {
-      if (!res.ok) {
-        return res.json().then(errData => {
-          // 오류를 throw해서 .catch로 
-          throw errData;
-        });
-      }
-      return res.json();
-    })
-    .then(() => {
-      window.location.href = "/login.html";
-    })
-    .catch(err => {
-      if (err.phone_number) {
-        showMsg(userNumContainer.parentNode, "해당 전화번호는 이미 사용 중입니다.");
-      } 
-    });
-  } else {
-    showMsg(userNumContainer.parentNode, "핸드폰 번호는 10~11자리 숫자여야 합니다.");
-  }
   
+  // 실제 회원가입 API 호출
+  if (isBuyer) {
+    const phoneNumber = phoneFirst.value + phoneMid.value + phoneEnd.value;
+
+    if (phoneNumber.length >= 10 && phoneNumber.length <= 11) {
+
+    const loginInfo = {
+      username: userId.value,
+      password: userPw.value,
+      name: userName.value,
+      phone_number: phoneNumber
+    };
+    // console.log(loginInfo);
+
+    fetch(`${baseUrl}accounts/buyer/signup/`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(loginInfo),
+    })
+      .then(res => {
+        if (!res.ok) {
+          return res.json().then(errData => {
+            // 오류를 throw해서 .catch로 
+            throw errData;
+          });
+        }
+        return res.json();
+      })
+      .then(() => {
+        window.location.href = "/login.html";
+      })
+      .catch(err => {
+        if (err.phone_number) {
+          showMsg(userNumContainer.parentNode, "해당 전화번호는 이미 사용 중입니다.");
+        } 
+      });
+    } else {
+      showMsg(userNumContainer.parentNode, "핸드폰 번호는 10~11자리 숫자여야 합니다.");
+    }
+  } else {
+    const phoneNumber = phoneFirst.value + phoneMid.value + phoneEnd.value;
+
+    if (phoneNumber.length >= 10 && phoneNumber.length <= 11) {
+
+    const loginInfo = {
+      username: userId.value,
+      password: userPw.value,
+      name: userName.value,
+      phone_number: phoneNumber,
+      company_registration_number: businessNum.value,
+      store_name: storeName.value
+    };
+    console.log(loginInfo);
+
+    fetch(`${baseUrl}accounts/seller/signup/`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(loginInfo),
+    })
+      .then(res => {
+        if (!res.ok) {
+          return res.json().then(errData => {
+            // 오류를 throw해서 .catch로 
+            throw errData;
+          });
+        }
+        return res.json();
+      })
+      .then(() => {
+        window.location.href = "/login.html";
+      })
+      .catch(err => {
+        if (err.phone_number) {
+          showMsg(userNumContainer.parentNode, "해당 전화번호는 이미 사용 중입니다.");
+        } 
+      });
+    } else {
+      showMsg(userNumContainer.parentNode, "핸드폰 번호는 10~11자리 숫자여야 합니다.");
+    }
+  }
 }
 
 idCheckBtn.addEventListener("click", checkDupid);
@@ -346,6 +389,8 @@ joinForm.addEventListener("submit", chlickInput);
 // 판매회원가입 
 // 판매 회원 / 구매회원 버튼 클릭
 function clickbuyBtn() {
+  isBuyer = true;
+
   buyerBtn.classList.remove("not-focusBtn");
   buyerBtn.classList.add("focusBtn");
 
@@ -359,6 +404,8 @@ function clickbuyBtn() {
 }
 
 function clicksellernBtn() {
+  isBuyer = false;
+
   sellerBtn.classList.remove("not-focusBtn");
   sellerBtn.classList.add("focusBtn");
   
