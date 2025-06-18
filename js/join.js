@@ -19,7 +19,7 @@ const phoneEnd = document.getElementById("user-number-end");
 
 const businessNum = document.getElementById("join-businessNum");
 const businessContainer = document.getElementById("businessNumContainer");
-const verifybusinessNum = document.getElementById("verify-business");
+const verifybusinessNum = document.querySelector(".verify-business");
 const businessInput = document.getElementById("join-businessNum");
 
 const storeName = document.getElementById("join-storeName");
@@ -343,8 +343,6 @@ phoneMid.addEventListener("input", inputPhone);
 phoneEnd.addEventListener("input", inputPhone);
 joinForm.addEventListener("submit", chlickInput);
 
-
-
 // 판매회원가입 
 // 판매 회원 / 구매회원 버튼 클릭
 function clickbuyBtn() {
@@ -394,7 +392,49 @@ function storeInput() {
   }
 }
 
+// 사업자 중복확인
+function checkDupbusiness() {
+  if (verifybusinessNum.parentNode.querySelector("p")) {
+    verifybusinessNum.parentNode.querySelector("p").remove();
+  }
+  
+  const companyNum = businessNum.value;
+
+  if (companyNum === '') {
+    showMsg(verifybusinessNum.parentNode, "아이디를 입력해주세요.");
+    isIdChecked = false;
+    return;
+  } else if (companyNum.length > 20 || !/^[a-zA-Z0-9]+$/.test(companyNum)) {
+    showMsg(verifybusinessNum.parentNode, "20자 이내의 영문 소문자, 대문자, 숫자만 사용 가능합니다.");
+    isIdChecked = false;
+    return;
+  }
+
+  fetch(`${baseUrl}accounts/seller/validate-registration-number/`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ company_registration_number : companyNum}),
+  })
+    .then(res => res.json())
+    .then(data => {
+      if (data.message) {
+        showMsg(verifybusinessNum.parentNode, "멋진 사업자네요 :)", "#21bf48");
+        isIdChecked = true;
+      } else if (data.error) {
+        showMsg(verifybusinessNum.parentNode, data.error);
+        isIdChecked = false;
+      }
+    })
+    .catch(error => {
+      showMsg(idCheckBtn.parentNode, "오류가 발생했습니다. 다시 시도해주세요.");
+      console.error("Fetch Error:", error);
+    });
+}
+
 buyerBtn.addEventListener("click", clickbuyBtn);
 sellerBtn.addEventListener("click", clicksellernBtn);
+verifybusinessNum.addEventListener("click", checkDupbusiness);
 businessInput.addEventListener("input", businessCheck);
 storeName.addEventListener("input", storeInput);
