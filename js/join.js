@@ -142,8 +142,38 @@ function chlickInput(e) {
 
 // 비밀번호 입력시 확인
 function inputPw() {
-  userPw.style.backgroundImage = "url('../assets/icons/icon-check-on.svg')";
+  const password = userPw.value;
+
+  const existing = userPw.parentNode.querySelector("p");
+  if (existing) existing.remove();
+
+  const msg = document.createElement("p");
+  msg.style.marginTop = "8px";
+
+  switch (true) {
+    case !/[a-z]/.test(password):
+      msg.textContent = "비밀번호는 한 개 이상의 영소문자를 포함해야 합니다.";
+      userPw.parentNode.appendChild(msg);
+      msg.style.color = "#EB5757";
+      break;
+
+    case !/\d/.test(password):
+      msg.textContent = "비밀번호는 한 개 이상의 숫자를 포함해야 합니다.";
+      userPw.parentNode.appendChild(msg);
+      msg.style.color = "#EB5757";
+      break;
+
+    case password.length < 8:
+      msg.textContent = "비밀번호는 8자 이상이어야 합니다.";
+      userPw.parentNode.appendChild(msg);
+      msg.style.color = "#EB5757";
+      break;
+
+    default:
+      userPw.style.backgroundImage = "url('../assets/icons/icon-check-on.svg')";
+  }
 }
+
 
 idCheckBtn.addEventListener("click", checkDupid);
 userPw.addEventListener("input", inputPw);
