@@ -111,7 +111,7 @@ form {
   gap: 10px;
 }
 
-.join-seller {
+#join-seller {
   display: flex;
   flex-direction: column;
   gap: 10px;

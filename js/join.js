@@ -1,6 +1,7 @@
 // DOM
 const buyerBtn = document.getElementById("buyer-btn");
 const sellerBtn = document.getElementById("seller-btn");
+const joinSeller = document.getElementById("join-seller");
 
 const joinForm = document.getElementById("joinForm");
 
@@ -390,3 +391,34 @@ userName.addEventListener("input", inputName);
 phoneMid.addEventListener("input", inputPhone);
 phoneEnd.addEventListener("input", inputPhone);
 joinForm.addEventListener("submit", chlickInput);
+
+
+
+// 판매회원가입 
+// 판매 회원 / 구매회원 버튼 클릭
+function clickbuyBtn() {
+  buyerBtn.classList.remove("not-focusBtn");
+  buyerBtn.classList.add("focusBtn");
+
+  sellerBtn.classList.remove("focusBtn");
+  sellerBtn.classList.add("not-focusBtn");
+
+  joinSeller.classList.add("hidden");
+  
+  loginForm.style.borderRadius = '0 10px 10px 10px';
+}
+
+function clicksellernBtn() {
+  sellerBtn.classList.remove("not-focusBtn");
+  sellerBtn.classList.add("focusBtn");
+  
+  buyerBtn.classList.remove("focusBtn");
+  buyerBtn.classList.add("not-focusBtn");
+
+  joinSeller.classList.remove("hidden");
+
+  loginForm.style.borderRadius = '10px 0 10px 10px';
+}
+
+buyerBtn.addEventListener("click", clickbuyBtn);
+sellerBtn.addEventListener("click", clicksellernBtn);
