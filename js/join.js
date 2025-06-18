@@ -1,6 +1,6 @@
 // DOM
 const buyerBtn = document.getElementById("buyer-btn");
-const sellererBtn = document.getElementById("seller-btn");
+const sellerBtn = document.getElementById("seller-btn");
 
 const joinForm = document.getElementById("joinForm");
 
@@ -72,6 +72,7 @@ function checkDupid() {
         msg.textContent = data.error;
         msg.style.color = "#EB5757";
         msg.style.margin = "10px 0";
+        isIdChecked = false;
       }
       idCheckBtn.parentNode.appendChild(msg);
     })
@@ -159,10 +160,7 @@ function checkPw() {
   }
 }
 
-// 중복 휴대폰 번호
-
-
-// 제출 전 폼 확인
+// 제출 폼 확인
 function chlickInput(e) {
   e.preventDefault();
 
@@ -173,7 +171,7 @@ function chlickInput(e) {
 
   function showError(input) {
     const msg = document.createElement("p");
-    msg.textContent = "팔수 정보입니다.";
+    msg.textContent = "필수 정보입니다.";
     msg.style.color = "#eb5757";
     msg.style.margin = "10px 0";
     input.parentNode.appendChild(msg);
@@ -193,7 +191,7 @@ function chlickInput(e) {
 
   if (phoneMid.value === '' || phoneEnd.value === '') {
     showError(userNumContainer);
-  }
+  } 
 
   if (!checkPw()) {
     return;
@@ -201,14 +199,50 @@ function chlickInput(e) {
   
   if (!isIdChecked) {
     const msg = document.createElement("p");
-  msg.textContent = "아이디 중복 확인을 해주세요.";
+    msg.textContent = "아이디 중복 확인을 해주세요.";
     msg.style.color = "#EB5757";
     msg.style.margin = "10px 0";
     idCheckBtn.parentNode.appendChild(msg);
     return;
   }
+    
+  // 실제 회원가입 API 호출
+  const phoneNumber = phoneFirst.value + phoneMid.value + phoneEnd.value;
+  
+  const loginInfo = {
+    username: userId.value,
+    password: userPw.value,
+    name: userName.value,
+    phone_number: phoneNumber
+  };
+  // console.log(loginInfo);
 
-  joinForm.submit();
+  fetch(`${baseUrl}accounts/buyer/signup/`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(loginInfo),
+  })
+    .then(res => {
+      if (!res.ok) {
+        return res.json().then(errData => {
+          // 오류를 throw해서 .catch로 
+          throw errData;
+        });
+      }
+      return res.json();
+    })
+    .then(() => {
+      window.location.href = "/login.html";
+    })
+    .catch(err => {
+      if (err.phone_number) {
+        const msg = document.createElement("p");
+        msg.textContent = "해당 전화번호는 이미 사용 중입니다.";
+        msg.style.color = "#EB5757";
+        msg.style.margin = "10px 0";
+        userNumContainer.parentNode.appendChild(msg);
+      } 
+    });
 }
 
 
@@ -216,4 +250,3 @@ idCheckBtn.addEventListener("click", checkDupid);
 userPw.addEventListener("input", inputPw);
 pwCheck.addEventListener("input", checkPw);
 joinForm.addEventListener("submit", chlickInput);
-
