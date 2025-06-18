@@ -24,7 +24,8 @@ const storeName = document.getElementById("join-storeName");
 // 기본 url
 const baseUrl = 'https://api.wenivops.co.kr/services/open-market/';
 
-// 요소 추가
+// 전역변수
+let isIdChecked = false;
 
 // 아이디 중복확인
 function checkDupid() {
@@ -40,7 +41,16 @@ function checkDupid() {
   if (username === '') {
     msg.textContent = "아이디를 입력해주세요.";
     msg.style.color = "#EB5757";
-    idCheckBtn.parentNode.insertBefore(msg, idCheckBtn.nextSibling);
+    msg.style.margin = "10px 0";
+    userId.parentNode.appendChild(msg);
+    isIdChecked = false;
+    return;
+  } else if (username.length > 20 || !/^[a-zA-Z0-9]+$/.test(username)) {
+    msg.textContent = "20자 이내의 영문 소문자, 대문자, 숫자만 사용 가능합니다.";
+    msg.style.color = "#EB5757";
+    msg.style.margin = "10px 0";
+    userId.parentNode.appendChild(msg);
+    isIdChecked = false;
     return;
   }
 
@@ -54,20 +64,55 @@ function checkDupid() {
     .then(res => res.json())
     .then(data => {
       if (data.message) {
-        msg.textContent = data.message;
+        msg.textContent = "멋진 아이디네요 :)";
         msg.style.color = "#21bf48";
+        msg.style.margin = "10px 0";
+        isIdChecked = true;
       } else if (data.error) {
         msg.textContent = data.error;
         msg.style.color = "#EB5757";
+        msg.style.margin = "10px 0";
       }
-      idCheckBtn.parentNode.insertBefore(msg, idCheckBtn.nextSibling);
+      idCheckBtn.parentNode.appendChild(msg);
     })
     .catch(error => {
       msg.textContent = "오류가 발생했습니다. 다시 시도해주세요.";
       msg.style.color = "#EB5757";
-      idCheckBtn.parentNode.insertBefore(msg, idCheckBtn.nextSibling);
+      idCheckBtn.parentNode.appendChild(msg);
       console.error("Fetch Error:", error);
     });
+}
+
+// 비밀번호 입력시 확인
+function inputPw() {
+  const password = userPw.value;
+
+  const existing = userPw.parentNode.querySelector("p");
+  if (existing) existing.remove();
+
+
+  if (idCheckBtn.parentNode.querySelector("p")) {
+    idCheckBtn.parentNode.querySelector("p").remove();
+  }
+
+  const msg = document.createElement("p");
+  msg.style.marginTop = "8px";
+
+
+  if (userId.value === '') {
+    msg.textContent = "필수 정보입니다.";
+    msg.style.color = "#EB5757";
+    msg.style.margin = "10px 0";
+    idCheckBtn.parentNode.appendChild(msg);
+    return;
+  } else if (!/[a-z]/.test(password) || !/\d/.test(password) || password.length < 8) {
+      msg.textContent = "8자 이상, 영문 대 소문자, 숫자, 특수문자를 사용하세요.";
+      userPw.parentNode.appendChild(msg);
+      msg.style.color = "#EB5757";
+      return;
+  } else {
+    userPw.style.backgroundImage = "url('../assets/icons/icon-check-on.svg')";
+  }
 }
 
 // 비밀번호 일치 확인
@@ -77,8 +122,29 @@ function clickPw() {
     pwCheck.parentNode.querySelector("p").remove();
   }
 
+  if (idCheckBtn.parentNode.querySelector("p")) {
+    idCheckBtn.parentNode.querySelector("p").remove();
+  }
+
+  if (userPw.parentNode.querySelector("p")) {
+    userPw.parentNode.querySelector("p").remove();
+  }
+
   const msg = document.createElement("p");
   msg.style.marginTop = "8px";
+
+  if (userId.value === '') {
+    msg.textContent = "필수 정보입니다.";
+    msg.style.color = "#EB5757";
+    msg.style.margin = "10px 0";
+    userId.parentNode.appendChild(msg);
+    return;
+  } else if (userPw.value === '') {
+      msg.textContent = "필수 정보입니다.";
+      msg.style.color = "#EB5757";
+      msg.style.margin = "10px 0";
+      userPw.parentNode.appendChild(msg);
+  }
 
   if (userPw.value === '' || pwCheck.value === '') {
     pwCheck.style.border = '';
@@ -86,14 +152,14 @@ function clickPw() {
   }
 
   if (userPw.value === pwCheck.value) {
-    msg.textContent = "비밀번호가 일치합니다.";
-    msg.style.color = "#21bf48";
     pwCheck.style.backgroundImage = "url('../assets/icons/icon-check-on.svg')";
     pwCheck.style.border = '';
   } else {
     msg.textContent = "비밀번호가 일치하지 않습니다.";
     msg.style.color = "#EB5757";
+    msg.style.margin = "10px 0";
     pwCheck.style.border = '1px solid #eb5757';
+    pwCheck.style.backgroundImage = "url('../assets/icons/icon-check-off.svg')";
   }
 
   pwCheck.parentNode.appendChild(msg);
@@ -111,9 +177,9 @@ function chlickInput(e) {
 
   function showError(input) {
     const msg = document.createElement("p");
-    msg.textContent = "이 필드는 필수 항목입니다.";
+    msg.textContent = "팔수 정보입니다.";
     msg.style.color = "#eb5757";
-    msg.style.margin = "5px";
+    msg.style.margin = "10px 0";
     input.parentNode.appendChild(msg);
   }
 
@@ -137,41 +203,16 @@ function chlickInput(e) {
     return;
   }
   
-  joinForm.submit();
-}
-
-// 비밀번호 입력시 확인
-function inputPw() {
-  const password = userPw.value;
-
-  const existing = userPw.parentNode.querySelector("p");
-  if (existing) existing.remove();
-
-  const msg = document.createElement("p");
-  msg.style.marginTop = "8px";
-
-  switch (true) {
-    case !/[a-z]/.test(password):
-      msg.textContent = "비밀번호는 한 개 이상의 영소문자를 포함해야 합니다.";
-      userPw.parentNode.appendChild(msg);
-      msg.style.color = "#EB5757";
-      break;
-
-    case !/\d/.test(password):
-      msg.textContent = "비밀번호는 한 개 이상의 숫자를 포함해야 합니다.";
-      userPw.parentNode.appendChild(msg);
-      msg.style.color = "#EB5757";
-      break;
-
-    case password.length < 8:
-      msg.textContent = "비밀번호는 8자 이상이어야 합니다.";
-      userPw.parentNode.appendChild(msg);
-      msg.style.color = "#EB5757";
-      break;
-
-    default:
-      userPw.style.backgroundImage = "url('../assets/icons/icon-check-on.svg')";
+  if (!isIdChecked) {
+    const msg = document.createElement("p");
+  msg.textContent = "아이디 중복 확인을 해주세요.";
+    msg.style.color = "#EB5757";
+    msg.style.margin = "10px 0";
+    idCheckBtn.parentNode.appendChild(msg);
+    return;
   }
+
+  joinForm.submit();
 }
 
 
@@ -179,3 +220,4 @@ idCheckBtn.addEventListener("click", checkDupid);
 userPw.addEventListener("input", inputPw);
 pwCheck.addEventListener("input", clickPw);
 joinForm.addEventListener("submit", chlickInput);
+
