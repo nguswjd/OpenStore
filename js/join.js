@@ -400,7 +400,7 @@ function clickbuyBtn() {
   businessContainer.classList.add("hidden");
   userStore.classList.add("hidden");
 
-  loginForm.style.borderRadius = '0 10px 10px 10px';
+  joinForm.style.borderRadius = '0 10px 10px 10px';
 }
 
 function clicksellernBtn() {
@@ -415,7 +415,7 @@ function clicksellernBtn() {
   businessContainer.classList.remove("hidden");
   userStore.classList.remove("hidden");
 
-  loginForm.style.borderRadius = '10px 0 10px 10px';
+  joinForm.style.borderRadius = '10px 0 10px 10px';
 }
 
 function businessCheck() {
