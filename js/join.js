@@ -6,7 +6,6 @@ const joinForm = document.getElementById("joinForm");
 
 const userId = document.getElementById("join-id");
 const idCheckBtn = document.getElementById("id-checkBtn");
-const idCheckResult = document.getElementById("check-id-result");
 
 const userPw = document.getElementById("join-pw");
 const pwCheck = document.getElementById("pw-check");
@@ -26,12 +25,50 @@ const storeName = document.getElementById("join-storeName");
 const baseUrl = 'https://api.wenivops.co.kr/services/open-market/';
 
 // 요소 추가
-const errormsg = document.createElement("p");
 
 // 아이디 중복확인
-// function checkDupid() {
-//   const userId = usernameInput.value;
-// }
+function checkDupid() {
+  if (idCheckBtn.parentNode.querySelector("p")) {
+    idCheckBtn.parentNode.querySelector("p").remove();
+  }
+  
+  const username = userId.value;
+
+  const msg = document.createElement("p");
+  msg.style.marginTop = "8px";
+
+  if (username === '') {
+    msg.textContent = "아이디를 입력해주세요.";
+    msg.style.color = "#EB5757";
+    idCheckBtn.parentNode.insertBefore(msg, idCheckBtn.nextSibling);
+    return;
+  }
+
+  fetch(`${baseUrl}accounts/validate-username/`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ username }),
+  })
+    .then(res => res.json())
+    .then(data => {
+      if (data.message) {
+        msg.textContent = data.message;
+        msg.style.color = "#21bf48";
+      } else if (data.error) {
+        msg.textContent = data.error;
+        msg.style.color = "#EB5757";
+      }
+      idCheckBtn.parentNode.insertBefore(msg, idCheckBtn.nextSibling);
+    })
+    .catch(error => {
+      msg.textContent = "오류가 발생했습니다. 다시 시도해주세요.";
+      msg.style.color = "#EB5757";
+      idCheckBtn.parentNode.insertBefore(msg, idCheckBtn.nextSibling);
+      console.error("Fetch Error:", error);
+    });
+}
 
 // 비밀번호 일치 확인
 function clickPw() {
@@ -51,6 +88,7 @@ function clickPw() {
   if (userPw.value === pwCheck.value) {
     msg.textContent = "비밀번호가 일치합니다.";
     msg.style.color = "#21bf48";
+    pwCheck.style.backgroundImage = "url('../assets/icons/icon-check-on.svg')";
     pwCheck.style.border = '';
   } else {
     msg.textContent = "비밀번호가 일치하지 않습니다.";
@@ -102,6 +140,12 @@ function chlickInput(e) {
   joinForm.submit();
 }
 
+// 비밀번호 입력시 확인
+function inputPw() {
+  userPw.style.backgroundImage = "url('../assets/icons/icon-check-on.svg')";
+}
+
+idCheckBtn.addEventListener("click", checkDupid);
+userPw.addEventListener("input", inputPw);
 pwCheck.addEventListener("input", clickPw);
 joinForm.addEventListener("submit", chlickInput);
-
