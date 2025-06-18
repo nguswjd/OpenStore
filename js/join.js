@@ -91,22 +91,23 @@ function inputPw() {
   const existing = userPw.parentNode.querySelector("p");
   if (existing) existing.remove();
 
-
   if (idCheckBtn.parentNode.querySelector("p")) {
     idCheckBtn.parentNode.querySelector("p").remove();
+  }
+
+  // 상위 필수 입력란 체크
+  if (userId.value === '') {
+    const idMsg = document.createElement("p");
+    idMsg.textContent = "필수 정보입니다.";
+    idMsg.style.color = "#EB5757";
+    idMsg.style.margin = "10px 0";
+    idCheckBtn.parentNode.appendChild(idMsg);
   }
 
   const msg = document.createElement("p");
   msg.style.marginTop = "8px";
 
-
-  if (userId.value === '') {
-    msg.textContent = "필수 정보입니다.";
-    msg.style.color = "#EB5757";
-    msg.style.margin = "10px 0";
-    idCheckBtn.parentNode.appendChild(msg);
-    return;
-  } else if (!/[a-z]/.test(password) || !/\d/.test(password) || password.length < 8) {
+  if (!/[a-z]/.test(password) || !/\d/.test(password) || password.length < 8) {
       msg.textContent = "8자 이상, 영문 대 소문자, 숫자, 특수문자를 사용하세요.";
       userPw.parentNode.appendChild(msg);
       msg.style.color = "#EB5757";
@@ -129,27 +130,42 @@ function checkPw() {
     idCheckBtn.parentNode.querySelector("p").remove();
   }
 
-  if (userPw.parentNode.querySelector("p")) {
-    userPw.parentNode.querySelector("p").remove();
+  // 상위 필수 입력란들 체크
+  if (userId.value === '') {
+    const idMsg = document.createElement("p");
+    idMsg.textContent = "필수 정보입니다.";
+    idMsg.style.color = "#EB5757";
+    idMsg.style.margin = "10px 0";
+    idCheckBtn.parentNode.appendChild(idMsg);
   }
 
-  if (userId.value === '') {
-    msg.textContent = "필수 정보입니다.";
-    msg.style.color = "#EB5757";
-    msg.style.margin = "10px 0";
-    idCheckBtn.parentNode.appendChild(msg);
-    return;
-  } else if (userPw.value === '') {
-    msg.textContent = "필수 정보입니다.";
-    msg.style.color = "#EB5757";
-    msg.style.margin = "10px 0";
-    userPw.parentNode.appendChild(msg);
-    return;
-  } else if (userPw.value === pwCheck.value) {
+  if (userPw.value === '') {
+    const pwMsg = document.createElement("p");
+    pwMsg.textContent = "비밀번호가 일치하지 않습니다.";
+    pwMsg.style.color = "#EB5757";
+    pwMsg.style.margin = "10px 0";
+    pwCheck.style.border = '1px solid #eb5757';
+    pwCheck.parentNode.appendChild(pwMsg);
+  }
+  
+  if (userPw.value === '') {
+    if (userPw.parentNode.querySelector("p")) {
+      userPw.parentNode.querySelector("p").remove();
+    }
+    
+    const pwMsg = document.createElement("p");
+    pwMsg.textContent = "필수 정보입니다.";
+    pwMsg.style.color = "#EB5757";
+    pwMsg.style.margin = "10px 0";
+    userPw.parentNode.appendChild(pwMsg);
+  }
+
+  // 비밀번호 일치 확인
+  if (userPw.value !== '' && userPw.value === pwCheck.value) {
     pwCheck.style.backgroundImage = "url('../assets/icons/icon-check-on.svg')";
     pwCheck.style.border = '';
     return true;
-  } else {
+  } else if (userPw.value !== '' && pwCheck.value !== '') {
     msg.textContent = "비밀번호가 일치하지 않습니다.";
     msg.style.color = "#EB5757";
     msg.style.margin = "10px 0";
@@ -157,6 +173,108 @@ function checkPw() {
     pwCheck.style.backgroundImage = "url('../assets/icons/icon-check-off.svg')";
     pwCheck.parentNode.appendChild(msg);
     return false;
+  }
+  
+  return false;
+}
+
+// 이름 입력시 상위 필수 입력란 확인
+function inputName() {
+  // 기존 메시지 제거
+  const existing = userName.parentNode.querySelector("p");
+  if (existing) existing.remove();
+
+  if (idCheckBtn.parentNode.querySelector("p")) {
+    idCheckBtn.parentNode.querySelector("p").remove();
+  }
+
+  if (userPw.parentNode.querySelector("p")) {
+    userPw.parentNode.querySelector("p").remove();
+  }
+
+  if (pwCheck.parentNode.querySelector("p")) {
+    pwCheck.parentNode.querySelector("p").remove();
+  }
+
+  // 상위 필수 입력란들 체크
+  if (userId.value === '') {
+    const idMsg = document.createElement("p");
+    idMsg.textContent = "필수 정보입니다.";
+    idMsg.style.color = "#EB5757";
+    idMsg.style.margin = "10px 0";
+    idCheckBtn.parentNode.appendChild(idMsg);
+  }
+
+  if (userPw.value === '') {
+    const pwMsg = document.createElement("p");
+    pwMsg.textContent = "필수 정보입니다.";
+    pwMsg.style.color = "#EB5757";
+    pwMsg.style.margin = "10px 0";
+    userPw.parentNode.appendChild(pwMsg);
+  }
+
+  if (pwCheck.value === '') {
+    const pwCheckMsg = document.createElement("p");
+    pwCheckMsg.textContent = "필수 정보입니다.";
+    pwCheckMsg.style.color = "#EB5757";
+    pwCheckMsg.style.margin = "10px 0";
+    pwCheck.parentNode.appendChild(pwCheckMsg);
+  }
+}
+
+// 휴대폰 번호 필수 입력란 확인
+function inputPhone() {
+  // 기존 메시지 제거
+  const existing = userNumContainer.parentNode.querySelector("p");
+  if (existing) existing.remove();
+
+  if (idCheckBtn.parentNode.querySelector("p")) {
+    idCheckBtn.parentNode.querySelector("p").remove();
+  }
+
+  if (userPw.parentNode.querySelector("p")) {
+    userPw.parentNode.querySelector("p").remove();
+  }
+
+  if (pwCheck.parentNode.querySelector("p")) {
+    pwCheck.parentNode.querySelector("p").remove();
+  }
+
+  if (userName.parentNode.querySelector("p")) {
+    userName.parentNode.querySelector("p").remove();
+  }
+
+  // 상위 필수 입력란들 체크
+  if (userId.value === '') {
+    const idMsg = document.createElement("p");
+    idMsg.textContent = "필수 정보입니다.";
+    idMsg.style.color = "#EB5757";
+    idMsg.style.margin = "10px 0";
+    idCheckBtn.parentNode.appendChild(idMsg);
+  }
+
+  if (userPw.value === '') {
+    const pwMsg = document.createElement("p");
+    pwMsg.textContent = "필수 정보입니다.";
+    pwMsg.style.color = "#EB5757";
+    pwMsg.style.margin = "10px 0";
+    userPw.parentNode.appendChild(pwMsg);
+  }
+
+  if (pwCheck.value === '') {
+    const pwCheckMsg = document.createElement("p");
+    pwCheckMsg.textContent = "필수 정보입니다.";
+    pwCheckMsg.style.color = "#EB5757";
+    pwCheckMsg.style.margin = "10px 0";
+    pwCheck.parentNode.appendChild(pwCheckMsg);
+  }
+
+  if (userName.value === '') {
+    const nameMsg = document.createElement("p");
+    nameMsg.textContent = "필수 정보입니다.";
+    nameMsg.style.color = "#EB5757";
+    nameMsg.style.margin = "10px 0";
+    userName.parentNode.appendChild(nameMsg);
   }
 }
 
@@ -177,38 +295,50 @@ function chlickInput(e) {
     input.parentNode.appendChild(msg);
   }
 
+  let hasError = false;
+
   if (userId.value === '') {
     showError(userId);
+    hasError = true;
   }
 
   if (userPw.value === '') {
     showError(userPw);
+    hasError = true;
   }
 
   if (userName.value === '') {
     showError(userName);
+    hasError = true;
   }
 
   if (phoneMid.value === '' || phoneEnd.value === '') {
     showError(userNumContainer);
+    hasError = true;
   } 
 
   if (!checkPw()) {
-    return;
+    hasError = true;
   }
   
-  if (!isIdChecked) {
+  if (userId.value !== '' && !isIdChecked) {
     const msg = document.createElement("p");
     msg.textContent = "아이디 중복 확인을 해주세요.";
     msg.style.color = "#EB5757";
     msg.style.margin = "10px 0";
     idCheckBtn.parentNode.appendChild(msg);
+    hasError = true;
+  }
+
+  if (hasError) {
     return;
   }
     
   // 실제 회원가입 API 호출
   const phoneNumber = phoneFirst.value + phoneMid.value + phoneEnd.value;
-  
+
+  if (phoneNumber.length >= 10 && phoneNumber.length <= 11) {
+
   const loginInfo = {
     username: userId.value,
     password: userPw.value,
@@ -243,10 +373,20 @@ function chlickInput(e) {
         userNumContainer.parentNode.appendChild(msg);
       } 
     });
+  } else {
+    const msg = document.createElement("p");
+    msg.textContent = "핸드폰 번호는 10~11자리 숫자여야 합니다.";
+    msg.style.color = "#EB5757";
+    msg.style.margin = "10px 0";
+    userNumContainer.parentNode.appendChild(msg);
+  }
+  
 }
-
 
 idCheckBtn.addEventListener("click", checkDupid);
 userPw.addEventListener("input", inputPw);
 pwCheck.addEventListener("input", checkPw);
+userName.addEventListener("input", inputName);
+phoneMid.addEventListener("input", inputPhone);
+phoneEnd.addEventListener("input", inputPhone);
 joinForm.addEventListener("submit", chlickInput);
