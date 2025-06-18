@@ -116,11 +116,13 @@ function inputPw() {
 }
 
 // 비밀번호 일치 확인
-function clickPw() {
+function checkPw() {
   // 기존 메시지 제거
-  if (pwCheck.parentNode.querySelector("p")) {
-    pwCheck.parentNode.querySelector("p").remove();
-  }
+  const existingMsg = pwCheck.parentNode.querySelector("p");
+  if (existingMsg) existingMsg.remove();
+
+  const msg = document.createElement("p");
+  msg.style.marginTop = "8px";
 
   if (idCheckBtn.parentNode.querySelector("p")) {
     idCheckBtn.parentNode.querySelector("p").remove();
@@ -130,42 +132,35 @@ function clickPw() {
     userPw.parentNode.querySelector("p").remove();
   }
 
-  const msg = document.createElement("p");
-  msg.style.marginTop = "8px";
-
   if (userId.value === '') {
     msg.textContent = "필수 정보입니다.";
     msg.style.color = "#EB5757";
     msg.style.margin = "10px 0";
-    userId.parentNode.appendChild(msg);
+    idCheckBtn.parentNode.appendChild(msg);
     return;
   } else if (userPw.value === '') {
-      msg.textContent = "필수 정보입니다.";
-      msg.style.color = "#EB5757";
-      msg.style.margin = "10px 0";
-      userPw.parentNode.appendChild(msg);
-  }
-
-  if (userPw.value === '' || pwCheck.value === '') {
-    pwCheck.style.border = '';
-    return false;
-  }
-
-  if (userPw.value === pwCheck.value) {
+    msg.textContent = "필수 정보입니다.";
+    msg.style.color = "#EB5757";
+    msg.style.margin = "10px 0";
+    userPw.parentNode.appendChild(msg);
+    return;
+  } else if (userPw.value === pwCheck.value) {
     pwCheck.style.backgroundImage = "url('../assets/icons/icon-check-on.svg')";
     pwCheck.style.border = '';
+    return true;
   } else {
     msg.textContent = "비밀번호가 일치하지 않습니다.";
     msg.style.color = "#EB5757";
     msg.style.margin = "10px 0";
     pwCheck.style.border = '1px solid #eb5757';
     pwCheck.style.backgroundImage = "url('../assets/icons/icon-check-off.svg')";
+    pwCheck.parentNode.appendChild(msg);
+    return false;
   }
-
-  pwCheck.parentNode.appendChild(msg);
-
-  return userPw.value === pwCheck.value && userPw.value !== '';
 }
+
+// 중복 휴대폰 번호
+
 
 // 제출 전 폼 확인
 function chlickInput(e) {
@@ -173,6 +168,7 @@ function chlickInput(e) {
 
   // 모든 기존 에러 메시지 제거
   const errorMessages = joinForm.querySelectorAll("p");
+
   errorMessages.forEach(msg => msg.remove());
 
   function showError(input) {
@@ -199,7 +195,7 @@ function chlickInput(e) {
     showError(userNumContainer);
   }
 
-  if (!clickPw()) {
+  if (!checkPw()) {
     return;
   }
   
@@ -218,6 +214,6 @@ function chlickInput(e) {
 
 idCheckBtn.addEventListener("click", checkDupid);
 userPw.addEventListener("input", inputPw);
-pwCheck.addEventListener("input", clickPw);
+pwCheck.addEventListener("input", checkPw);
 joinForm.addEventListener("submit", chlickInput);
 
