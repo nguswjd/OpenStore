@@ -1,27 +1,29 @@
-// 판매 회원 / 구매회원 버튼 클릭
+// DOM
 const buyerBtn = document.getElementById("buyer-btn");
-const sellerBtn = document.getElementById("seller-btn");
+const sellererBtn = document.getElementById("seller-btn");
 
-function clickbuyBtn() {
-  buyerBtn.classList.remove("not-focusBtn");
-  buyerBtn.classList.add("focusBtn");
+const joinForm = document.getElementById("joinForm");
 
-  sellerBtn.classList.remove("focusBtn");
-  sellerBtn.classList.add("not-focusBtn");
-  
-  // js로 css 수정 괜찮나 ?
-  loginForm.style.borderRadius = '0 10px 10px 10px';
-}
+const usernameInput = document.getElementById("join-id");
+const idCheckBtn = document.getElementById("id-checkBtn");
+const idCheckResult = document.getElementById("check-id-result");
 
-function clicksellernBtn() {
-  sellerBtn.classList.remove("not-focusBtn");
-  sellerBtn.classList.add("focusBtn");
-  
-  buyerBtn.classList.remove("focusBtn");
-  buyerBtn.classList.add("not-focusBtn");
+const joinPw = document.getElementById("join-pw");
+const pwCheck = document.getElementById("pw-check");
+const joinError = document.getElementById("join-pw-result");
 
-  loginForm.style.borderRadius = '10px 0 10px 10px';
-}
+const nameInput = document.getElementById("join-name");
+const phoneFirst = document.getElementById("join-number");
+const phoneMid = document.getElementById("user-number-mid");
+const phoneEnd = document.getElementById("user-number-end");
 
-buyerBtn.addEventListener("click", clickbuyBtn);
-sellerBtn.addEventListener("click", clicksellernBtn);
+const businessNUm = document.getElementById("join-businessNum");
+const verifybusinessNUm = document.getElementById("verify-business");
+
+const storeName = document.getElementById("join-storeName");
+
+// js 구현
+
+
+
+

@@ -24,7 +24,7 @@
 }
 
 /* important 사용해도 되는지,, 우선사용인걸로 알고 있는데,. 하지만 이렇게 한쓰면 loginPage에서 class적용이 안돼요 ㅜㅜ */
-.a11y-hidden {
+.hidden {
   display: none !important;
 }
 

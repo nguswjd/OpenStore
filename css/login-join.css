@@ -119,8 +119,8 @@ form {
 }
 
 /* 공통 입력 필드 스타일 */
-#join-pw,
-#join-repw,
+#join-pw-result,
+#pw-check,
 #join-name,
 #join-storeName,
 #join-number,
@@ -131,8 +131,8 @@ form {
   border: 1px solid #c4c4c4;
 }
 
-#join-pw,
-#join-repw,
+#join-pw-result,
+#pw-check,
 #join-name,
 #join-storeName {
   width: calc(100% - 20px);
@@ -145,9 +145,8 @@ form {
 }
 
 #join-id,
-.id-checkBtn,
 #join-businessNum,
-.businessClickBtn {
+.clickBtn {
   font-size: 16px;
   height: 54px;
   border-radius: 5px;
@@ -160,8 +159,7 @@ form {
   border: 1px solid #c4c4c4;
 }
 
-.id-checkBtn,
-.businessClickBtn {
+.clickBtn {
   width: 28%;
   font-weight: 500;
   color: #fff;
@@ -169,8 +167,8 @@ form {
 }
 
 /* 비밀번호 필드 체크 아이콘 */
-#join-pw,
-#join-repw {
+#join-pw-result,
+#pw-check {
   background-image: url('../assets/icons/icon-check-off.svg');
   background-repeat: no-repeat;
   background-position: right 10px center;
@@ -204,8 +202,8 @@ label[for="join-name"] {
 /* ===== 공통 포커스 스타일 ===== */
 #join-number:focus,
 #join-id:focus,
-#join-pw:focus,
-#join-repw:focus,
+#join-pw-result:focus,
+#pw-check:focus,
 #join-name:focus,
 #user-number-mid:focus,
 #user-number-end:focus,
@@ -216,26 +214,35 @@ label[for="join-name"] {
 }
 
 #join-id,
-#join-pw,
-#join-repw,
+#join-pw-result,
+#pw-check,
 #join-name,
 #join-storeName,
 #join-businessNum {
   padding-left: 20px;
 }
 
-
 /* ===== 에러 메시지 ===== */
 #login-error,
-#join-error {
+#join-error,
+#check-id-result {
   text-align: start;
   margin: 20px 0 0 clamp(20px, 5vw, 40px);
-
   color: #eb5757;
+}
+
+#login-error{
   font-weight: 500;
 }
 
-#join-error {
+#join-error,
+#check-id-result {
+  line-height: 50px;
+  font-weight: 400;
+}
+
+#join-error,
+#check-id-result {
   margin: 0 0 10px;
 }
 
