@@ -119,7 +119,7 @@ form {
 }
 
 /* 공통 입력 필드 스타일 */
-#join-pw-result,
+#join-pw,
 #pw-check,
 #join-name,
 #join-storeName,
@@ -131,16 +131,14 @@ form {
   border: 1px solid #c4c4c4;
 }
 
-#join-pw-result,
+#join-pw,
 #pw-check,
 #join-name,
 #join-storeName {
   width: calc(100% - 20px);
 }
-
-/* 아이디 입력 섹션 */
-.join-check-id,
-.join-businessNum {
+#userNumContainer,
+.inputContainer {
   font-size: 0;
 }
 
@@ -167,7 +165,7 @@ form {
 }
 
 /* 비밀번호 필드 체크 아이콘 */
-#join-pw-result,
+#join-pw,
 #pw-check {
   background-image: url('../assets/icons/icon-check-off.svg');
   background-repeat: no-repeat;
@@ -176,7 +174,7 @@ form {
 }
 
 /* 전화번호 입력 */
-.user-number {
+#user-number {
   display: flex;
   gap: 10px;
 }
@@ -202,7 +200,7 @@ label[for="join-name"] {
 /* ===== 공통 포커스 스타일 ===== */
 #join-number:focus,
 #join-id:focus,
-#join-pw-result:focus,
+#join-pw:focus,
 #pw-check:focus,
 #join-name:focus,
 #user-number-mid:focus,
@@ -214,7 +212,7 @@ label[for="join-name"] {
 }
 
 #join-id,
-#join-pw-result,
+#join-pw,
 #pw-check,
 #join-name,
 #join-storeName,
@@ -224,10 +222,9 @@ label[for="join-name"] {
 
 /* ===== 에러 메시지 ===== */
 #login-error,
-#join-error,
 #check-id-result {
   text-align: start;
-  margin: 20px 0 0 clamp(20px, 5vw, 40px);
+  /* margin: 20px 0 0 clamp(20px, 5vw, 40px); */
   color: #eb5757;
 }
 
@@ -235,15 +232,9 @@ label[for="join-name"] {
   font-weight: 500;
 }
 
-#join-error,
 #check-id-result {
   line-height: 50px;
   font-weight: 400;
-}
-
-#join-error,
-#check-id-result {
-  margin: 0 0 10px;
 }
 
 /* ===== 폼 하단 영역 ===== */

@@ -32,7 +32,6 @@ function clickbuyBtn() {
   sellerBtn.classList.remove("focusBtn");
   sellerBtn.classList.add("not-focusBtn");
   
-  // js로 css 수정 괜찮나 ?
   loginForm.style.borderRadius = '0 10px 10px 10px';
 }
 
