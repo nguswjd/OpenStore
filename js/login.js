@@ -58,9 +58,9 @@ function Errormsg(e) {
           }
           
           if (serverUserType === 'BUYER') {
-            // window.location.href = '구매자로.html';
+            window.location.href = 'buyer.html';
           } else if (serverUserType === 'SELLER') {
-            // window.location.href = '판매자로.html';
+            window.location.href = 'seller.html';
           }
         } else if (data.error) {
           // 로그인 실패

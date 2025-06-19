@@ -198,11 +198,9 @@ function checkPw() {
 
 // 이름 입력시 상위 필수 입력란 확인
 function inputName() {
-  // 기존 메시지 제거
   const existing = userName.parentNode.querySelector("p");
   if (existing) existing.remove();
 
-  // 이름 입력시에는 상위 필드들만 체크 (휴대폰 번호 제외)
   if (idCheckBtn.parentNode.querySelector("p")) {
     idCheckBtn.parentNode.querySelector("p").remove();
   }
@@ -213,7 +211,6 @@ function inputName() {
     pwCheck.parentNode.querySelector("p").remove();
   }
 
-  // 상위 필수 입력란들만 체크
   if (userId.value === '') {
     showMsg(idCheckBtn.parentNode, "필수 정보입니다.");
   }
@@ -229,7 +226,6 @@ function inputName() {
 
 // 휴대폰 번호 필수 입력란 확인
 function inputPhone() {
-  // 기존 메시지 제거
   const existing = userNumContainer.parentNode.querySelector("p");
   if (existing) existing.remove();
 
@@ -241,9 +237,7 @@ function chlickInput(e) {
   e.preventDefault();
 
   // 모든 기존 에러 메시지 제거
-  const errorMessages = joinForm.querySelectorAll("p");
-
-  errorMessages.forEach(msg => msg.remove());
+  joinForm.querySelectorAll("p").forEach(msg => msg.remove());
 
   function showError(input) {
     showMsg(input.parentNode, "필수 정보입니다.");
