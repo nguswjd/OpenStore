@@ -1,5 +1,4 @@
-// 기본 url
-const baseUrl = "https://api.wenivops.co.kr/services/open-market/";
+import { API } from './api.js';
 
 const loginForm = document.getElementById("loginForm");
 const userIdInput = document.getElementById("user-id");
@@ -39,7 +38,7 @@ function ErrorMsg(e) {
       password: userPwInput.value,
     };
 
-    fetch(`${baseUrl}accounts/login/`, {
+    fetch(API.LOGIN, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

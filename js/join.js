@@ -1,5 +1,4 @@
-// 기본 url
-const baseUrl = "https://api.wenivops.co.kr/services/open-market/";
+import { API } from './api.js';
 
 // DOM
 const buyerBtn = document.getElementById("buyer-btn");
@@ -111,7 +110,7 @@ function checkDupid() {
     return;
   }
 
-  fetch(`${baseUrl}accounts/validate-username/`, {
+  fetch(API.VALIDATE_USERNAME, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -311,7 +310,7 @@ function chlickInput(e) {
       };
       // console.log(loginInfo);
 
-      fetch(`${baseUrl}accounts/buyer/signup/`, {
+      fetch(API.BUYER_SIGNUP, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(loginInfo),
@@ -356,7 +355,7 @@ function chlickInput(e) {
       };
       console.log(loginInfo);
 
-      fetch(`${baseUrl}accounts/seller/signup/`, {
+      fetch(API.SELLER_SIGNUP,{
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(loginInfo),
@@ -472,7 +471,7 @@ function checkDupbusiness() {
     return;
   }
 
-  fetch(`${baseUrl}accounts/seller/validate-registration-number/`, {
+  fetch(API.COMANY_NUMBER, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
