@@ -53,7 +53,8 @@ z-index: 20;
 /* ===== 공통 폼 스타일 ===== */
 form {
   margin-top: -15px;
-  padding-top: 34px;
+  padding: 40px 45px 20px;
+  gap: 10px;
 
   border: 1px solid #c4c4c4;
   border-radius: 0 10px 10px 10px;
@@ -67,19 +68,15 @@ form {
   flex-direction: column;
 }
 
-/* ===== 로그인 폼 ===== */
-#loginForm {
-  text-align: center;
-  gap: 6px;
-}
-
-#loginForm input {
-  width: 85%;
+form input {
+  width: 100%;
   height: 60px;
+  margin-bottom: 20px;
   padding-left: 10px;
   border-bottom: 1px solid #c4c4c4;
 }
 
+/* ===== 로그인 폼 ===== */
 #loginForm input::placeholder {
   color: #767676;
 }
@@ -106,11 +103,6 @@ form {
 }
 
 /* ====joinForm= 회원가입 폼 ===== */
-#joinForm {
-  padding: 40px 35px 20px;
-  gap: 10px;
-}
-
 #join-seller {
   display: flex;
   flex-direction: column;
@@ -220,22 +212,6 @@ label[for="join-name"] {
   padding-left: 20px;
 }
 
-/* ===== 에러 메시지 ===== */
-#login-error,
-#check-id-result {
-  text-align: start;
-  /* margin: 20px 0 0 clamp(20px, 5vw, 40px); */
-  color: #eb5757;
-}
-
-#login-error{
-  font-weight: 500;
-}
-
-#check-id-result {
-  line-height: 50px;
-  font-weight: 400;
-}
 
 /* ===== 폼 하단 영역 ===== */
 .join-footer {
