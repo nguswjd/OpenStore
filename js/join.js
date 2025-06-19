@@ -1,5 +1,5 @@
 // 기본 url
-const baseUrl = 'https://api.wenivops.co.kr/services/open-market/';
+const baseUrl = "https://api.wenivops.co.kr/services/open-market/";
 
 // DOM
 const buyerBtn = document.getElementById("buyer-btn");
@@ -29,8 +29,7 @@ const storeName = document.getElementById("join-storeName");
 
 // 전역변수
 let isIdChecked = false;
-let selectedUserType = 'BUYER';
-
+let selectedUserType = "BUYER";
 
 // 공통 메시지 표시 함수
 function showMsg(parentElement, text, color = "#EB5757") {
@@ -38,7 +37,7 @@ function showMsg(parentElement, text, color = "#EB5757") {
   if (parentElement.querySelector("p")) {
     parentElement.querySelector("p").remove();
   }
-  
+
   const msg = document.createElement("p");
   msg.textContent = text;
   msg.style.color = color;
@@ -67,23 +66,26 @@ function checkRequiredFields(skipField) {
   }
 
   // 상위 필수 입력란들 체크 (현재 입력 중인 필드는 제외)
-  if (skipField !== 'userId' && userId.value === '') {
+  if (skipField !== "userId" && userId.value === "") {
     showMsg(idCheckBtn.parentNode, "필수 정보입니다.");
   }
 
-  if (skipField !== 'userPw' && userPw.value === '') {
+  if (skipField !== "userPw" && userPw.value === "") {
     showMsg(userPw.parentNode, "필수 정보입니다.");
   }
 
-  if (skipField !== 'pwCheck' && pwCheck.value === '') {
+  if (skipField !== "pwCheck" && pwCheck.value === "") {
     showMsg(pwCheck.parentNode, "필수 정보입니다.");
   }
 
-  if (skipField !== 'userName' && userName.value === '') {
+  if (skipField !== "userName" && userName.value === "") {
     showMsg(userName.parentNode, "필수 정보입니다.");
   }
 
-  if (skipField !== 'phone' && (phoneMid.value === '' || phoneEnd.value === '')) {
+  if (
+    skipField !== "phone" &&
+    (phoneMid.value === "" || phoneEnd.value === "")
+  ) {
     showMsg(userNumContainer.parentNode, "필수 정보입니다.");
   }
 }
@@ -93,15 +95,18 @@ function checkDupid() {
   if (idCheckBtn.parentNode.querySelector("p")) {
     idCheckBtn.parentNode.querySelector("p").remove();
   }
-  
+
   const username = userId.value;
 
-  if (username === '') {
+  if (username === "") {
     showMsg(idCheckBtn.parentNode, "아이디를 입력해주세요.");
     isIdChecked = false;
     return;
   } else if (username.length > 20 || !/^[a-zA-Z0-9]+$/.test(username)) {
-    showMsg(idCheckBtn.parentNode, "20자 이내의 영문 소문자, 대문자, 숫자만 사용 가능합니다.");
+    showMsg(
+      idCheckBtn.parentNode,
+      "20자 이내의 영문 소문자, 대문자, 숫자만 사용 가능합니다."
+    );
     isIdChecked = false;
     return;
   }
@@ -113,8 +118,8 @@ function checkDupid() {
     },
     body: JSON.stringify({ username }),
   })
-    .then(res => res.json())
-    .then(data => {
+    .then((res) => res.json())
+    .then((data) => {
       if (data.message) {
         showMsg(idCheckBtn.parentNode, "멋진 아이디네요 :)", "#21bf48");
         isIdChecked = true;
@@ -123,7 +128,7 @@ function checkDupid() {
         isIdChecked = false;
       }
     })
-    .catch(error => {
+    .catch((error) => {
       showMsg(idCheckBtn.parentNode, "오류가 발생했습니다. 다시 시도해주세요.");
       console.error("Fetch Error:", error);
     });
@@ -141,13 +146,16 @@ function inputPw() {
   }
 
   // 상위 필수 입력란 체크
-  if (userId.value === '') {
+  if (userId.value === "") {
     showMsg(idCheckBtn.parentNode, "필수 정보입니다.");
   }
 
   if (!/[a-z]/.test(password) || !/\d/.test(password) || password.length < 8) {
-      showMsg(userPw.parentNode, "8자 이상, 영문 대 소문자, 숫자, 특수문자를 사용하세요.");
-      return;
+    showMsg(
+      userPw.parentNode,
+      "8자 이상, 영문 대 소문자, 숫자, 특수문자를 사용하세요."
+    );
+    return;
   } else {
     userPw.style.backgroundImage = "url('../assets/icons/icon-check-on.svg')";
   }
@@ -164,35 +172,35 @@ function checkPw() {
   }
 
   // 상위 필수 입력란들 체크
-  if (userId.value === '') {
+  if (userId.value === "") {
     showMsg(idCheckBtn.parentNode, "필수 정보입니다.");
   }
 
-  if (userPw.value === '') {
+  if (userPw.value === "") {
     showMsg(pwCheck.parentNode, "필수 정보입니다.");
-    pwCheck.style.border = '1px solid #eb5757';
+    pwCheck.style.border = "1px solid #eb5757";
   }
-  
-  if (userPw.value === '') {
+
+  if (userPw.value === "") {
     if (userPw.parentNode.querySelector("p")) {
       userPw.parentNode.querySelector("p").remove();
     }
-    
+
     showMsg(userPw.parentNode, "필수 정보입니다.");
   }
 
   // 비밀번호 일치 확인
-  if (userPw.value !== '' && userPw.value === pwCheck.value) {
+  if (userPw.value !== "" && userPw.value === pwCheck.value) {
     pwCheck.style.backgroundImage = "url('../assets/icons/icon-check-on.svg')";
-    pwCheck.style.border = '';
+    pwCheck.style.border = "";
     return true;
-  } else if (userPw.value !== '' && pwCheck.value !== '') {
+  } else if (userPw.value !== "" && pwCheck.value !== "") {
     showMsg(pwCheck.parentNode, "비밀번호가 일치하지 않습니다.");
-    pwCheck.style.border = '1px solid #eb5757';
+    pwCheck.style.border = "1px solid #eb5757";
     pwCheck.style.backgroundImage = "url('../assets/icons/icon-check-off.svg')";
     return false;
   }
-  
+
   return false;
 }
 
@@ -211,15 +219,15 @@ function inputName() {
     pwCheck.parentNode.querySelector("p").remove();
   }
 
-  if (userId.value === '') {
+  if (userId.value === "") {
     showMsg(idCheckBtn.parentNode, "필수 정보입니다.");
   }
 
-  if (userPw.value === '') {
+  if (userPw.value === "") {
     showMsg(userPw.parentNode, "필수 정보입니다.");
   }
 
-  if (pwCheck.value === '') {
+  if (pwCheck.value === "") {
     showMsg(pwCheck.parentNode, "필수 정보입니다.");
   }
 }
@@ -229,7 +237,7 @@ function inputPhone() {
   const existing = userNumContainer.parentNode.querySelector("p");
   if (existing) existing.remove();
 
-  checkRequiredFields('phone');
+  checkRequiredFields("phone");
 }
 
 // 제출 폼 확인
@@ -237,7 +245,7 @@ function chlickInput(e) {
   e.preventDefault();
 
   // 모든 기존 에러 메시지 제거
-  joinForm.querySelectorAll("p").forEach(msg => msg.remove());
+  joinForm.querySelectorAll("p").forEach((msg) => msg.remove());
 
   function showError(input) {
     showMsg(input.parentNode, "필수 정보입니다.");
@@ -245,42 +253,42 @@ function chlickInput(e) {
 
   let hasError = false;
 
-  if (userId.value === '') {
+  if (userId.value === "") {
     showError(userId);
     hasError = true;
   }
 
-  if (userPw.value === '') {
+  if (userPw.value === "") {
     showError(userPw);
     hasError = true;
   }
 
-  if (userName.value === '') {
+  if (userName.value === "") {
     showError(userName);
     hasError = true;
   }
 
-  if (phoneMid.value === '' || phoneEnd.value === '') {
+  if (phoneMid.value === "" || phoneEnd.value === "") {
     showError(userNumContainer);
     hasError = true;
-  } 
+  }
 
   if (!checkPw()) {
     hasError = true;
   }
-  
-  if (userId.value !== '' && !isIdChecked) {
+
+  if (userId.value !== "" && !isIdChecked) {
     showMsg(idCheckBtn.parentNode, "아이디 중복 확인을 해주세요.");
     hasError = true;
   }
 
   if (!businessContainer.classList.contains("hidden")) {
-    if (businessNum.value === '') {
+    if (businessNum.value === "") {
       showMsg(businessContainer, "필수 정보입니다.");
       hasError = true;
     }
 
-    if (storeName.value === '') {
+    if (storeName.value === "") {
       showMsg(storeName.parentNode, "필수 정보입니다.");
       hasError = true;
     }
@@ -289,85 +297,95 @@ function chlickInput(e) {
   if (hasError) {
     return;
   }
-  
+
   // 실제 회원가입 API 호출
-  if (selectedUserType === 'BUYER') {
+  if (selectedUserType === "BUYER") {
     const phoneNumber = phoneFirst.value + phoneMid.value + phoneEnd.value;
 
     if (phoneNumber.length >= 10 && phoneNumber.length <= 11) {
+      const loginInfo = {
+        username: userId.value,
+        password: userPw.value,
+        name: userName.value,
+        phone_number: phoneNumber,
+      };
+      // console.log(loginInfo);
 
-    const loginInfo = {
-      username: userId.value,
-      password: userPw.value,
-      name: userName.value,
-      phone_number: phoneNumber
-    };
-    // console.log(loginInfo);
-
-    fetch(`${baseUrl}accounts/buyer/signup/`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(loginInfo),
-    })
-      .then(res => {
-        if (!res.ok) {
-          return res.json().then(errData => {
-            // 오류를 throw해서 .catch로 
-            throw errData;
-          });
-        }
-        return res.json();
+      fetch(`${baseUrl}accounts/buyer/signup/`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(loginInfo),
       })
-      .then(() => {
-        window.location.href = "/login.html";
-      })
-      .catch(err => {
-        if (err.phone_number) {
-          showMsg(userNumContainer.parentNode, "해당 전화번호는 이미 사용 중입니다.");
-        } 
-      });
+        .then((res) => {
+          if (!res.ok) {
+            return res.json().then((errData) => {
+              // 오류를 throw해서 .catch로
+              throw errData;
+            });
+          }
+          return res.json();
+        })
+        .then(() => {
+          window.location.href = "/login.html";
+        })
+        .catch((err) => {
+          if (err.phone_number) {
+            showMsg(
+              userNumContainer.parentNode,
+              "해당 전화번호는 이미 사용 중입니다."
+            );
+          }
+        });
     } else {
-      showMsg(userNumContainer.parentNode, "핸드폰 번호는 10~11자리 숫자여야 합니다.");
+      showMsg(
+        userNumContainer.parentNode,
+        "핸드폰 번호는 10~11자리 숫자여야 합니다."
+      );
     }
   } else {
     const phoneNumber = phoneFirst.value + phoneMid.value + phoneEnd.value;
 
     if (phoneNumber.length >= 10 && phoneNumber.length <= 11) {
+      const loginInfo = {
+        username: userId.value,
+        password: userPw.value,
+        name: userName.value,
+        phone_number: phoneNumber,
+        company_registration_number: businessNum.value,
+        store_name: storeName.value,
+      };
+      console.log(loginInfo);
 
-    const loginInfo = {
-      username: userId.value,
-      password: userPw.value,
-      name: userName.value,
-      phone_number: phoneNumber,
-      company_registration_number: businessNum.value,
-      store_name: storeName.value
-    };
-    console.log(loginInfo);
-
-    fetch(`${baseUrl}accounts/seller/signup/`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(loginInfo),
-    })
-      .then(res => {
-        if (!res.ok) {
-          return res.json().then(errData => {
-            // 오류를 throw해서 .catch로 
-            throw errData;
-          });
-        }
-        return res.json();
+      fetch(`${baseUrl}accounts/seller/signup/`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(loginInfo),
       })
-      .then(() => {
-        window.location.href = "/login.html";
-      })
-      .catch(err => {
-        if (err.phone_number) {
-          showMsg(userNumContainer.parentNode, "해당 전화번호는 이미 사용 중입니다.");
-        } 
-      });
+        .then((res) => {
+          if (!res.ok) {
+            return res.json().then((errData) => {
+              // 오류를 throw해서 .catch로
+              throw errData;
+            });
+          }
+          return res.json();
+        })
+        .then(() => {
+          window.location.href = "/login.html";
+        })
+        .catch((err) => {
+          if (err.phone_number) {
+            showMsg(
+              userNumContainer.parentNode,
+              "해당 전화번호는 이미 사용 중입니다."
+            );
+          }
+        });
     } else {
-      showMsg(userNumContainer.parentNode, "핸드폰 번호는 10~11자리 숫자여야 합니다.");
+      showMsg(
+        userNumContainer.parentNode,
+        "핸드폰 번호는 10~11자리 숫자여야 합니다."
+      );
     }
   }
 }
@@ -380,10 +398,10 @@ phoneMid.addEventListener("input", inputPhone);
 phoneEnd.addEventListener("input", inputPhone);
 joinForm.addEventListener("submit", chlickInput);
 
-// 판매회원가입 
+// 판매회원가입
 // 판매 회원 / 구매회원 버튼 클릭
 function clickbuyBtn() {
-  selectedUserType = 'BUYER';
+  selectedUserType = "BUYER";
 
   buyerBtn.classList.remove("not-focusBtn");
   buyerBtn.classList.add("focusBtn");
@@ -394,22 +412,22 @@ function clickbuyBtn() {
   businessContainer.classList.add("hidden");
   userStore.classList.add("hidden");
 
-  joinForm.style.borderRadius = '0 10px 10px 10px';
+  joinForm.style.borderRadius = "0 10px 10px 10px";
 }
 
 function clicksellernBtn() {
-  selectedUserType = 'SELLER';
+  selectedUserType = "SELLER";
 
   sellerBtn.classList.remove("not-focusBtn");
   sellerBtn.classList.add("focusBtn");
-  
+
   buyerBtn.classList.remove("focusBtn");
   buyerBtn.classList.add("not-focusBtn");
 
   businessContainer.classList.remove("hidden");
   userStore.classList.remove("hidden");
 
-  joinForm.style.borderRadius = '10px 0 10px 10px';
+  joinForm.style.borderRadius = "10px 0 10px 10px";
 }
 
 function businessCheck() {
@@ -417,7 +435,7 @@ function businessCheck() {
   const existing = businessNum.parentNode.querySelector("p");
   if (existing) existing.remove();
 
-  checkRequiredFields('businessNum');
+  checkRequiredFields("businessNum");
 }
 
 function storeInput() {
@@ -425,10 +443,10 @@ function storeInput() {
   const existing = storeName.parentNode.querySelector("p");
   if (existing) existing.remove();
 
-  checkRequiredFields('storeName');
+  checkRequiredFields("storeName");
 
   // 사업자 번호도 체크
-  if (businessNum.value === '') {
+  if (businessNum.value === "") {
     showMsg(businessContainer, "필수 정보입니다.");
   }
 }
@@ -438,15 +456,18 @@ function checkDupbusiness() {
   if (verifybusinessNum.parentNode.querySelector("p")) {
     verifybusinessNum.parentNode.querySelector("p").remove();
   }
-  
+
   const companyNum = businessNum.value;
 
-  if (companyNum === '') {
+  if (companyNum === "") {
     showMsg(verifybusinessNum.parentNode, "아이디를 입력해주세요.");
     isIdChecked = false;
     return;
   } else if (companyNum.length > 20 || !/^[a-zA-Z0-9]+$/.test(companyNum)) {
-    showMsg(verifybusinessNum.parentNode, "20자 이내의 영문 소문자, 대문자, 숫자만 사용 가능합니다.");
+    showMsg(
+      verifybusinessNum.parentNode,
+      "20자 이내의 영문 소문자, 대문자, 숫자만 사용 가능합니다."
+    );
     isIdChecked = false;
     return;
   }
@@ -456,10 +477,10 @@ function checkDupbusiness() {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ company_registration_number : companyNum}),
+    body: JSON.stringify({ company_registration_number: companyNum }),
   })
-    .then(res => res.json())
-    .then(data => {
+    .then((res) => res.json())
+    .then((data) => {
       if (data.message) {
         showMsg(verifybusinessNum.parentNode, "멋진 사업자네요 :)", "#21bf48");
         isIdChecked = true;
@@ -468,7 +489,7 @@ function checkDupbusiness() {
         isIdChecked = false;
       }
     })
-    .catch(error => {
+    .catch((error) => {
       showMsg(idCheckBtn.parentNode, "오류가 발생했습니다. 다시 시도해주세요.");
       console.error("Fetch Error:", error);
     });
