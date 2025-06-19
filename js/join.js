@@ -1,3 +1,6 @@
+// 기본 url
+const baseUrl = 'https://api.wenivops.co.kr/services/open-market/';
+
 // DOM
 const buyerBtn = document.getElementById("buyer-btn");
 const sellerBtn = document.getElementById("seller-btn");
@@ -23,9 +26,6 @@ const verifybusinessNum = document.querySelector(".verify-business");
 const businessInput = document.getElementById("join-businessNum");
 
 const storeName = document.getElementById("join-storeName");
-
-// 기본 url
-const baseUrl = 'https://api.wenivops.co.kr/services/open-market/';
 
 // 전역변수
 let isIdChecked = false;

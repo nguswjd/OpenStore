@@ -1,3 +1,6 @@
+// 기본 url
+const baseUrl = 'https://api.wenivops.co.kr/services/open-market/';
+
 const loginForm = document.getElementById("loginForm");
 const userIdInput = document.getElementById("user-id");
 const userPwInput = document.getElementById("user-pw");
@@ -16,18 +19,48 @@ function showMSG(parentElement, text, color = "#EB5757") {
 
 // login error Msg
 function Errormsg(e) {
+    e.preventDefault();
+    
     if (userIdInput.value === '') {
-        e.preventDefault();
         showMSG(loginContainer, "아이디를 입력해 주세요.");
         userIdInput.focus();
     } else if (userPwInput.value === '') {
-        e.preventDefault();
         showMSG(loginContainer, "비밀번호를 입력해 주세요.");
         userPwInput.focus();
+    } else {
+        // 로그인 API 호출
+        const loginData = {
+            username: userIdInput.value,
+            password: userPwInput.value
+        };
+        
+        fetch(`${baseUrl}accounts/login/`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(loginData),
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.access && data.refresh && data.user) {
+                // console.log('로그인', data);
+                if (data.user.user_type === 'BUYER') {
+                    // window.location.href = '구매자로.html'; 
+                } else if (data.user.user_type === 'SELLER') {
+                    // window.location.href = '판매자로.html'; 
+                }
+            } else if (data.error) {
+                // 로그인 실패
+                showMSG(loginContainer, data.error);
+            }
+        })
+        .catch(error => {
+            showMSG(loginContainer, "오류가 발생했습니다. 다시 시도해주세요.");
+            console.error("Login Error:", error);
+        });
     }
 }
-
-loginForm.addEventListener("submit", Errormsg);
 
 // 판매 회원 / 구매회원 버튼 클릭
 const buyerBtn = document.getElementById("buyer-btn");
@@ -51,3 +84,4 @@ function clicksellernBtn() {
 
 buyerBtn.addEventListener("click", clickbuyBtn);
 sellerBtn.addEventListener("click", clicksellernBtn);
+loginForm.addEventListener("submit", Errormsg);
