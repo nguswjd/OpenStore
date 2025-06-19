@@ -11,7 +11,7 @@ const sellerBtn = document.getElementById("seller-btn");
 // 현재 선택된 사용자 타입을 추적하는 변수
 let selectedUserType = "BUYER";
 
-function showMSG(parentElement, text, color = "#EB5757") {
+function showMsg(parentElement, text, color = "#EB5757") {
   if (parentElement.querySelector("p")) {
     parentElement.querySelector("p").remove();
   }
@@ -23,14 +23,14 @@ function showMSG(parentElement, text, color = "#EB5757") {
 }
 
 // login error Msg
-function Errormsg(e) {
+function ErrorMsg(e) {
   e.preventDefault();
 
   if (userIdInput.value === "") {
-    showMSG(loginContainer, "아이디를 입력해 주세요.");
+    showMsg(loginContainer, "아이디를 입력해 주세요.");
     userIdInput.focus();
   } else if (userPwInput.value === "") {
-    showMSG(loginContainer, "비밀번호를 입력해 주세요.");
+    showMsg(loginContainer, "비밀번호를 입력해 주세요.");
     userPwInput.focus();
   } else {
     // 로그인 API 호출
@@ -53,7 +53,7 @@ function Errormsg(e) {
           const serverUserType = data.user.user_type;
 
           if (serverUserType !== selectedUserType) {
-            showMSG(loginContainer, "구매자/판매자 유형을 다시 선택해주세요.");
+            showMsg(loginContainer, "구매자/판매자 유형을 다시 선택해주세요.");
             return;
           }
 
@@ -64,13 +64,13 @@ function Errormsg(e) {
           }
         } else if (data.error) {
           // 로그인 실패
-          showMSG(loginContainer, "아이디 또는 비밀번호가 일치하지 않습니다.");
+          showMsg(loginContainer, "아이디 또는 비밀번호가 일치하지 않습니다.");
         } else {
-          showMSG(loginContainer, "로그인에 실패했습니다.");
+          showMsg(loginContainer, "로그인에 실패했습니다.");
         }
       })
       .catch((error) => {
-        showMSG(loginContainer, "오류가 발생했습니다. 다시 시도해주세요.");
+        showMsg(loginContainer, "오류가 발생했습니다. 다시 시도해주세요.");
         console.error("Login Error:", error);
       });
   }
@@ -107,4 +107,4 @@ function clicksellernBtn() {
 
 buyerBtn.addEventListener("click", clickbuyBtn);
 sellerBtn.addEventListener("click", clicksellernBtn);
-loginForm.addEventListener("submit", Errormsg);
+loginForm.addEventListener("submit", ErrorMsg);
