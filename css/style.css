@@ -88,8 +88,9 @@ header {
 }
 
 /* ===== 메인 콘텐츠 ===== */
-.mainPage main {
+main {
   position: relative;
+  padding-bottom: 100px;
 }
 
 /* 메인 슬라이드 */
@@ -167,7 +168,6 @@ header {
 
 /* ===== 푸터 ===== */
 footer {
-  margin-top: 180px;
   height: 298px;
   background-color: #f2f2f2;
 }
