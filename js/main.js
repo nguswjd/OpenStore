@@ -8,7 +8,7 @@ function addProduct(product) {
   const li = document.createElement("li");
 
   li.innerHTML = `
-    <a href="#">
+    <a href="product_details.html">
       <img src="${product.image}" alt="${product.name}">
       <p class="store-name">${product.seller.store_name}</p>
       <p class="product-name">${product.name}</p>
