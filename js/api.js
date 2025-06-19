@@ -7,6 +7,5 @@ export const API = {
   COMANY_NUMBER: `${BASE_URL}accounts/seller/validate-registration-number/`,
   BUYER_SIGNUP: `${BASE_URL}accounts/buyer/signup/`,
   SELLER_SIGNUP: `${BASE_URL}accounts/seller/signup/`,
-  PRODUCTS: `${BASE_URL}products/`,
-  PRODUCT_DETAIL: (id) => `${BASE_URL}products/${id}/`
+  PRODUCTS: `${BASE_URL}products/`
 };
