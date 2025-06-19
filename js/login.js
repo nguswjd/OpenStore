@@ -5,6 +5,11 @@ const loginForm = document.getElementById("loginForm");
 const userIdInput = document.getElementById("user-id");
 const userPwInput = document.getElementById("user-pw");
 const loginContainer = document.querySelector("#loginForm > div");
+const buyerBtn = document.getElementById("buyer-btn");
+const sellerBtn = document.getElementById("seller-btn");
+
+// 현재 선택된 사용자 타입을 추적하는 변수
+let selectedUserType = 'BUYER';
 
 function showMSG(parentElement, text, color = "#EB5757") {
     if (parentElement.querySelector("p")) {
@@ -20,7 +25,7 @@ function showMSG(parentElement, text, color = "#EB5757") {
 // login error Msg
 function Errormsg(e) {
     e.preventDefault();
-    
+
     if (userIdInput.value === '') {
         showMSG(loginContainer, "아이디를 입력해 주세요.");
         userIdInput.focus();
@@ -33,7 +38,7 @@ function Errormsg(e) {
             username: userIdInput.value,
             password: userPwInput.value
         };
-        
+
         fetch(`${baseUrl}accounts/login/`, {
             method: "POST",
             headers: {
@@ -44,15 +49,24 @@ function Errormsg(e) {
         .then(res => res.json())
         .then(data => {
             if (data.access && data.refresh && data.user) {
-                // console.log('로그인', data);
-                if (data.user.user_type === 'BUYER') {
-                    // window.location.href = '구매자로.html'; 
-                } else if (data.user.user_type === 'SELLER') {
-                    // window.location.href = '판매자로.html'; 
+                // "user_type": "BUYER" | "SELLER"
+                const serverUserType = data.user.user_type;
+                
+                if (serverUserType !== selectedUserType) {
+                    showMSG(loginContainer, "구매자/판매자 유형을 다시 선택해주세요.");
+                    return;
+                }
+                
+                if (serverUserType === 'BUYER') {
+                    // window.location.href = '구매자로.html';
+                } else if (serverUserType === 'SELLER') {
+                    // window.location.href = '판매자로.html';
                 }
             } else if (data.error) {
                 // 로그인 실패
                 showMSG(loginContainer, data.error);
+            } else {
+                showMSG(loginContainer, "로그인에 실패했습니다.");
             }
         })
         .catch(error => {
@@ -63,23 +77,32 @@ function Errormsg(e) {
 }
 
 // 판매 회원 / 구매회원 버튼 클릭
-const buyerBtn = document.getElementById("buyer-btn");
-const sellerBtn = document.getElementById("seller-btn");
-
 function clickbuyBtn() {
-    buyerBtn.classList.remove("not-focusBtn");
-    buyerBtn.classList.add("focusBtn");
-    sellerBtn.classList.remove("focusBtn");
-    sellerBtn.classList.add("not-focusBtn");
-    loginForm.style.borderRadius = '0 10px 10px 10px';
+  selectedUserType = 'BUYER';
+
+  buyerBtn.classList.remove("not-focusBtn");
+  buyerBtn.classList.add("focusBtn");
+  sellerBtn.classList.remove("focusBtn");
+  sellerBtn.classList.add("not-focusBtn");
+  loginForm.style.borderRadius = '0 10px 10px 10px';
+  
+  if (loginContainer.querySelector("p")) {
+      loginContainer.querySelector("p").remove();
+  }
 }
 
 function clicksellernBtn() {
-    sellerBtn.classList.remove("not-focusBtn");
-    sellerBtn.classList.add("focusBtn");
-    buyerBtn.classList.remove("focusBtn");
-    buyerBtn.classList.add("not-focusBtn");
-    loginForm.style.borderRadius = '10px 0 10px 10px';
+  selectedUserType = 'SELLER';
+
+  sellerBtn.classList.remove("not-focusBtn");
+  sellerBtn.classList.add("focusBtn");
+  buyerBtn.classList.remove("focusBtn");
+  buyerBtn.classList.add("not-focusBtn");
+  loginForm.style.borderRadius = '10px 0 10px 10px';
+  
+  if (loginContainer.querySelector("p")) {
+      loginContainer.querySelector("p").remove();
+  }
 }
 
 buyerBtn.addEventListener("click", clickbuyBtn);

@@ -29,7 +29,7 @@ const storeName = document.getElementById("join-storeName");
 
 // 전역변수
 let isIdChecked = false;
-let isBuyer = true;
+let selectedUserType = 'BUYER';
 
 
 // 공통 메시지 표시 함수
@@ -297,7 +297,7 @@ function chlickInput(e) {
   }
   
   // 실제 회원가입 API 호출
-  if (isBuyer) {
+  if (selectedUserType === 'BUYER') {
     const phoneNumber = phoneFirst.value + phoneMid.value + phoneEnd.value;
 
     if (phoneNumber.length >= 10 && phoneNumber.length <= 11) {
@@ -389,7 +389,7 @@ joinForm.addEventListener("submit", chlickInput);
 // 판매회원가입 
 // 판매 회원 / 구매회원 버튼 클릭
 function clickbuyBtn() {
-  isBuyer = true;
+  selectedUserType = 'BUYER';
 
   buyerBtn.classList.remove("not-focusBtn");
   buyerBtn.classList.add("focusBtn");
@@ -404,7 +404,7 @@ function clickbuyBtn() {
 }
 
 function clicksellernBtn() {
-  isBuyer = false;
+  selectedUserType = 'SELLER';
 
   sellerBtn.classList.remove("not-focusBtn");
   sellerBtn.classList.add("focusBtn");
