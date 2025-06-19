@@ -1,7 +1,38 @@
 // 기본 url
 const baseUrl = "https://api.wenivops.co.kr/services/open-market/";
 
+// DOM
 const productContainer = document.querySelector(".product-list ul");
+
+if (location.href.includes("buyer.html")) {
+  const changeSeller = document.getElementById("mypage-seller");
+  // changeBuyer.innerHTML = "";
+  changeSeller.innerHTML = `
+    <li id="mypage-seller">
+      <a href="login.html">
+        <img src="assets/icons/icon-user.svg" alt="로그인">
+        마이페이지
+      </a>
+    </li>
+    `;
+} else if (location.href.includes("seller.html")) {
+  const changeSeller = document.getElementById("mypage-seller");
+  const changeBuyer = document.getElementById("shopping-mypage");
+  changeBuyer.innerHTML =`
+    <li id="mypage-seller">
+      <a href="login.html">
+        <img src="assets/icons/icon-user.svg" alt="로그인">
+        마이페이지
+      </a>
+    </li>
+  `;
+  changeSeller.innerHTML = `
+    <button>
+        <img src="assets/icons/icon-shopping-bag.svg" alt="">
+        판매자 센터
+    </button>
+  `;
+}
 
 // 상품추가
 function addProduct(product) {
@@ -27,7 +58,7 @@ function addProduct(product) {
 fetch(`${baseUrl}products/`)
   .then((res) => {
     if (!res.ok) {
-      throw new ㅂ(`HTTP error! status: ${res.status}`);
+      throw new (`HTTP error! status: ${res.status}`);
     }
     return res.json();
   })

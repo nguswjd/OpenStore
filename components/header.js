@@ -15,13 +15,13 @@ document.querySelector("header").innerHTML = `
     <section class="user-menu">
       <h2 class="sr-only">장바구니 및 로그인</h2>
       <ul>
-        <li>
+        <li id="shopping-mypage">
           <a href="#">
             <img src="assets/icons/icon-shopping-cart.svg" alt="장바구니">
             <span>장바구니</span>
           </a>
         </li>
-        <li>
+        <li id="mypage-seller">
           <a href="login.html">
             <img src="assets/icons/icon-user.svg" alt="로그인">
             로그인
