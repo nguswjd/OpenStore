@@ -1,5 +1,4 @@
-// 기본 url
-const baseUrl = "https://api.wenivops.co.kr/services/open-market/";
+import { API } from './api.js';
 
 // DOM
 const productContainer = document.querySelector(".product-list ul");
@@ -55,7 +54,7 @@ function addProduct(product) {
 
 // 상품 API 호출
 if (productContainer) {
-  fetch(`${baseUrl}products/`)
+  fetch(API.PRODUCTS)
     .then((res) => {
       if (!res.ok) {
         throw new Error(`HTTP error! status: ${res.status}`);
