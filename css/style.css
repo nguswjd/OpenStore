@@ -18,13 +18,14 @@ header {
   z-index: 1;
 }
 
-header button {
+#shopingBag {
   background-color: #21bf48;
   color: #fff;
   font-weight: 500;
   font-size: 18px;
 
   display: flex;
+  flex-direction: row;
   align-items: center;
   gap: 10px;
 

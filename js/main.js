@@ -27,10 +27,10 @@ if (location.href.includes("buyer.html")) {
     </li>
   `;
   changeSeller.innerHTML = `
-    <button>
+    <a href = "#" id = "shopingBag">
         <img src="assets/icons/icon-shopping-bag.svg" alt="">
         판매자 센터
-    </button>
+    </a>
   `;
 }
 
