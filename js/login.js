@@ -33,46 +33,46 @@ function Errormsg(e) {
         showMSG(loginContainer, "비밀번호를 입력해 주세요.");
         userPwInput.focus();
     } else {
-        // 로그인 API 호출
-        const loginData = {
-            username: userIdInput.value,
-            password: userPwInput.value
-        };
+      // 로그인 API 호출
+      const loginData = {
+          username: userIdInput.value,
+          password: userPwInput.value
+      };
 
-        fetch(`${baseUrl}accounts/login/`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(loginData),
-        })
-        .then(res => res.json())
-        .then(data => {
-            if (data.access && data.refresh && data.user) {
-                // "user_type": "BUYER" | "SELLER"
-                const serverUserType = data.user.user_type;
-                
-                if (serverUserType !== selectedUserType) {
-                    showMSG(loginContainer, "구매자/판매자 유형을 다시 선택해주세요.");
-                    return;
-                }
-                
-                if (serverUserType === 'BUYER') {
-                    // window.location.href = '구매자로.html';
-                } else if (serverUserType === 'SELLER') {
-                    // window.location.href = '판매자로.html';
-                }
-            } else if (data.error) {
-                // 로그인 실패
-                showMSG(loginContainer, data.error);
-            } else {
-                showMSG(loginContainer, "로그인에 실패했습니다.");
-            }
-        })
-        .catch(error => {
-            showMSG(loginContainer, "오류가 발생했습니다. 다시 시도해주세요.");
-            console.error("Login Error:", error);
-        });
+      fetch(`${baseUrl}accounts/login/`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(loginData),
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.access && data.refresh && data.user) {
+          // "user_type": "BUYER" | "SELLER"
+          const serverUserType = data.user.user_type;
+          
+          if (serverUserType !== selectedUserType) {
+            showMSG(loginContainer, "구매자/판매자 유형을 다시 선택해주세요.");
+            return;
+          }
+          
+          if (serverUserType === 'BUYER') {
+            // window.location.href = '구매자로.html';
+          } else if (serverUserType === 'SELLER') {
+            // window.location.href = '판매자로.html';
+          }
+        } else if (data.error) {
+          // 로그인 실패
+          showMSG(loginContainer, "아이디 또는 비밀번호가 일치하지 않습니다.");
+        } else {
+          showMSG(loginContainer, "로그인에 실패했습니다.");
+        }
+      })
+      .catch(error => {
+        showMSG(loginContainer, "오류가 발생했습니다. 다시 시도해주세요.");
+        console.error("Login Error:", error);
+      });
     }
 }
 
