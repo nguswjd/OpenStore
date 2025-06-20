@@ -3,14 +3,15 @@ import { API } from './api.js';
 // DOM
 const productContainer = document.querySelector(".product-list ul");
 
-// 헤더 변경 함수
+// 헤더 변경
 function loginHeader() {
     const changeSeller = document.getElementById("mypage-seller");
 
     if (changeSeller) {
+      // 링크 이동 수정필요
         changeSeller.innerHTML = `
             <li id="mypage-seller">
-                <a href="login.html">
+                <a href="#">
                     <img src="assets/icons/icon-user.svg" alt="마이페이지">
                     마이페이지
                 </a>
