@@ -105,16 +105,20 @@ if (!userInfo || !userInfo.user_type) {
 }
 
 // 리뷰어 탭 이벤트
-tabButtons.forEach((btn) => {
-  btn.addEventListener("click", function () {
-    tabButtons.forEach((b) => b.classList.remove("active"));
-    this.classList.add("active");
-  });
-});
+function tabClick(e) {
+  for (let j = 0; j < tabButtons.length; j++) {
+    tabButtons[j].classList.remove("active");
+  }
+  e.currentTarget.classList.add("active");
+}
 
 // 이벤트 리스너
 minusBtn.addEventListener("click", decreaseBtn);
 plusBtn.addEventListener("click", increaseBtn);
+
+for (let i = 0; i < tabButtons.length; i++) {
+  tabButtons[i].addEventListener("click", tabClick);
+}
 
 receipt();
 updateButtonState();

@@ -58,7 +58,7 @@ function loginSubmit(e) {
           localStorage.setItem("userInfo", JSON.stringify(data.user));
           console.log(data.user);
 
-          window.location.href = "index.html";
+          history.back();
         } else {
           showMsg(loginContainer, "아이디 또는 비밀번호가 올바르지 않습니다.");
           userPwInput.value = "";
