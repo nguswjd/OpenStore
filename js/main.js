@@ -1,12 +1,5 @@
 import { API } from './api.js';
 
-// 로그인 정보
-const token = localStorage.getItem("accessToken");
-const refresh = localStorage.getItem("refreshToken");
-const userType = localStorage.getItem("userType");
-
-console.log(token, refresh, userType);
-
 // DOM
 const productContainer = document.querySelector(".product-list ul");
 const modal = document.getElementById("modal");
@@ -14,6 +7,10 @@ const modal = document.getElementById("modal");
 const shoppingBag = document.getElementById("shopping-mypage");
 const buyProduct = document.getElementById("buy");
 const basket = document.getElementById("basket");
+
+const user = JSON.parse(localStorage.getItem("user")); 
+
+console.log(user);
 
 
 function openModal() {
@@ -48,12 +45,16 @@ function buyerHeader() {
 
       // 링크 이동 수정필요
         loginChange.innerHTML = `
-            <li id="mypage-seller">
-                <a href="#">
-                    <img src="assets/icons/icon-user.svg" alt="마이페이지">
-                    마이페이지
-                </a>
-            </li>
+          <li id="mypage-seller" class="user-menu-item">
+            <a href="#">
+              <img src="assets/icons/icon-user.svg" alt="마이페이지">
+              마이페이지
+            </a>
+            <ul class="dropdown-menu" id="mypage-menu">
+              <li><a href="#">마이페이지</a></li>
+              <li><button id="logoutBtn">로그아웃</button></li>
+            </ul>
+          </li>
         `;
 
         if (modal) {
@@ -69,12 +70,16 @@ function sellerHeader() {
     
     if (shoppingBagChange) {
         shoppingBagChange.innerHTML = `
-            <li id="mypage-seller">
-                <a href="login.html">
-                    <img src="assets/icons/icon-user.svg" alt="마이페이지">
-                    마이페이지
-                </a>
-            </li>
+          <li id="mypage-seller" class="user-menu-item">
+            <a href="#">
+              <img src="assets/icons/icon-user.svg" alt="마이페이지">
+              마이페이지
+            </a>
+            <ul class="dropdown-menu" id="mypage-menu">
+              <li><a href="#">마이페이지</a></li>
+              <li><button id="logoutBtn">로그아웃</button></li>
+            </ul>
+          </li>
         `;
 
         if (modal) {
@@ -158,10 +163,4 @@ if (buyProduct) {
 
 if (basket) {
     basket.addEventListener("click", openModal);
-}
-
-if (token) {
-  console.log("로그인");
-} else {
-  console.log("로그인아웃");
 }

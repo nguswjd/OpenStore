@@ -21,6 +21,7 @@ document.querySelector("header").innerHTML = `
             <span>장바구니</span>
           </a>
         </li>
+        
         <li id="mypage-seller">
           <a href="login.html">
             <img src="assets/icons/icon-user.svg" alt="로그인">

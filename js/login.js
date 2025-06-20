@@ -1,4 +1,4 @@
-import { API } from './api.js';
+import { API } from "./api.js";
 
 const loginForm = document.getElementById("loginForm");
 const userIdInput = document.getElementById("user-id");
@@ -7,7 +7,7 @@ const loginContainer = document.querySelector("#loginForm > div");
 const buyerBtn = document.getElementById("buyer-btn");
 const sellerBtn = document.getElementById("seller-btn");
 
-// 선택된 사용자 
+// 선택된 사용자
 let selectedUserType = "BUYER";
 
 function showMsg(parentElement, text, color = "#EB5757") {
@@ -22,7 +22,7 @@ function showMsg(parentElement, text, color = "#EB5757") {
 }
 
 // login error Msg
-function ErrorMsg(e) {
+function errorMsg(e) {
   e.preventDefault();
 
   if (userIdInput.value === "") {
@@ -48,7 +48,6 @@ function ErrorMsg(e) {
       .then((res) => res.json())
       .then((data) => {
         if (data.access && data.refresh && data.user) {
-          // "user_type": "BUYER" | "SELLER"
           const serverUserType = data.user.user_type;
 
           if (serverUserType !== selectedUserType) {
@@ -56,15 +55,25 @@ function ErrorMsg(e) {
             return;
           }
 
-          if (serverUserType === "BUYER") {
-            window.location.href = "buyer.html";
-          } else if (serverUserType === "SELLER") {
-            window.location.href = "seller.html";
+          // 로컬스토리지에 로그인 정보 저장
+          localStorage.setItem("accessToken", data.access);
+          localStorage.setItem("refreshToken", data.refresh);
+          localStorage.setItem("user", JSON.stringify(data.user));
+
+          const user = JSON.parse(localStorage.getItem("user"));
+
+          if (user) {
+            if (user.user_type === "BUYER") {
+              window.location.href = "buyer.html";
+            } else if (user.user_type === "SELLER") {
+              window.location.href = "seller.html";
+            }
           }
+
         } else if (data.error) {
           // 로그인 실패
           showMsg(loginContainer, "아이디 또는 비밀번호가 일치하지 않습니다.");
-          userPwInput.value = '';
+          userPwInput.value = "";
           userPwInput.focus();
         } else {
           showMsg(loginContainer, "로그인에 실패했습니다.");
@@ -108,4 +117,4 @@ function clicksellernBtn() {
 
 buyerBtn.addEventListener("click", clickbuyBtn);
 sellerBtn.addEventListener("click", clicksellernBtn);
-loginForm.addEventListener("submit", ErrorMsg);
+loginForm.addEventListener("submit", errorMsg);

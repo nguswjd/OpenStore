@@ -12,6 +12,7 @@
   font-size: 16px;
   font-weight: 400;
   font-style: normal;
+  box-sizing: border-box;
 }
 
 .sr-only {
@@ -23,7 +24,6 @@
   overflow: hidden;
 }
 
-/* important 사용해도 되는지,, 우선사용인걸로 알고 있는데,. 하지만 이렇게 한쓰면 loginPage에서 class적용이 안돼요 ㅜㅜ */
 .hidden {
   display: none !important;
 }
