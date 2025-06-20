@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,65 +10,75 @@
     <link rel="stylesheet" href="css/product_details.css">
     <script type="module" src="js/main.js"></script>
     <script type="module" src="js/product_details.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <header></header>
-    
-  <main>
-    <article>
-      <img id="product-image" src="#" alt="상품 이미지">
 
-      <div>
-        <section class="product-info">
-          <p id="store-name"></p>
-          <p id="product_name"></p>
-          <p id="price"></p>
-        </section>
+    <main>
+      <article>
+        <h2 class="sr-only">상품 상세 정보</h2>
+        <img id="product-image" src="#" alt="상품 이미지">
 
-        <div class="purchase-box">
-          <span id="shipping-method">택배배송 / 무료배송</span>
-
-          <hr>
-          <section class="quantity-control">
-            <h2 class="sr-only">구매 수량 선택 버튼</h2>
-            <button type="button" id="minus-btn">-</button>
-            <input type="number" id="quantity" value="1" min="1" max="99" readonly>
-            <button type="button" id="plus-btn">+</button>
-          </section>
-          <hr>
-
-          <section class="receipt">
-            <h2 class="sr-only">상품 총 수량 및 금액</h2>
-            <p>총 상품 금액</p>
-            <p>총 수량 
-              <span id="total-quantity">0</span>개
-              <span id="total-price">0</span>
-            </p>
+        <div>
+          <section class="product-info">
+            <h3 class="sr-only">제품 기본 정보</h3>
+            <p id="store-name"></p>
+            <p id="product_name"></p>
+            <p id="price"></p>
           </section>
 
-          <section class="buy-basket">
-            <h2 class="sr-only">구매버튼</h2>
-            <button id="buy">바로 구매</button>
-            <button id="basket">장바구니</button>
-          </section>
+          <div class="purchase-box">
+            <span id="shipping-method">택배배송 / 무료배송</span>
+
+            <hr>
+            <section class="quantity-control">
+              <h3 class="sr-only">구매 수량 선택</h3>
+              <button type="button" id="minus-btn">-</button>
+
+              <input
+                type="number"
+                id="quantity"
+                value="1"
+                min="1"
+                max="99"
+                readonly
+              >
+              
+              <button type="button" id="plus-btn">+</button>
+            </section>
+            <hr>
+
+            <section class="receipt">
+              <h3 class="sr-only">주문 요약</h3>
+              <p>총 상품 금액</p>
+              <p>
+                총 수량 <span id="total-quantity">1</span>개
+                <span id="total-price"></span>
+              </p>
+            </section>
+
+            <section class="buy-basket">
+              <h3 class="sr-only">구매 옵션</h3>
+              <button id="buy">바로 구매</button>
+              <button id="basket">장바구니</button>
+            </section>
+          </div>
         </div>
-      </div>
-    </article>
+      </article>
 
-    <section class="product_details-footer">
-      <h2 class="sr-only">리뷰 및 Q&A 정보</h2>
-      <button class="tab active">버튼</button>
-      <button class="tab">리뷰</button>
-      <button class="tab">Q&A</button>
-      <button class="tab">반품/교환정보</button>
-    </section>
+      <section class="product_details-footer">
+        <h2 class="sr-only">상품 추가 정보</h2>
+        <button class="tab active">상품정보</button>
+        <button class="tab">리뷰</button>
+        <button class="tab">Q&A</button>
+        <button class="tab">반품/교환정보</button>
+      </section>
 
-    <section class="action-info">
-      <!-- 탭에 따라 리뷰, Q&A, 반품/교환 내용이 바뀌면서 h2도 바뀌도록 -->
-      <h2 class="sr-only">버튼 정보</h2>
-    </section>
-  </main>
+      <section class="action-info">
+        <h2 class="sr-only">상품정보</h2>
+      </section>
+    </main>
 
-  <script src="components/header.js"></script>
-</body>
+    <script src="components/header.js"></script>
+  </body>
 </html>
