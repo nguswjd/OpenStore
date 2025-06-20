@@ -28,17 +28,18 @@ main > article > div {
   gap: 16px;
 }
 
-.product_name,
-.price {
+#product_name,
+#price {
   font-size: 36px;
 }
 
-.price {
+#price {
   margin-top: 4px;
+  font-weight: 700;
 }
 
-.store-name,
-.price span {
+#store-name,
+#price span {
   font-size: 18px;
 }
 
