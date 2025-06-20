@@ -138,13 +138,6 @@ header {
   border: 1px solid #e5e7eb;
 
   z-index: 1000;
-
-  flex-direction: column;
-
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-  pointer-events: none;
 }
 
 .dropdown-menu::before {
@@ -205,12 +198,6 @@ header {
 
   font-weight: 500;
   color: #000;
-}
-
-#mypage-seller:hover .dropdown-menu {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
 }
 
 #logoutBtn {
