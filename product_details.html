@@ -7,6 +7,7 @@
     <title>HODU</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/product_details.css">
     <script type="module" src="js/main.js" defer></script>
     <script type="module" src="js/product_details.js" defer></script>
 </head>
@@ -14,9 +15,53 @@
     <header></header>
     
   <main>
+    <article>
+      <img src="assets/products/Hack_Your_Life_노트북파우치.jpg" alt="">
 
+      <div>
+        <section class="product_info">
+          <p class="store-name">판매자</p>
+          <p class="product_name">제품명</p>
+          <p class="price">5050<span>원</span></p>
+        </section>
+
+        <div class="purchase-box">
+          <span>택배배송 / 무료배송</span>
+
+          <hr>
+          <section class="quantity-control">
+            <button type="button" id="minus-btn">-</button>
+            <input type="number" id="quantity" value="1" min="1" max="99" readonly>
+            <button type="button" id="plus-btn">+</button>
+          </section>
+          <hr>
+
+          <section class="receipt">
+            <p>총 상품 금액</p>
+            <p>총 수량 
+              <span id="total-quantity">0</span>개
+              <span id="total-price">0</span>
+            </p>
+          </section>
+
+          <section class="buy-basket">
+            <button id="buy">바로 구매</button>
+            <button id="basket">장바구니</button>
+          </section>
+        </div>
+      </div>
+    </article>
+
+    <section class="product_details-footer">
+      <button class="tab active">버튼</button>
+      <button class="tab">리뷰</button>
+      <button class="tab">Q&A</button>
+      <button class="tab">반품/교환정보</button>
+    </section>
+
+    <section class="action-info"></section>
   </main>
 
-    <script src="components/header.js"></script>
+  <script src="components/header.js"></script>
 </body>
 </html>
