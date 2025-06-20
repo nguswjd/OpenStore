@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/product_details.css">
-    <script type="module" src="js/main.js" defer></script>
-    <script type="module" src="js/product_details.js" defer></script>
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/product_details.js"></script>
 </head>
 <body>
     <header></header>
@@ -37,6 +37,7 @@
           <hr>
 
           <section class="receipt">
+            <h2 class="sr-only">상품 총 수량 및 금액</h2>
             <p>총 상품 금액</p>
             <p>총 수량 
               <span id="total-quantity">0</span>개
@@ -53,6 +54,7 @@
     </article>
 
     <section class="product_details-footer">
+      <h2 class="sr-only">리뷰 및 Q&A 정보</h2>
       <button class="tab active">버튼</button>
       <button class="tab">리뷰</button>
       <button class="tab">Q&A</button>

@@ -94,6 +94,11 @@ hr {
   gap: 14px;
 }
 
+.receipt p:first-child {
+  font-size: 18px;
+  font-weight: 500;
+}
+
 .receipt p,
 .buy-basket,
 #total-quantity {
@@ -161,10 +166,15 @@ hr {
 
 .tab.active {
   color: #21BF48;
+  font-weight: 700;
   border-bottom: 6px solid #21BF48;
 }
 
 .tab {
+  font-size: 18px;
+  font-weight: 500;
+  color: #767676;
+
   height: 60px;
   border-bottom: 6px solid #E0E0E0;
 }
