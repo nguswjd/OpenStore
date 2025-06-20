@@ -4,6 +4,23 @@ import { API } from './api.js';
 const productContainer = document.querySelector(".product-list ul");
 const modal = document.getElementById("modal");
 
+const shoppingBag = document.getElementById("shopping-mypage");
+
+function clickShoppingBag() {
+    const modalDelete = document.getElementById("delete");
+
+    const modalNo = document.getElementById("go-back-btn");
+
+    modal.classList.remove('hidden');
+
+    function backPage() {
+        modal.classList.add('hidden');
+    }
+
+    modalNo.addEventListener("click",  backPage);
+    modalDelete.addEventListener("click",  backPage);
+}
+
 // 헤더 변경
 function buyerHeader() {
     const loginChange = document.getElementById("mypage-seller");
@@ -18,6 +35,11 @@ function buyerHeader() {
                 </a>
             </li>
         `;
+
+        if (modal) {
+            modal.innerHTML = '';
+            modal.style.display = 'none';
+        }
     }
 }
 
@@ -34,6 +56,11 @@ function sellerHeader() {
                 </a>
             </li>
         `;
+
+        if (modal) {
+            modal.innerHTML = '';
+            modal.style.display = 'none';
+        }
     }
     
     if (loginChange) {
@@ -43,6 +70,11 @@ function sellerHeader() {
                 판매자 센터
             </a>
         `;
+
+        if (modal) {
+            modal.innerHTML = '';
+            modal.style.display = 'none';
+        }
     }
 }
 
@@ -57,7 +89,7 @@ if (location.href.includes("buyer.html")) {
     } else if (document.referrer.includes("seller.html")){
         sellerHeader();
     }
-}
+} 
 
 // 상품추가
 function addProduct(product) {
@@ -96,24 +128,4 @@ if (productContainer) {
         });
 }
 
-// 로그인 없이 구매 클릭시 모달
-if (location.href.includes("index.html")) {
-    const shoppingBag = document.getElementById("shopping-mypage");
-
-    function clickShoppingBag() {
-        const modalDelete = document.getElementById("delete");
-
-        const modalNo = document.getElementById("go-back-btn");
-
-        modal.classList.remove('hidden');
-
-        function backPage() {
-            modal.classList.add('hidden');
-        }
-
-        modalNo.addEventListener("click",  backPage);
-        modalDelete.addEventListener("click",  backPage);
-    }
-
-    shoppingBag.addEventListener("click", clickShoppingBag);
-}
+shoppingBag.addEventListener("click", clickShoppingBag);
