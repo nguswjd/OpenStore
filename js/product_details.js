@@ -2,6 +2,7 @@ import { API } from "./api.js";
 
 // localStorage
 const product = JSON.parse(localStorage.getItem("clickProduct"));
+const userInfo = JSON.parse(localStorage.getItem("userInfo"));
 
 // DOM
 const shippingMethod = document.getElementById("shipping-method");
@@ -20,6 +21,9 @@ const totalQuantity = document.getElementById("total-quantity");
 const tabButtons = document.querySelectorAll(".tab");
 
 const minusIcon = document.getElementById("plus-line");
+
+const buyProduct = document.getElementById("buy");
+const basket = document.getElementById("basket");
 
 // 전역변수
 let productPrice = product.price;
@@ -78,6 +82,26 @@ function increaseBtn() {
     receipt();
     updateButtonState();
   }
+}
+
+// 모달
+if (!userInfo || !userInfo.user_type) {
+  function openModal () {
+    const modalDelete = document.getElementById("delete");
+    const modalNo = document.getElementById("go-back-btn");
+
+    modal.classList.remove("hidden");
+
+    function backPage() {
+      modal.classList.add("hidden");
+    }
+
+    modalNo.addEventListener("click", backPage);
+    modalDelete.addEventListener("click", backPage);
+  }
+
+  buyProduct.addEventListener("click", openModal);
+  basket.addEventListener("click", openModal);
 }
 
 // 리뷰어 탭 이벤트
