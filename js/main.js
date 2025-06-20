@@ -5,8 +5,10 @@ const productContainer = document.querySelector(".product-list ul");
 const modal = document.getElementById("modal");
 
 const shoppingBag = document.getElementById("shopping-mypage");
+const buyProduct = document.getElementById("buy");
+const basket = document.getElementById("basket");
 
-function clickShoppingBag() {
+function openModal() {
     const modalDelete = document.getElementById("delete");
 
     const modalNo = document.getElementById("go-back-btn");
@@ -128,4 +130,6 @@ if (productContainer) {
         });
 }
 
-shoppingBag.addEventListener("click", clickShoppingBag);
+shoppingBag.addEventListener("click", openModal);
+buyProduct.addEventListener("click", openModal);
+basket.addEventListener("click", openModal);
