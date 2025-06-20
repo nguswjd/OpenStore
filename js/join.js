@@ -176,11 +176,6 @@ function checkPw() {
   }
 
   if (userPw.value === "") {
-    showMsg(pwCheck.parentNode, "필수 정보입니다.");
-    pwCheck.style.border = "1px solid #eb5757";
-  }
-
-  if (userPw.value === "") {
     if (userPw.parentNode.querySelector("p")) {
       userPw.parentNode.querySelector("p").remove();
     }
@@ -193,7 +188,7 @@ function checkPw() {
     pwCheck.style.backgroundImage = "url('../assets/icons/icon-check-on.svg')";
     pwCheck.style.border = "";
     return true;
-  } else if (userPw.value !== "" && pwCheck.value !== "") {
+  } else if (pwCheck.value !== "") {
     showMsg(pwCheck.parentNode, "비밀번호가 일치하지 않습니다.");
     pwCheck.style.border = "1px solid #eb5757";
     pwCheck.style.backgroundImage = "url('../assets/icons/icon-check-off.svg')";
