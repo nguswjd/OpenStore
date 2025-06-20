@@ -7,7 +7,7 @@ const loginContainer = document.querySelector("#loginForm > div");
 const buyerBtn = document.getElementById("buyer-btn");
 const sellerBtn = document.getElementById("seller-btn");
 
-// 현재 선택된 사용자 타입을 추적하는 변수
+// 선택된 사용자 
 let selectedUserType = "BUYER";
 
 function showMsg(parentElement, text, color = "#EB5757") {
