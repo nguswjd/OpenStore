@@ -64,6 +64,8 @@ function ErrorMsg(e) {
         } else if (data.error) {
           // 로그인 실패
           showMsg(loginContainer, "아이디 또는 비밀번호가 일치하지 않습니다.");
+          userPwInput.value = '';
+          userPwInput.focus();
         } else {
           showMsg(loginContainer, "로그인에 실패했습니다.");
         }
