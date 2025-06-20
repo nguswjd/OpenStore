@@ -22,7 +22,7 @@ function showMsg(parentElement, text, color = "#EB5757") {
 }
 
 // login error Msg
-function errorMsg(e) {
+function loginSubmit(e) {
   e.preventDefault();
 
   if (userIdInput.value === "") {
@@ -103,4 +103,4 @@ function clicksellernBtn() {
 
 buyerBtn.addEventListener("click", clickbuyBtn);
 sellerBtn.addEventListener("click", clicksellernBtn);
-loginForm.addEventListener("submit", errorMsg);
+loginForm.addEventListener("submit", loginSubmit);

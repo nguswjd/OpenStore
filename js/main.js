@@ -1,12 +1,66 @@
 import { API } from "./api.js";
 
+// localStorage
+const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+
 // DOM
 const productContainer = document.querySelector(".product-list ul");
 const modal = document.getElementById("modal");
 
+const userMenu = document.querySelector(".user-menu");
 const shoppingBag = document.getElementById("shopping-mypage");
 const buyProduct = document.getElementById("buy");
 const basket = document.getElementById("basket");
+
+console.log(userInfo.user_type);
+
+if (userInfo.user_type === "BUYER") {
+  userMenu.innerHTML = `
+  <h2 class="sr-only">장바구니 및 로그인</h2>
+  <ul>
+    <li id="shopping-mypage">
+      <a href="#">
+        <img src="assets/icons/icon-shopping-cart.svg" alt="장바구니">
+        <span>장바구니</span>
+      </a>
+    </li>
+    
+    <li id="mypage-seller" class="user-menu-item">
+        <a href="#">
+          <img src="assets/icons/icon-user.svg" alt="마이페이지">
+          마이페이지
+        </a>
+        <ul class="dropdown-menu" id="mypage-menu">
+          <li><a href="#">마이페이지</a></li>
+          <li><button id="logoutBtn">로그아웃</button></li>
+        </ul>
+      </li>
+  </ul>
+  `
+} else if (userInfo.user_type === "SELLER") {
+  userMenu.innerHTML = `
+  <h2 class="sr-only">장바구니 및 로그인</h2>
+  <ul>
+    <li id="mypage-seller" class="user-menu-item">
+      <a href="#">
+        <img src="assets/icons/icon-user.svg" alt="마이페이지">
+        마이페이지
+      </a>
+      <ul class="dropdown-menu" id="mypage-menu">
+        <li><a href="#">마이페이지</a></li>
+        <li><button id="logoutBtn">로그아웃</button></li>
+      </ul>
+    </li>
+  
+    <li id="mypage-seller">
+      <a href="#" id="shopingBag">
+        <img src="assets/icons/icon-shopping-bag.svg" alt="">
+          판매자 센터
+      </a>
+    </li>
+  </ul>
+  `
+}
 
 // 상품 추가 함수
 function addProduct(product) {
