@@ -12,21 +12,29 @@ const user = JSON.parse(localStorage.getItem("user"));
 
 console.log(user);
 
-
-
-// 상품추가
+// 상품 추가 함수
 function addProduct(product) {
   if (!productContainer) return;
+
   const li = document.createElement("li");
   li.innerHTML = `
-      <a href="product_details.html?id=${product.id}">
-          <img src="${product.image}" alt="${product.name}">
-          <p class="store-name">${product.seller.store_name}</p>
-          <p class="product-name">${product.name}</p>
-          <p class="price">${product.price.toLocaleString()}<span>원</span></p>
-      </a>
-    `;
-  productContainer.append(li);
+    <a href="product_details.html?id=${product.id}" class="product-link">
+      <img src="${product.image}" alt="${product.name}">
+      <p class="store-name">${product.seller.store_name}</p>
+      <p class="product-name">${product.name}</p>
+      <p class="price">${product.price.toLocaleString()}<span>원</span></p>
+    </a>
+  `;
+
+  productContainer.appendChild(li);
+
+  const link = li.querySelector(".product-link");
+
+  function clickLink() {
+    localStorage.setItem("selectedProduct", JSON.stringify(product));
+  }
+
+  link.addEventListener("click", clickLink);
 }
 
 // 상품 API 호출
@@ -40,10 +48,7 @@ if (productContainer) {
     })
     .then((data) => {
       if (data.results && Array.isArray(data.results)) {
-        for (let i = 0; i < data.results.length; i++) {
-          const product = data.results[i];
-          addProduct(product);
-        }
+        data.results.forEach((product) => addProduct(product));
       }
     })
     .catch((error) => {
