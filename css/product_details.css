@@ -1,6 +1,5 @@
 main {
   margin-top: 170px;
-  width: 70vw;
   padding: 0 15vw;
 }
 
@@ -60,10 +59,12 @@ main > article > div {
     grid-template-columns: repeat(3, 1fr);
     width: clamp(50px, 90%, 150px);
     height: 50px;
+    border-radius: 5px;
 }
 
-.quantity-control button {
-    font-size: 18px;
+.quantity-control img {
+  width: 20px;
+  height: 20px;
 }
 
 #quantity {

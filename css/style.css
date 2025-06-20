@@ -353,9 +353,6 @@ footer address strong {
   left: 50%;
   transform: translate(-50%, -50%);
 
-  width: 260px;
-  height: 100px;
-
   padding: 50px;
 
   background-color: #fff;
@@ -365,6 +362,8 @@ footer address strong {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  gap: 25px;
 }
 
 #modal p {

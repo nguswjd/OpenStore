@@ -5,10 +5,13 @@ const shippingMethod = document.getElementById("shipping-method");
 const storeName = document.getElementById("store-name");
 const productName = document.getElementById("product_name");
 const price = document.getElementById("price");
+
 const productImage = document.getElementById("product-image");
+
 const minusBtn = document.getElementById("minus-btn");
 const plusBtn = document.getElementById("plus-btn");
 const quantityInput = document.getElementById("quantity");
+
 const totalPrice = document.getElementById("total-price");
 const totalQuantity = document.getElementById("total-quantity");
 const tabButtons = document.querySelectorAll('.tab');
@@ -66,7 +69,17 @@ fetch(API.PRODUCTS)
 
 function decreaseBtn() {
     const quantity = parseInt(quantityInput.value, 10);
+
+    const minus = document.getElementById("minus-line");
     
+    minusBtn.style.backgroundColor = "#E0E0E0";
+    minus.style.filter = "brightness(0) invert(1)";
+
+    setTimeout(() => {
+        minusBtn.style.backgroundColor = "";
+        minus.style.filter = "";
+    }, 150);
+
     if (quantity > 1) {
         quantityInput.value = quantity - 1;
         receipt();
@@ -75,6 +88,17 @@ function decreaseBtn() {
 
 function increaseBtn() {
     const quantity = parseInt(quantityInput.value, 10);
+
+    const plus = document.getElementById("plus-line");
+    
+    plusBtn.style.backgroundColor = "#E0E0E0";
+    plus.style.filter = "brightness(0) invert(1)";
+
+    setTimeout(() => {
+        plusBtn.style.backgroundColor = "";
+        plus.style.filter = "";
+    }, 150);
+    
     if (quantity < 99) {
         quantityInput.value = quantity + 1;
         receipt();
