@@ -5,6 +5,7 @@ const storeName = document.getElementById("store-name");
 const productName = document.getElementById("product_name");
 const price = document.getElementById("price");
 const productImage = document.getElementById("product-image");
+const shippingMethod = document.getElementById("shipping-method");
 
 // 상품 호출
 const id = parseInt(window.location.search.match(/\d+/)[0], 10);
@@ -25,6 +26,15 @@ fetch(API.PRODUCTS)
       return;
     }
 
+    let shippingType = "PARCEL";
+    
+    if(product.shipping_method === "PARCEL") {
+      shippingType = "무료배송";
+    } else if (product.shipping_method === "DELIVERY") {
+      shippingType = "택배배송";
+    }
+    
+    shippingMethod.textContent = shippingType;
     productImage.src = product.image;
     productImage.alt = product.name;
     storeName.textContent = product.seller.store_name;

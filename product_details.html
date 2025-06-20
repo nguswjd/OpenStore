@@ -16,20 +16,21 @@
     
   <main>
     <article>
-      <img id="product-image" src="" alt="">
+      <img id="product-image" src="#" alt="상품 이미지">
 
       <div>
-        <section>
+        <section class="product-info">
           <p id="store-name"></p>
           <p id="product_name"></p>
           <p id="price"></p>
         </section>
 
         <div class="purchase-box">
-          <span>택배배송 / 무료배송</span>
+          <span id="shipping-method">택배배송 / 무료배송</span>
 
           <hr>
           <section class="quantity-control">
+            <h2 class="sr-only">구매 수량 선택 버튼</h2>
             <button type="button" id="minus-btn">-</button>
             <input type="number" id="quantity" value="1" min="1" max="99" readonly>
             <button type="button" id="plus-btn">+</button>
@@ -46,6 +47,7 @@
           </section>
 
           <section class="buy-basket">
+            <h2 class="sr-only">구매버튼</h2>
             <button id="buy">바로 구매</button>
             <button id="basket">장바구니</button>
           </section>
@@ -61,7 +63,10 @@
       <button class="tab">반품/교환정보</button>
     </section>
 
-    <section class="action-info"></section>
+    <section class="action-info">
+      <!-- 탭에 따라 리뷰, Q&A, 반품/교환 내용이 바뀌면서 h2도 바뀌도록 -->
+      <h2 class="sr-only">버튼 정보</h2>
+    </section>
   </main>
 
   <script src="components/header.js"></script>
