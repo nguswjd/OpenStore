@@ -160,6 +160,11 @@ function inputPw() {
   }
 }
 
+function reInputPw() {
+  inputPw();
+  checkPw();
+}
+
 // 비밀번호 일치 확인
 function checkPw() {
   // 기존 메시지 제거
@@ -494,3 +499,4 @@ sellerBtn.addEventListener("click", clicksellernBtn);
 verifybusinessNum.addEventListener("click", checkDupbusiness);
 businessInput.addEventListener("input", businessCheck);
 storeName.addEventListener("input", storeInput);
+userPw.addEventListener("input", reInputPw);
