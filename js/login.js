@@ -48,35 +48,21 @@ function errorMsg(e) {
       .then((res) => res.json())
       .then((data) => {
         if (data.access && data.refresh && data.user) {
-          const serverUserType = data.user.user_type;
-
-          if (serverUserType !== selectedUserType) {
+          if (data.user.user_type !== selectedUserType) {
             showMsg(loginContainer, "구매자/판매자 유형을 다시 선택해주세요.");
             return;
           }
 
-          // 로컬스토리지에 로그인 정보 저장
           localStorage.setItem("accessToken", data.access);
           localStorage.setItem("refreshToken", data.refresh);
-          localStorage.setItem("user", JSON.stringify(data.user));
+          localStorage.setItem("userInfo", JSON.stringify(data.user));
+          console.log(data.user);
 
-          const user = JSON.parse(localStorage.getItem("user"));
-
-          if (user) {
-            if (user.user_type === "BUYER") {
-              window.location.href = "buyer.html";
-            } else if (user.user_type === "SELLER") {
-              window.location.href = "seller.html";
-            }
-          }
-
-        } else if (data.error) {
-          // 로그인 실패
-          showMsg(loginContainer, "아이디 또는 비밀번호가 일치하지 않습니다.");
+          window.location.href = "index.html";
+        } else {
+          showMsg(loginContainer, "아이디 또는 비밀번호가 올바르지 않습니다.");
           userPwInput.value = "";
           userPwInput.focus();
-        } else {
-          showMsg(loginContainer, "로그인에 실패했습니다.");
         }
       })
       .catch((error) => {

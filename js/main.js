@@ -8,10 +8,6 @@ const shoppingBag = document.getElementById("shopping-mypage");
 const buyProduct = document.getElementById("buy");
 const basket = document.getElementById("basket");
 
-const user = JSON.parse(localStorage.getItem("user"));
-
-console.log(user);
-
 // 상품 추가 함수
 function addProduct(product) {
   if (!productContainer) return;
@@ -31,7 +27,7 @@ function addProduct(product) {
   const link = li.querySelector(".product-link");
 
   function clickLink() {
-    localStorage.setItem("selectedProduct", JSON.stringify(product));
+    localStorage.setItem("clickProduct", JSON.stringify(product));
   }
 
   link.addEventListener("click", clickLink);
@@ -48,7 +44,9 @@ if (productContainer) {
     })
     .then((data) => {
       if (data.results && Array.isArray(data.results)) {
-        data.results.forEach((product) => addProduct(product));
+        for (let i = 0; i < data.results.length; i++) {
+          addProduct(data.results[i]);
+        }
       }
     })
     .catch((error) => {

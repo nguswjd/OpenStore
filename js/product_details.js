@@ -1,7 +1,7 @@
 import { API } from "./api.js";
 
 // localStorage
-const product = JSON.parse(localStorage.getItem("selectedProduct"));
+const product = JSON.parse(localStorage.getItem("clickProduct"));
 
 // DOM
 const shippingMethod = document.getElementById("shipping-method");
