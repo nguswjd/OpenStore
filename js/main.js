@@ -2,6 +2,7 @@ import { API } from './api.js';
 
 // DOM
 const productContainer = document.querySelector(".product-list ul");
+const modal = document.getElementById("modal");
 
 // 헤더 변경
 function buyerHeader() {
@@ -93,4 +94,26 @@ if (productContainer) {
         .catch((error) => {
             console.log("error:", error);
         });
+}
+
+// 로그인 없이 구매 클릭시 모달
+if (location.href.includes("index.html")) {
+    const shoppingBag = document.getElementById("shopping-mypage");
+
+    function clickShoppingBag() {
+        const modalDelete = document.getElementById("delete");
+
+        const modalNo = document.getElementById("go-back-btn");
+
+        modal.classList.remove('hidden');
+
+        function backPage() {
+            modal.classList.add('hidden');
+        }
+
+        modalNo.addEventListener("click",  backPage);
+        modalDelete.addEventListener("click",  backPage);
+    }
+
+    shoppingBag.addEventListener("click", clickShoppingBag);
 }
