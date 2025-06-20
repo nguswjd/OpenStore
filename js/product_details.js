@@ -18,6 +18,7 @@ const tabButtons = document.querySelectorAll('.tab');
 
 // 전역변수
 let productPrice = 0;
+let productStock = 0;
 
 // 영수증
 function receipt() {
@@ -46,6 +47,10 @@ fetch(API.PRODUCTS)
             return;
         }
         productPrice = product.price;
+        productStock = product.stock;
+        updateButtonState();
+
+        console.log(productStock);
 
         let shippingType = "PARCEL";
 
@@ -67,41 +72,41 @@ fetch(API.PRODUCTS)
         console.log("error:", error);
     });
 
-function decreaseBtn() {
+// 수량선택 버튼 비활성화
+function updateButtonState() {
     const quantity = parseInt(quantityInput.value, 10);
+    const minus = document.getElementById("plus-line");
 
-    const minus = document.getElementById("minus-line");
-    
-    minusBtn.style.backgroundColor = "#E0E0E0";
-    minus.style.filter = "brightness(0) invert(1)";
-
-    setTimeout(() => {
-        minusBtn.style.backgroundColor = "";
+    if (quantity >= productStock){
+        plusBtn.style.backgroundColor = "#E0E0E0";
+        minus.style.filter = "brightness(0) invert(1)";
+    } else {
+        plusBtn.style.backgroundColor = "";
         minus.style.filter = "";
-    }, 150);
-
-    if (quantity > 1) {
-        quantityInput.value = quantity - 1;
-        receipt();
     }
 }
 
-function increaseBtn() {
-    const quantity = parseInt(quantityInput.value, 10);
+// 수량 감소
+function decreaseBtn() {
+    let quantity = parseInt(quantityInput.value, 10);
 
-    const plus = document.getElementById("plus-line");
-    
-    plusBtn.style.backgroundColor = "#E0E0E0";
-    plus.style.filter = "brightness(0) invert(1)";
-
-    setTimeout(() => {
-        plusBtn.style.backgroundColor = "";
-        plus.style.filter = "";
-    }, 150);
-    
-    if (quantity < 99) {
-        quantityInput.value = quantity + 1;
+    if (quantity > 1) {
+        quantity--;
+        quantityInput.value = quantity;
         receipt();
+        updateButtonState();
+    }
+}
+
+// 수량 증가
+function increaseBtn() {
+    let quantity = parseInt(quantityInput.value, 10);
+
+    if (quantity < productStock) {
+        quantity++;
+        quantityInput.value = quantity;
+        receipt();
+        updateButtonState();
     }
 }
 
