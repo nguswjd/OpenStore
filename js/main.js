@@ -4,12 +4,12 @@ import { API } from './api.js';
 const productContainer = document.querySelector(".product-list ul");
 
 // 헤더 변경
-function loginHeader() {
-    const changeSeller = document.getElementById("mypage-seller");
+function buyerHeader() {
+    const loginChange = document.getElementById("mypage-seller");
 
-    if (changeSeller) {
+    if (loginChange) {
       // 링크 이동 수정필요
-        changeSeller.innerHTML = `
+        loginChange.innerHTML = `
             <li id="mypage-seller">
                 <a href="#">
                     <img src="assets/icons/icon-user.svg" alt="마이페이지">
@@ -20,35 +20,41 @@ function loginHeader() {
     }
 }
 
-// 페이지별 헤더 처리
-if (location.href.includes("buyer.html")) {
-    loginHeader();
-} else if (location.href.includes("seller.html")) {
-    const changeSeller = document.getElementById("mypage-seller");
-    const changeBuyer = document.getElementById("shopping-mypage");
+function sellerHeader() {
+    const loginChange = document.getElementById("mypage-seller");
+    const shoppingBagChange = document.getElementById("shopping-mypage");
     
-    if (changeBuyer) {
-        changeBuyer.innerHTML = `
+    if (shoppingBagChange) {
+        shoppingBagChange.innerHTML = `
             <li id="mypage-seller">
                 <a href="login.html">
-                    <img src="assets/icons/icon-user.svg" alt="로그인">
-                    로그인
+                    <img src="assets/icons/icon-user.svg" alt="마이페이지">
+                    마이페이지
                 </a>
             </li>
         `;
     }
     
-    if (changeSeller) {
-        changeSeller.innerHTML = `
+    if (loginChange) {
+        loginChange.innerHTML = `
             <a href="#" id="shopingBag">
                 <img src="assets/icons/icon-shopping-bag.svg" alt="">
                 판매자 센터
             </a>
         `;
     }
+}
+
+// 페이지별 헤더 처리
+if (location.href.includes("buyer.html")) {
+    buyerHeader();
+} else if (location.href.includes("seller.html")) {
+    sellerHeader();
 } else if (location.href.includes("product_details.html")) {
     if (document.referrer.includes("buyer.html")) {
-        loginHeader();
+        buyerHeader();
+    } else if (document.referrer.includes("seller.html")){
+        sellerHeader();
     }
 }
 

@@ -20,6 +20,7 @@ let productPrice = 0;
 function receipt() {
     const quantity = parseInt(quantityInput.value, 10);
     const total = productPrice * quantity;
+
     totalPrice.textContent = total.toLocaleString();
     totalQuantity.textContent = quantity;
 }
@@ -41,9 +42,10 @@ fetch(API.PRODUCTS)
             console.log("상품을 찾을 수 없습니다.");
             return;
         }
-        
         productPrice = product.price;
+
         let shippingType = "PARCEL";
+
         if (product.shipping_method === "PARCEL") {
             shippingType = "무료배송";
         } else if (product.shipping_method === "DELIVERY") {
@@ -64,6 +66,7 @@ fetch(API.PRODUCTS)
 
 function decreaseBtn() {
     const quantity = parseInt(quantityInput.value, 10);
+    
     if (quantity > 1) {
         quantityInput.value = quantity - 1;
         receipt();
