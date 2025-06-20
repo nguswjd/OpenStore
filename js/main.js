@@ -26,8 +26,18 @@ function openModal() {
 // 헤더 변경
 function buyerHeader() {
     const loginChange = document.getElementById("mypage-seller");
+    const shoppingBagChange = document.getElementById("shopping-mypage");
 
     if (loginChange) {
+        shoppingBagChange.innerHTML = `
+            <li id="mypage-seller">
+                <a href="shoppingCart.html">
+                    <img src="assets/icons/icon-shopping-cart.svg" alt="장바구니">
+                    장바구니
+                </a>
+            </li>
+        `;
+
       // 링크 이동 수정필요
         loginChange.innerHTML = `
             <li id="mypage-seller">
@@ -130,6 +140,14 @@ if (productContainer) {
         });
 }
 
-shoppingBag.addEventListener("click", openModal);
-buyProduct.addEventListener("click", openModal);
-basket.addEventListener("click", openModal);
+if (shoppingBag) {
+    shoppingBag.addEventListener("click", openModal);
+}
+
+if (buyProduct) {
+    buyProduct.addEventListener("click", openModal);
+}
+
+if (basket) {
+    basket.addEventListener("click", openModal);
+}
