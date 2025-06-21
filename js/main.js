@@ -1,14 +1,9 @@
 import { API } from "./api.js";
+import { productContainer, modal, userMenu, shoppingBag} from "./DOM.js";
 
 // localStorage - null 체크 추가
 const userInfoString = localStorage.getItem("userInfo");
 const userInfo = userInfoString ? JSON.parse(userInfoString) : null;
-
-// DOM
-const productContainer = document.querySelector(".product-list ul");
-const modal = document.getElementById("modal");
-const userMenu = document.querySelector(".user-menu");
-const shoppingBag = document.getElementById("shopping-mypage");
 
 if (userInfo && userInfo.user_type === "BUYER") {
   userMenu.innerHTML = `

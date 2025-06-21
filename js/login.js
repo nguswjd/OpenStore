@@ -1,11 +1,12 @@
 import { API } from "./api.js";
 
-const loginForm = document.getElementById("loginForm");
-const userIdInput = document.getElementById("user-id");
-const userPwInput = document.getElementById("user-pw");
-const loginContainer = document.querySelector("#loginForm > div");
-const buyerBtn = document.getElementById("buyer-btn");
-const sellerBtn = document.getElementById("seller-btn");
+import { 
+  loginForm, 
+  userIdInput, 
+  userPwInput, 
+  loginContainer, 
+  buyerBtn, sellerBtn 
+} from "./DOM.js";
 
 // 선택된 사용자
 let selectedUserType = "BUYER";

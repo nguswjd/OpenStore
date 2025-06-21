@@ -1,30 +1,15 @@
 import { API } from './api.js';
-
-// DOM
-const buyerBtn = document.getElementById("buyer-btn");
-const sellerBtn = document.getElementById("seller-btn");
-const userStore = document.getElementById("userstore");
-
-const joinForm = document.getElementById("joinForm");
-
-const userId = document.getElementById("join-id");
-const idCheckBtn = document.getElementById("id-checkBtn");
-
-const userPw = document.getElementById("join-pw");
-const pwCheck = document.getElementById("pw-check");
-
-const userName = document.getElementById("join-name");
-const userNumContainer = document.getElementById("user-number");
-const phoneFirst = document.getElementById("join-number");
-const phoneMid = document.getElementById("user-number-mid");
-const phoneEnd = document.getElementById("user-number-end");
-
-const businessNum = document.getElementById("join-businessNum");
-const businessContainer = document.getElementById("businessNumContainer");
-const verifybusinessNum = document.querySelector(".verify-business");
-const businessInput = document.getElementById("join-businessNum");
-
-const storeName = document.getElementById("join-storeName");
+import { 
+  buyerBtn, sellerBtn, 
+  userStore, joinForm, 
+  userId, idCheckBtn, 
+  userPw, pwCheck, 
+  userName, 
+  userNumContainer, 
+  phoneFirst, phoneMid, phoneEnd, 
+  businessNum, businessContainer, verifybusinessNum, businessInput, 
+  storeName 
+} from './DOM.js';
 
 // 전역변수
 let isIdChecked = false;
