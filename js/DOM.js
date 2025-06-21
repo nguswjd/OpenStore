@@ -23,7 +23,8 @@ export const userPw = document.getElementById("join-pw");
 export const pwCheck = document.getElementById("pw-check");
 
 export const userName = document.getElementById("join-name");
-export const userNumContainer = document.getElementById("user-number");
+
+export const phoneNumberContainer = document.getElementById("user-number");
 export const phoneFirst = document.getElementById("join-number");
 export const phoneMid = document.getElementById("user-number-mid");
 export const phoneEnd = document.getElementById("user-number-end");
