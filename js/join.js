@@ -17,7 +17,6 @@ import {
   businessNum,
   verifybusinessNum,
   businessInput,
-  userStore,
   storeName,
   userIdInput,
 } from "./DOM.js";
@@ -38,7 +37,7 @@ userPw,
 userName,
 phoneMid, phoneEnd,
 businessNum,
-userStore,
+storeName
 ];
 
 // 공통 msg
@@ -81,7 +80,7 @@ function clickbuyBtn() {
   sellerBtn.classList.add("not-focusBtn");
 
   businessNum.parentNode.classList.add("hidden");
-  userStore.classList.add("hidden");
+  storeName.parentNode.classList.add("hidden");
 
   joinForm.style.borderRadius = "0 10px 10px 10px";
 }
@@ -101,7 +100,7 @@ function clicksellernBtn() {
   buyerBtn.classList.add("not-focusBtn");
 
   businessNum.parentNode.classList.remove("hidden");
-  userStore.classList.remove("hidden");
+  storeName.parentNode.classList.remove("hidden");
 
   joinForm.style.borderRadius = "10px 0 10px 10px";
 }
@@ -159,7 +158,6 @@ function joinSubmit(e) {
       if (sellerInfo[i] === phoneMid || sellerInfo[i] === phoneEnd) continue;
 
       if (!sellerInfo[i].value) {
-        console.log(`sellerInfo[${i}]:`, sellerInfo[i], 'value:', sellerInfo[i].value);
         showMsg(sellerInfo[i].parentNode, "필수 정보입니다.");
         isValid = false;
       } else {
