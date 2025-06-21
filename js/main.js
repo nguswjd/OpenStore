@@ -1,5 +1,12 @@
 import { API } from "./api.js";
-import { productContainer, modal, userMenu, shoppingBag} from "./DOM.js";
+
+// DOM
+import { 
+  productContainer, 
+  modal, 
+  userMenu, 
+  shoppingBag
+} from "./DOM.js";
 
 // localStorage - null 체크 추가
 const userInfoString = localStorage.getItem("userInfo");

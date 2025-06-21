@@ -1,5 +1,6 @@
 import { API } from "./api.js";
 
+// DOM
 import { 
   loginForm, 
   userIdInput, 

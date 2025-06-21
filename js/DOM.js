@@ -1,4 +1,4 @@
-// DOM
+// main
 export const productContainer = document.querySelector(".product-list ul");
 export const modal = document.getElementById("modal");
 export const userMenu = document.querySelector(".user-menu");
@@ -14,8 +14,6 @@ export const buyerBtn = document.getElementById("buyer-btn");
 export const sellerBtn = document.getElementById("seller-btn");
 
 // join
-export const userStore = document.getElementById("userstore");
-
 export const joinForm = document.getElementById("joinForm");
 
 export const userId = document.getElementById("join-id");
@@ -31,8 +29,8 @@ export const phoneMid = document.getElementById("user-number-mid");
 export const phoneEnd = document.getElementById("user-number-end");
 
 export const businessNum = document.getElementById("join-businessNum");
-export const businessContainer = document.getElementById("businessNumContainer");
 export const verifybusinessNum = document.querySelector(".verify-business");
 export const businessInput = document.getElementById("join-businessNum");
 
-export const storeName = document.getElementById("join-storeName");
+export const userStore = document.getElementById("user-store");
+export const storeName = document.getElementById("InputStoreName");
