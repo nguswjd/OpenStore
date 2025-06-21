@@ -280,7 +280,7 @@ function inputStoreName() {
     showMsg(userName.parentNode);
   }
 
-  if (phoneMid.value === "" || phoneEnd.value) {
+  if (phoneMid.value === "" || phoneEnd.value === "") {
     showMsg(phoneNumberContainer.parentNode);
   }
 
@@ -396,7 +396,8 @@ function joinSubmit(e) {
       .then((res) => res.json())
       .then((data) => {
         if (data.username && data.name) {
-          console.log(data);
+          window.location.href = "login.html";
+          // console.log(data);
         } else {
           console.error("회원가입 실패:", data);
         }
@@ -423,7 +424,8 @@ function joinSubmit(e) {
       .then((res) => res.json())
       .then((data) => {
         if (data.username && data.name) {
-          console.log(data);
+          window.location.href = "login.html";
+          // console.log(data);
         } else {
           console.error("판매자 회원가입 실패:", data);
         }
