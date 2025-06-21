@@ -33,16 +33,36 @@ if (userInfo && userInfo.user_type === "BUYER") {
         </ul>
     `;
 
+  // DOM
   const myPage = document.getElementById("mypage-seller");
   const dropDown = document.querySelector(".dropdown-menu");
   const mypageTrigger = document.querySelector(".mypage-trigger");
 
+  const iconShoppingCart = document.querySelector("#shopping-mypage img");
+  const iconUser = document.querySelector("#mypage-seller img");
+
+  const shoppingLink = document.querySelector("#shopping-mypage span");
+  const mypageLink = document.querySelector("#mypage-seller a");
+
   function clickMypage(e) {
     e.preventDefault();
+
     if (dropDown.classList.contains("hidden")) {
       dropDown.classList.remove("hidden");
+
+      iconShoppingCart.src = "assets/icons/icon-shopping-cart-2.svg";
+      iconUser.src = "assets/icons/icon-user-2.svg";
+
+      shoppingLink.style.color = "#21BF48";
+      mypageLink.style.color = "#21BF48";
     } else {
       dropDown.classList.add("hidden");
+
+      iconShoppingCart.src = "assets/icons/icon-shopping-cart.svg";
+      iconUser.src = "assets/icons/icon-user.svg";
+
+      shoppingLink.style.color = "";
+      mypageLink.style.color = "";
     }
   }
 
@@ -50,6 +70,8 @@ if (userInfo && userInfo.user_type === "BUYER") {
   function closeDropdown(e) {
     if (!myPage.contains(e.target)) {
       dropDown.classList.add("hidden");
+      iconShoppingCart.src = "assets/icons/icon-shopping-cart.svg";
+      iconUser.src = "assets/icons/icon-user.svg";
     }
   }
 

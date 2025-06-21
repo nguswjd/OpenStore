@@ -125,7 +125,7 @@ header {
 
 .dropdown-menu {
   position: absolute;
-  top: calc(100% + 20px);
+  top: calc(100% + 10px);
   left: 50%;
   transform: translateX(-50%) translateY(-10px);
 
@@ -144,7 +144,7 @@ header {
   content: "";
   position: absolute;
 
-  top: -8px;
+  top: -10px;
   left: 50%;
   transform: translateX(-50%);
 
@@ -153,23 +153,23 @@ header {
 
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-bottom: 8px solid #e5e7eb;
+  border-bottom: 9px solid #C4C4C4;
 }
 
 .dropdown-menu::after {
   content: "";
   position: absolute;
 
-  top: -7px;
+  top: -10px;
   left: 50%;
   transform: translateX(-50%);
 
   width: 0;
   height: 0;
 
-  border-left: 8px solid transparent;
-  border-right: 8px solid transparent;
-  border-bottom: 8px solid white;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #fff;
 }
 
 .dropdown-menu li {
