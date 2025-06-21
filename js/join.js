@@ -399,7 +399,14 @@ function joinSubmit(e) {
           window.location.href = "login.html";
           // console.log(data);
         } else {
-          console.error("회원가입 실패:", data);
+          if (data.phone_number) {
+            showMsg(
+              phoneNumberContainer.parentNode,
+              "해당 전화번호는 이미 사용 중입니다."
+            );
+          } else {
+            console.error("회원가입 실패:", data);
+          }
         }
       })
       .catch((error) => {
@@ -427,7 +434,14 @@ function joinSubmit(e) {
           window.location.href = "login.html";
           // console.log(data);
         } else {
-          console.error("판매자 회원가입 실패:", data);
+          if (data.phone_number) {
+            showMsg(
+              phoneNumberContainer.parentNode,
+              "해당 전화번호는 이미 사용 중입니다."
+            );
+          } else {
+            console.error("판매자 회원가입 실패:", data);
+          }
         }
       })
       .catch((error) => {
