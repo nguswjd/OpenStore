@@ -438,6 +438,8 @@ function joinSubmit(e) {
               phoneNumberContainer.parentNode,
               "해당 전화번호는 이미 사용 중입니다."
             );
+          } else if (data.store_name) {
+            showMsg(inputStore.parentNode, "해당 스토어 이름은 이미 사용 중입니다.");
           } else {
             console.error("판매자 회원가입 실패:", data);
           }
