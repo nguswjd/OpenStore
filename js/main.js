@@ -120,7 +120,7 @@ if (userInfo && userInfo.user_type === "BUYER") {
   const myPage = document.getElementById("mypage-seller");
   const dropDown = document.querySelector(".dropdown-menu");
   const mypageTrigger = document.querySelector(".mypage-trigger");
-  
+
   const iconUser = document.querySelector("#mypage-seller img");
   const mypageLink = document.querySelector("#mypage-seller a");
 
@@ -231,6 +231,7 @@ if (productContainer) {
       }
     })
     .catch((error) => {
-      console.log("error:", error);
+      window.location.href = "404.html";
+      // console.log("error:", error);
     });
 }
