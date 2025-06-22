@@ -5,29 +5,29 @@ document.querySelector("footer").innerHTML = `
             <h2 class="sr-only">호두마켓 상세 약관</h2>
             <nav>
                 <ul>
-                    <li><a href="#">호두샵 소개</a></li>
-                    <li><a href="#">이용약관</a></li>
-                    <li class="policy-link"><a href="#">개인정보처리방침</a></li>
-                    <li><a href="#">전자금융거래약관</a></li>
-                    <li><a href="#">청소년보호정책</a></li>
-                    <li><a href="#">제휴문의</a></li>
+                    <li><a href="404.html">호두샵 소개</a></li>
+                    <li><a href="404.html">이용약관</a></li>
+                    <li class="policy-link"><a href="404.html">개인정보처리방침</a></li>
+                    <li><a href="404.html">전자금융거래약관</a></li>
+                    <li><a href="404.html">청소년보호정책</a></li>
+                    <li><a href="404.html">제휴문의</a></li>
                 </ul>
             </nav>
             
             <!-- 소셜 미디어 링크 -->
             <ul>
                 <li>
-                    <a href="#">
+                    <a href="https://www.instagram.com">
                         <img src="assets/icons/icon-insta.svg" alt="인스타그램">
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="https://www.facebook.com">
                         <img src="assets/icons/icon-fb.svg" alt="페이스북">
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="https://www.youtube.com">
                         <img src="assets/icons/icon-yt.svg" alt="유튜브">
                     </a>
                 </li>

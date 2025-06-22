@@ -5,7 +5,8 @@ import {
   productContainer, 
   modal, 
   userMenu, 
-  shoppingBag
+  shoppingBag,
+  gobackPage
 } from "./DOM.js";
 
 // localStorage
@@ -235,3 +236,9 @@ if (productContainer) {
       // console.log("error:", error);
     });
 }
+
+function backPage() {
+  history.back();
+}
+
+gobackPage.addEventListener("click", backPage);
