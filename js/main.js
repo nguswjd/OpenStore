@@ -8,9 +8,11 @@ import {
   shoppingBag
 } from "./DOM.js";
 
-// localStorage - null 체크 추가
+// localStorage
 const userInfoString = localStorage.getItem("userInfo");
 const userInfo = userInfoString ? JSON.parse(userInfoString) : null;
+
+console.log(localStorage);
 
 if (userInfo && userInfo.user_type === "BUYER") {
   userMenu.innerHTML = `
@@ -22,11 +24,13 @@ if (userInfo && userInfo.user_type === "BUYER") {
                     <span>장바구니</span>
                 </a>
             </li>
+
             <li id="mypage-seller" class="user-menu-item">
                 <a href="#" class="mypage-trigger">
                     <img src="assets/icons/icon-user.svg" alt="마이페이지">
                     마이페이지
                 </a>
+
                 <ul class="dropdown-menu hidden" id="mypage-menu">
                     <li><a href="#">마이페이지</a></li>
                     <li><button id="logoutBtn">로그아웃</button></li>
@@ -74,6 +78,9 @@ if (userInfo && userInfo.user_type === "BUYER") {
       dropDown.classList.add("hidden");
       iconShoppingCart.src = "assets/icons/icon-shopping-cart.svg";
       iconUser.src = "assets/icons/icon-user.svg";
+      
+      shoppingLink.style.color = "";
+      mypageLink.style.color = "";
     }
   }
 
@@ -138,6 +145,7 @@ if (userInfo && userInfo.user_type === "BUYER") {
   if (logoutBtn) {
     logoutBtn.addEventListener("click", logout);
   }
+
 } else {
   // 모달
   function openModal() {
@@ -162,6 +170,9 @@ if (userInfo && userInfo.user_type === "BUYER") {
 function logout() {
   localStorage.removeItem("userInfo");
   localStorage.removeItem("clickProduct");
+  localStorage.removeItem("accessToken");
+  localStorage.removeItem("refreshToken");
+
   window.location.href = "index.html";
 }
 
@@ -208,6 +219,3 @@ if (productContainer) {
       console.log("error:", error);
     });
 }
-
-// + 창 닫힐 떄 자동 로그아웃
-window.addEventListener('beforeunload', logout)
