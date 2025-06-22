@@ -89,7 +89,7 @@ https://nguswjd.github.io/OpenStore/
   <tr>
     <td style="text-align: center;">
       <img src="./assets/readme-Image/screen/modalOpen.gif" width="500px"><br><br>
-      📌 비사용자 모드인 상태에서 장바구니 및 제품상세 페이지의 바로구매 버튼을 클릭시 모달이 표시됩니다.
+      📌 비사용자 모드인 상태에서 장바구니 클릭시 모달이 표시됩니다.
     </td>
   </tr>
 </table>
@@ -103,7 +103,7 @@ https://nguswjd.github.io/OpenStore/
   <tr>
     <td style="text-align: center;">
       <img src="./assets/readme-Image/screen/index-product.png" width="500px"><br><br>
-      📌 상품 API을 호출하여 메인 페이지 <code>&lt;main&gt;</code>안에 제품 리스트를 보여줍니다.<br>
+      📌 상품 API을 호출하여 초기 페이지 <code>&lt;main&gt;</code>안에 제품 리스트를 보여줍니다.<br>
       리스트의 있는 제품을 클릭시 <code>localStorage</code>로 클릭 된 제품의 정보를 저장합니다.
     </td>
   </tr>
@@ -129,6 +129,54 @@ https://nguswjd.github.io/OpenStore/
 
 #### 📜product_details.js
 
+<table style="width: 700px; margin: 0 auto;">
+  <tr>
+    <th style="text-align: center;">제품 상세 정보</th>
+  </tr>
+  <tr>
+    <td style="text-align: center;">
+      <img src="./assets/readme-Image/screen/productclick.gif" width="500px"><br><br>
+      📌 초기 페이지의 제품 리스트 중 제품을 클릭하면, <br> <code>&lt;localStorage&gt;</code>에서 클릭 한 제품의 상세 정보를 호출하여 제품 구매 페이지에서 해당 제품을 보여줍니다.
+    </td>
+  </tr>
+</table>
+
+<table style="width: 700px; margin: 0 auto;">
+  <tr>
+    <th style="text-align: center;">제품 구매 정보</th>
+  </tr>
+  <tr>
+    <td style="text-align: center;">
+      <img src="./assets/readme-Image/screen/dec-incBtn.gif" width="500px"><br><br>
+      📌 제품 구매 페이지에서 수량을 선택하면 `js/main.js`에서 얻어온 상세 정보중 `stock`의 갯수만큼 `plus` 버튼이 비활성화 됩니다. <br>
+      또한 마이너스/플러스 버튼을 클릭할시 구매 수량을 선택할 수 있습니다. <br> 수량을 선택할 때마다 상품의 금액과 수량이 변경됩니다.
+    </td>
+  </tr>
+</table>
+
+<table style="width: 700px; margin: 0 auto;">
+  <tr>
+    <th style="text-align: center;">모달</th>
+  </tr>
+  <tr>
+    <td style="text-align: center;">
+      <img src="./assets/readme-Image/screen/productModal.gif" width="500px"><br><br>
+      📌 비사용자 모드인 상태에서 장바구니 및 바로구매 버튼을 클릭시 모달이 표시됩니다.
+    </td>
+  </tr>
+</table>
+
+<table style="width: 700px; margin: 0 auto;">
+  <tr>
+    <th style="text-align: center;">리뷰 / QnA / 반품 교환 정보</th>
+  </tr>
+  <tr>
+    <td style="text-align: center;">
+      <img src="./assets/readme-Image/screen/reviewBtn.gif" width="500px"><br><br>
+      📌 리뷰/QnA/반품 교환 정보를 클릭시 포커스가 됩니다.
+    </td>
+  </tr>
+</table>
 
 <br>
 
@@ -147,4 +195,4 @@ https://nguswjd.github.io/OpenStore/
 ## ⚒️ 추후에 구현할 부분
 - SPA(Single Page Application) 방식 적용
 - login.js > 94번 째 줄, 108번 쨰 줄 css 로 수정 필요
-
+- 제품 구매 페이지 하단 버튼/리뷰/QnA/반품 교환정보의 내용 수정 코드 구현 필요
