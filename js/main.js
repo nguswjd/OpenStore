@@ -20,20 +20,20 @@ if (userInfo && userInfo.user_type === "BUYER") {
         <h2 class="sr-only">장바구니 및 로그인</h2>
         <ul>
             <li id="shopping-mypage">
-                <a href="#">
+                <a href="404.html">
                     <img src="assets/icons/icon-shopping-cart.svg" alt="장바구니">
                     <span>장바구니</span>
                 </a>
             </li>
 
             <li id="mypage-seller" class="user-menu-item">
-                <a href="#" class="mypage-trigger">
+                <a href="404.html" class="mypage-trigger">
                     <img src="assets/icons/icon-user.svg" alt="마이페이지">
                     마이페이지
                 </a>
 
                 <ul class="dropdown-menu hidden" id="mypage-menu">
-                    <li><a href="#">마이페이지</a></li>
+                    <li><a href="404.html">마이페이지</a></li>
                     <li><button id="logoutBtn">로그아웃</button></li>
                 </ul>
             </li>
@@ -100,17 +100,17 @@ if (userInfo && userInfo.user_type === "BUYER") {
         <h2 class="sr-only">장바구니 및 로그인</h2>
         <ul>
             <li id="mypage-seller" class="user-menu-item">
-                <a href="#" class="mypage-trigger">
+                <a href="404.html" class="mypage-trigger">
                     <img src="assets/icons/icon-user.svg" alt="마이페이지">
                     마이페이지
                 </a>
                 <ul class="dropdown-menu hidden" id="mypage-menu">
-                    <li><a href="#">마이페이지</a></li>
+                    <li><a href="404.html">마이페이지</a></li>
                     <li><button id="logoutBtn">로그아웃</button></li>
                 </ul>
             </li>
             <li id="seller-center">
-                <a href="#" id="shopingBag">
+                <a href="404.html" id="shopingBag">
                     <img src="assets/icons/icon-shopping-bag.svg" alt="">
                     판매자 센터
                 </a>
