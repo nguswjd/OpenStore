@@ -55,4 +55,4 @@ export const businessNum = document.getElementById("join-businessNum");
 export const verifybusinessNum = document.querySelector(".verify-business");
 export const businessInput = document.getElementById("join-businessNum");
 
-export const inputStoreName = document.getElementById("InputStoreName");
+export const inputStore = document.getElementById("InputStoreName");
