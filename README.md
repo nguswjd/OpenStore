@@ -53,10 +53,13 @@ https://nguswjd.github.io/OpenStore/
 #### 📜main.js
 | 사용자 종류에 따른 Header 변경 |
 |:---:|
-| 🧑‍💻 **비사용자 (비로그인 상태)**<br><br><img src="./assets/readme-Image/screen/비사용자-헤더.png" width="450px"><br><br>📌 `localStorage`가 빈 상태일 때 장바구니/마이페이지가 비사용자 모드로 표시됩니다. |
-| 🛍️ **구매자 (BUYER)**<br><br><img src="./assets/readme-Image/screen/구매자-헤더.png" width="450px"><br><br>📌 `localStorage.user_type`이 `BUYER`일 경우, 장바구니/마이페이지가 구매자용으로 표시됩니다. |
-| 🏪 **판매자 (SELLER)**<br><br><img src="./assets/readme-Image/screen/판매자-헤더.png" width="450px"><br><br>📌 `localStorage.user_type`이 `SELLER`일 경우, 장바구니/마이페이지가 판매자용으로 표시됩니다. |
+| 🧑‍💻 **비사용자 (비로그인 상태)**<br><br><img src="./assets/readme-Image/screen/비사용자-헤더.png" width="500px"><br><br>📌 `localStorage`가 빈 상태일 때 장바구니/마이페이지가 비사용자 모드로 표시됩니다. |
+| 🛍️ **구매자 (BUYER)**<br><br><img src="./assets/readme-Image/screen/구매자-헤더.png" width="500px"><br><br>📌 `localStorage.user_type`이 `BUYER`일 경우, <br>장바구니/마이페이지가 구매자용으로 표시됩니다. |
+| 🏪 **판매자 (SELLER)**<br><br><img src="./assets/readme-Image/screen/판매자-헤더.png" width="500px"><br><br>📌 `localStorage.user_type`이 `SELLER`일 경우, <br>장바구니/마이페이지가 판매자용으로 표시됩니다. |
 
+| 모달 |
+|:---:|
+|<img src="./assets/readme-Image/screen/modalOpen.gif" width="500px"><br><br>📌 비사용자 모드인 상태에서 장바구니 및 제품상세 페이지의 바로구매 버튼을 클릭시 모달이 표시됩니다. |
 
 
 #### 📜product_details.js

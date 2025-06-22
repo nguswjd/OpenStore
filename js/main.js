@@ -12,7 +12,7 @@ import {
 const userInfoString = localStorage.getItem("userInfo");
 const userInfo = userInfoString ? JSON.parse(userInfoString) : null;
 
-console.log(localStorage);
+// console.log(localStorage);
 
 if (userInfo && userInfo.user_type === "BUYER") {
   userMenu.innerHTML = `
