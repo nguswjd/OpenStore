@@ -28,7 +28,7 @@ export const basket = document.getElementById("basket");
 
 // login
 export const loginForm = document.getElementById("loginForm");
-export const userIdInput = document.getElementById("userId");
+export const userIdInput = document.getElementById("user-id");
 export const userPwInput = document.getElementById("user-pw");
 export const loginContainer = document.querySelector("#loginForm > div");
 
