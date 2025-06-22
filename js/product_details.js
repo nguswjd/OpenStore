@@ -94,8 +94,15 @@ if (!userInfo || !userInfo.user_type) {
       modal.classList.add("hidden");
     }
 
+    function escHandler(e) {
+      if (e.key === "Escape") {
+        backPage();
+      }
+    }
+
     modalNo.addEventListener("click", backPage);
     modalDelete.addEventListener("click", backPage);
+    document.addEventListener("keydown", escHandler);
   }
 
   buyProduct.addEventListener("click", openModal);

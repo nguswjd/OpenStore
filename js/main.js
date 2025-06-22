@@ -20,7 +20,7 @@ if (userInfo && userInfo.user_type === "BUYER") {
         <h2 class="sr-only">장바구니 및 로그인</h2>
         <ul>
             <li id="shopping-mypage">
-                <a href="404.html">
+                <a href="#">
                     <img src="assets/icons/icon-shopping-cart.svg" alt="장바구니">
                     <span>장바구니</span>
                 </a>
@@ -171,8 +171,15 @@ if (userInfo && userInfo.user_type === "BUYER") {
       modal.classList.add("hidden");
     }
 
+    function escHandler(e) {
+      if (e.key === "Escape") {
+        backPage();
+      }
+    }
+
     modalNo.addEventListener("click", backPage);
     modalDelete.addEventListener("click", backPage);
+    document.addEventListener("keydown", escHandler);
   }
 
   if (shoppingBag) {
