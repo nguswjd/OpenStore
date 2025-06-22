@@ -82,6 +82,7 @@ if (userInfo && userInfo.user_type === "BUYER") {
 
   // 로그아웃 버튼 이벤트 리스너 추가
   const logoutBtn = document.getElementById("logoutBtn");
+
   if (logoutBtn) {
     logoutBtn.addEventListener("click", logout);
   }
@@ -133,6 +134,7 @@ if (userInfo && userInfo.user_type === "BUYER") {
 
   // 로그아웃 버튼 이벤트 리스너 추가
   const logoutBtn = document.getElementById("logoutBtn");
+
   if (logoutBtn) {
     logoutBtn.addEventListener("click", logout);
   }
@@ -206,3 +208,6 @@ if (productContainer) {
       console.log("error:", error);
     });
 }
+
+// + 창 닫힐 떄 자동 로그아웃
+window.addEventListener('beforeunload', logout)
