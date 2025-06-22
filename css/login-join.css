@@ -103,6 +103,10 @@ form input {
 }
 
 /* ====joinForm= 회원가입 폼 ===== */
+#joinForm {
+  width: 100%;
+}
+
 #join-seller {
   display: flex;
   flex-direction: column;
@@ -123,34 +127,22 @@ form input {
   border: 1px solid #c4c4c4;
 }
 
-#join-pw,
-#pw-check,
-#join-name,
-#join-storeName {
-  width: calc(100% - 20px);
-}
-#userNumContainer,
-.inputContainer {
-  font-size: 0;
-}
-
 #join-id,
 #join-businessNum,
 .clickBtn {
-  font-size: 16px;
+  /* font-size: 16px; */
   height: 54px;
   border-radius: 5px;
 }
 
 #join-id,
 #join-businessNum {
-  width: calc(70% - 22px);
-  margin-right: 2%;
+  width: calc(70% - 4px);
   border: 1px solid #c4c4c4;
 }
 
 .clickBtn {
-  width: 28%;
+  width: 30%;
   font-weight: 500;
   color: #fff;
   background-color: #21bf48;
@@ -165,7 +157,12 @@ form input {
   background-size: 28px 28px;
 }
 
+
 /* 전화번호 입력 */
+#numberContainer {
+  width: 100%;
+}
+
 #join-number {
   width: 33.333%;
   text-align: center;
@@ -193,9 +190,8 @@ form input {
 #join-number,
 #user-number-mid,
 #user-number-end {
-  flex: 1;
+  width: 33.333%;
   text-align: center;
-  min-width: 0;
 }
 
 /* 사업자 번호 */
@@ -222,7 +218,7 @@ label[for="join-name"] {
   border-color: #21bf48;
   outline: none;
 }
-
+/* 
 #join-id,
 #join-pw,
 #pw-check,
@@ -230,7 +226,7 @@ label[for="join-name"] {
 #join-storeName,
 #join-businessNum {
   padding-left: 20px;
-}
+} */
 
 
 /* ===== 폼 하단 영역 ===== */
