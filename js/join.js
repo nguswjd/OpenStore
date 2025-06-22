@@ -58,8 +58,8 @@ function removeMsg(parentElement) {
 function clickbuyerBtn() {
   for(let i = 0; i < buyerInfo.length; i++) {
     removeMsg(buyerInfo[i].parentNode);
+    buyerInfo[i].value = "";
   }
-  removeMsg(userName.parentNode);
   removeMsg(pwCheck.parentNode);
   removeMsg(phoneNumberContainer.parentNode);
   
@@ -78,12 +78,11 @@ function clickbuyerBtn() {
 }
 
 function clicksellernBtn() {
-  for(let i = 0; i < buyerInfo.length; i++) {
-    removeMsg(buyerInfo[i].parentNode);
+  for(let i = 0; i < sellerInfo.length; i++) {
+    removeMsg(sellerInfo[i].parentNode);
+    sellerInfo[i].value = "";
   }
-  removeMsg(userName.parentNode);
   removeMsg(pwCheck.parentNode);
-  removeMsg(phoneNumberContainer.parentNode);
 
   selectedUserType = "SELLER";
 
