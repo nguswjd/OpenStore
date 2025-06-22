@@ -186,6 +186,30 @@ https://nguswjd.github.io/OpenStore/
 <br>
 
 #### 📜join.js
+<table style="width: 700px; margin: 0 auto;">
+  <tr>
+    <th style="text-align: center;">판매자/구매자 선택</th>
+  </tr>
+  <tr>
+    <td style="text-align: center;">
+      <img src="./assets/readme-Image/screen/join-clickBtn.gif" width="500px"><br><br>
+      📌 판매자/구매자 선택을 클릭할때마다 `input`안에 있는 값이 다시 입력할 수있도록 지워지며 에러 메시지도 함께 지워집니다. <br> 또한 선택한 유형에 따라 `user_type`이 저장됩니다.
+    </td>
+  </tr>
+</table>
+
+<table style="width: 700px; margin: 0 auto;">
+  <tr>
+    <th style="text-align: center;">회원가입</th>
+  </tr>
+  <tr>
+    <td style="text-align: center;">
+      <img src="./assets/readme-Image/screen/join.gif" width="500px"><br><br>
+      📌 회원가입시 필수 입력란의 메시지가 출력됩니다. <br> 회원가입에 성공할 경우 바로 로그인 할 수 있도록 로그인창으로 이동하게 됩니다.
+      <br> 또한 아이디, 사업자 번호가 중복일 경우에는 로그인에 실패하게 됩니다.
+    </td>
+  </tr>
+</table>
 
 
 <br>
@@ -196,3 +220,4 @@ https://nguswjd.github.io/OpenStore/
 - SPA(Single Page Application) 방식 적용
 - login.js > 94번 째 줄, 108번 쨰 줄 css 로 수정 필요
 - 제품 구매 페이지 하단 버튼/리뷰/QnA/반품 교환정보의 내용 수정 코드 구현 필요
+- 세부적인 css 검토 필요

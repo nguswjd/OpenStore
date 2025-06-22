@@ -449,8 +449,6 @@ function joinSubmit(e) {
   }
 }
 
-
-
 // 이벤트 리스너
 buyerBtn.addEventListener("click", clickbuyerBtn);
 sellerBtn.addEventListener("click", clicksellernBtn);
