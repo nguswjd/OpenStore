@@ -5,25 +5,14 @@ const product = JSON.parse(localStorage.getItem("clickProduct"));
 const userInfo = JSON.parse(localStorage.getItem("userInfo"));
 
 // DOM
-const shippingMethod = document.getElementById("shipping-method");
-const storeName = document.getElementById("store-name");
-const productName = document.getElementById("product_name");
-const price = document.getElementById("price");
-
-const productImage = document.getElementById("product-image");
-
-const minusBtn = document.getElementById("minus-btn");
-const plusBtn = document.getElementById("plus-btn");
-const quantityInput = document.getElementById("quantity");
-
-const totalPrice = document.getElementById("total-price");
-const totalQuantity = document.getElementById("total-quantity");
-const tabButtons = document.querySelectorAll(".tab");
-
-const minusIcon = document.getElementById("plus-line");
-
-const buyProduct = document.getElementById("buy");
-const basket = document.getElementById("basket");
+import { 
+  storeName, productName, price,
+  productImage,
+  minusBtn, plusBtn, quantityInput,
+  totalPrice, totalQuantity, tabButtons,
+  minusIcon,
+  buyProduct, basket
+} from "./DOM.js";
 
 // 전역변수
 let productPrice = product.price;

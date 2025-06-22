@@ -9,7 +9,7 @@ import {
   userName,
   phoneNumberContainer, phoneFirst, phoneMid, phoneEnd,
   businessNum, verifybusinessNum, businessInput,
-  storeName
+  inputStoreName
 } from "./DOM.js";
 
 // 전역변수
@@ -30,7 +30,7 @@ userPw,
 userName,
 phoneMid, phoneEnd,
 businessNum,
-storeName
+inputStoreName
 ];
 
 // 공통 msg
@@ -72,7 +72,7 @@ function clickbuyerBtn() {
   sellerBtn.classList.add("not-focusBtn");
 
   businessNum.parentNode.classList.add("hidden");
-  storeName.parentNode.classList.add("hidden");
+  inputStoreName.parentNode.classList.add("hidden");
 
   joinForm.style.borderRadius = "0 10px 10px 10px";
 }
@@ -94,7 +94,7 @@ function clicksellernBtn() {
   buyerBtn.classList.add("not-focusBtn");
 
   businessNum.parentNode.classList.remove("hidden");
-  storeName.parentNode.classList.remove("hidden");
+  inputStoreName.parentNode.classList.remove("hidden");
 
   joinForm.style.borderRadius = "10px 0 10px 10px";
 }
@@ -262,7 +262,7 @@ function inputPhone() {
 }
 
 function inputStoreName() {
-  removeMsg(storeName.parentNode);
+  removeMsg(inputStoreName.parentNode);
 
   if (userId.value === "") {
     showMsg(userId.parentNode);
@@ -371,8 +371,8 @@ function joinSubmit(e) {
       isValid = false;
     }
 
-    if (storeName.value === "") {
-      showMsg(storeName.parentNode);
+    if (inputStoreName.value === "") {
+      showMsg(inputStoreName.parentNode);
       isValid = false;
     }
   }
@@ -425,7 +425,7 @@ function joinSubmit(e) {
         name: userName.value,
         phone_number: phoneNumber,
         company_registration_number: businessNum.value,
-        store_name: storeName.value
+        store_name: inputStoreName.value
       }),
     })
       .then((res) => res.json())
@@ -470,6 +470,6 @@ phoneEnd.addEventListener("input", inputPhone);
 businessNum.addEventListener("input", resetBusinessCheck);
 verifybusinessNum.addEventListener("click", clickBusinessVerify);
 
-storeName.addEventListener("input", inputStoreName);
+inputStoreName.addEventListener("input", inputStoreName);
 
 joinForm.addEventListener("submit", joinSubmit);

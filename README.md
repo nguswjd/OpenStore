@@ -125,13 +125,22 @@ https://nguswjd.github.io/OpenStore/
   </tr>
 </table>
 
+<br>
 
 #### 📜product_details.js
 
+
+<br>
+
 #### 📜login.js
+
+
+<br>
 
 #### 📜join.js
 
+
+<br>
 
 <hr>
 
