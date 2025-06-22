@@ -137,9 +137,15 @@ form input:not(#user-number-mid):not(#user-number-end) {
   border-radius: 5px;
 }
 
+.inputContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
 #join-id,
 #join-businessNum {
-  width: calc(70% - 4px);
+  width: 70%;
   border: 1px solid #c4c4c4;
 }
 

@@ -28,12 +28,14 @@
         <!-- 회원가입 폼 -->
         <form id="joinForm" action="#" method="post">
           <!-- 아이디 입력 -->
-          <label for="join-id">아이디</label>
-          <div class="inputContainer">
-            <input id="join-id" type="text" name="user-id">
-            <button type="button" class="clickBtn" id="id-checkBtn">
-              중복확인
-            </button>
+          <div>
+            <label for="join-id">아이디</label>
+            <div class="inputContainer">
+              <input id="join-id" type="text" name="user-id">
+              <button type="button" class="clickBtn" id="id-checkBtn">
+                중복확인
+              </button>
+            </div>
           </div>
 
           <!-- 비밀번호 입력 -->
@@ -81,10 +83,12 @@
 
           <!-- 판매자 -->
           <!-- 사업자 등록번호 -->
-          <div class="inputContainer hidden">
+          <div class="hidden">
             <label for="join-businessNum">사업자등록번호</label>
-            <input id="join-businessNum" type="text" name="join-businessNum">
-            <button type="button" class="clickBtn verify-business">인증</button>
+            <div class="inputContainer">
+              <input id="join-businessNum" type="text" name="join-businessNum">
+              <button type="button" class="clickBtn verify-business">인증</button>
+            </div>
           </div>
 
           <!-- 스토어 이름 -->

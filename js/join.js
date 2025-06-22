@@ -60,8 +60,10 @@ function clickbuyerBtn() {
     removeMsg(buyerInfo[i].parentNode);
     buyerInfo[i].value = "";
   }
+  removeMsg(userId.parentNode.parentNode);
   removeMsg(pwCheck.parentNode);
   removeMsg(phoneNumberContainer.parentNode);
+  removeMsg(businessNum.parentNode.parentNode);
   
   selectedUserType = "BUYER";
 
@@ -71,7 +73,7 @@ function clickbuyerBtn() {
   sellerBtn.classList.remove("focusBtn");
   sellerBtn.classList.add("not-focusBtn");
 
-  businessNum.parentNode.classList.add("hidden");
+  businessNum.parentNode.parentNode.classList.add("hidden");
   inputStore.parentNode.classList.add("hidden");
 
   joinForm.style.borderRadius = "0 10px 10px 10px";
@@ -82,7 +84,9 @@ function clicksellernBtn() {
     removeMsg(sellerInfo[i].parentNode);
     sellerInfo[i].value = "";
   }
+  removeMsg(userId.parentNode.parentNode);
   removeMsg(pwCheck.parentNode);
+  removeMsg(businessNum.parentNode.parentNode);
 
   selectedUserType = "SELLER";
 
@@ -92,7 +96,7 @@ function clicksellernBtn() {
   buyerBtn.classList.remove("focusBtn");
   buyerBtn.classList.add("not-focusBtn");
 
-  businessNum.parentNode.classList.remove("hidden");
+  businessNum.parentNode.parentNode.classList.remove("hidden");
   inputStore.parentNode.classList.remove("hidden");
 
   joinForm.style.borderRadius = "10px 0 10px 10px";
@@ -101,15 +105,15 @@ function clicksellernBtn() {
 // 중복확인 상태 초기화
 function resetIdCheck() {
   isIdChecked = false;
-  removeMsg(userId.parentNode);
+  removeMsg(userId.parentNode.parentNode);
 }
 
 function resetBusinessCheck() {
   isBusinessNumChecked = false;
-  removeMsg(businessNum.parentNode);
+  removeMsg(businessNum.parentNode.parentNode);
 
   if (userId.value === "") {
-    showMsg(userId.parentNode);
+    showMsg(userId.parentNode.parentNode);
   }
   
   if (userPw.value === "") {
@@ -132,15 +136,15 @@ function resetBusinessCheck() {
 
 // 중복 확인
 function clickIdVerify() {
-  removeMsg(userId.parentNode);
+  removeMsg(userId.parentNode.parentNode);
 
   if (userId.value === "") {
-    showMsg(userId.parentNode);
+    showMsg(userId.parentNode.parentNode);
     isIdChecked = false;
     return;
   } else if (userId.value.length > 20 || !/^[a-zA-Z0-9]+$/.test(userId.value)) {
     showMsg(
-      userId.parentNode,
+      userId.parentNode.parentNode,
       "20자 이내의 영문 소문자, 대문자, 숫자만 사용 가능합니다."
     );
     isIdChecked = false;
@@ -157,23 +161,25 @@ function clickIdVerify() {
     .then((res) => res.json())
     .then((data) => {
       if (data.message || data.success === true || data.available === true) {
-        showMsg(userId.parentNode, "멋진 아이디네요 :)", "#21bf48");
+        showMsg(userId.parentNode.parentNode, "멋진 아이디네요 :)", "#21bf48");
         isIdChecked = true;
       } else {
-        showMsg(userId.parentNode, "이미 사용 중인 아이디입니다.");
+        showMsg(userId.parentNode.parentNode, "이미 사용 중인 아이디입니다.");
         isIdChecked = false;
       }
     })
     .catch((error) => {
       console.error("Fetch Error:", error);
-      showMsg(userId.parentNode, "서버 연결에 문제가 있습니다. 다시 시도해주세요.");
+      showMsg(userId.parentNode.parentNode, "서버 연결에 문제가 있습니다. 다시 시도해주세요.");
       isIdChecked = false;
     });
 }
 
 function clickBusinessVerify() {
+  removeMsg(businessNum.parentNode.parentNode);
+
   if (businessNum.value === "") {
-    showMsg(businessNum.parentNode);
+    showMsg(businessNum.parentNode.parentNode);
     isBusinessNumChecked = false;
     return;
   } 
@@ -187,17 +193,21 @@ function clickBusinessVerify() {
   })
     .then((res) => res.json())
     .then((data) => {
-      if (data.message) {
-        showMsg(businessNum.parentNode, "멋진 사업자네요 :)", "#21bf48");
+      if (data.message || data.success === true || data.available === true) {
+        showMsg(businessNum.parentNode.parentNode, "멋진 사업자네요 :)", "#21bf48");
         isBusinessNumChecked = true;
       } else if (data.error) {
-        showMsg(businessNum.parentNode, data.error);
+        showMsg(businessNum.parentNode.parentNode, data.error);
+        isBusinessNumChecked = false;
+      } else {
+        showMsg(businessNum.parentNode.parentNode, "이미 사용 중인 사업자번호입니다.");
         isBusinessNumChecked = false;
       }
     })
     .catch((error) => {
-      showMsg(businessNum.parentNode, "오류가 발생했습니다. 다시 시도해주세요.");
+      showMsg(businessNum.parentNode.parentNode, "오류가 발생했습니다. 다시 시도해주세요.");
       console.error("Fetch Error:", error);
+      isBusinessNumChecked = false;
     });
 }
 
@@ -208,7 +218,7 @@ function inputPw() {
   const password = userPw.value;
 
   if (userId.value === "") {
-    showMsg(idCheckBtn.parentNode);
+    showMsg(userId.parentNode.parentNode);
   }
 
   if (!/[a-z]/.test(password) || !/\d/.test(password) || password.length < 8) {
@@ -228,7 +238,7 @@ function inputUserName() {
   removeMsg(userName.parentNode);
 
   if (userId.value === "") {
-    showMsg(userId.parentNode);
+    showMsg(userId.parentNode.parentNode);
   }
   
   if (userPw.value === "") {
@@ -244,7 +254,7 @@ function inputPhone() {
   removeMsg(phoneNumberContainer.parentNode);
 
   if (userId.value === "") {
-    showMsg(userId.parentNode);
+    showMsg(userId.parentNode.parentNode);
   }
   
   if (userPw.value === "") {
@@ -264,7 +274,7 @@ function inputStoreName() {
   removeMsg(inputStore.parentNode);
 
   if (userId.value === "") {
-    showMsg(userId.parentNode);
+    showMsg(userId.parentNode.parentNode);
   }
   
   if (userPw.value === "") {
@@ -283,8 +293,8 @@ function inputStoreName() {
     showMsg(phoneNumberContainer.parentNode);
   }
 
-  if (businessInput.value === "") {
-    showMsg(businessInput.parentNode);
+  if (businessNum.value === "") {
+    showMsg(businessNum.parentNode.parentNode);
   }
 }
 
@@ -293,7 +303,7 @@ function pwChecking() {
   removeMsg(pwCheck.parentNode); 
 
   if (userId.value === "") {
-    showMsg(userId.parentNode);
+    showMsg(userId.parentNode.parentNode);
   }
   
   if (userPw.value === "") {
@@ -322,10 +332,10 @@ function joinSubmit(e) {
   let isValid = true;
 
   if (userId.value === "") {
-    showMsg(userId.parentNode);
+    showMsg(userId.parentNode.parentNode);
     isValid = false;
   } else if (!isIdChecked) {
-    showMsg(idCheckBtn.parentNode, "아이디 중복확인을 해주세요.");
+    showMsg(userId.parentNode.parentNode, "아이디 중복확인을 해주세요.");
     isValid = false;
   }
 
@@ -363,10 +373,10 @@ function joinSubmit(e) {
 
   if (selectedUserType === "SELLER") {
     if (businessNum.value === "") {
-      showMsg(businessNum.parentNode);
+      showMsg(businessNum.parentNode.parentNode);
       isValid = false;
     } else if (!isBusinessNumChecked) {
-      showMsg(businessNum.parentNode, "사업자번호 중복확인을 해주세요.");
+      showMsg(businessNum.parentNode.parentNode, "사업자번호 중복확인을 해주세요.");
       isValid = false;
     }
 
