@@ -20,7 +20,8 @@ export const totalPrice = document.getElementById("total-price");
 export const totalQuantity = document.getElementById("total-quantity");
 export const tabButtons = document.querySelectorAll(".tab");
 
-export const minusIcon = document.getElementById("plus-line");
+export const plusIcon = document.getElementById("plus-line");
+export const minusIcon = document.getElementById("minus-line");
 
 export const buyProduct = document.getElementById("buy");
 export const basket = document.getElementById("basket");

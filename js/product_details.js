@@ -10,7 +10,7 @@ import {
   productImage,
   minusBtn, plusBtn, quantityInput,
   totalPrice, totalQuantity, tabButtons,
-  minusIcon,
+  plusIcon, minusIcon,
   buyProduct, basket
 } from "./DOM.js";
 
@@ -42,9 +42,17 @@ function updateButtonState() {
 
   if (quantity >= productStock) {
     plusBtn.style.backgroundColor = "#E0E0E0";
-    minusIcon.style.filter = "brightness(0) invert(1)";
+    plusIcon.style.filter = "brightness(0) invert(1)";
   } else {
     plusBtn.style.backgroundColor = "";
+    plusIcon.style.filter = "";
+  }
+
+  if (quantity === 1) {
+    minusBtn.style.background= "#E0E0E0";
+    minusIcon.style.filter = "brightness(0) invert(1)";
+  } else {
+    minusBtn.style.background= "";
     minusIcon.style.filter = "";
   }
 }
