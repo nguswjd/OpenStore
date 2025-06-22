@@ -5,25 +5,25 @@ export const userMenu = document.querySelector(".user-menu");
 export const shoppingBag = document.getElementById("shopping-mypage");
 
 // product_details
-const shippingMethod = document.getElementById("shipping-method");
-const storeName = document.getElementById("store-name");
-const productName = document.getElementById("product_name");
-const price = document.getElementById("price");
+export const shippingMethod = document.getElementById("shipping-method");
+export const storeName = document.getElementById("store-name");
+export const productName = document.getElementById("product_name");
+export const price = document.getElementById("price");
 
-const productImage = document.getElementById("product-image");
+export const productImage = document.getElementById("product-image");
 
-const minusBtn = document.getElementById("minus-btn");
-const plusBtn = document.getElementById("plus-btn");
-const quantityInput = document.getElementById("quantity");
+export const minusBtn = document.getElementById("minus-btn");
+export const plusBtn = document.getElementById("plus-btn");
+export const quantityInput = document.getElementById("quantity");
 
-const totalPrice = document.getElementById("total-price");
-const totalQuantity = document.getElementById("total-quantity");
-const tabButtons = document.querySelectorAll(".tab");
+export const totalPrice = document.getElementById("total-price");
+export const totalQuantity = document.getElementById("total-quantity");
+export const tabButtons = document.querySelectorAll(".tab");
 
-const minusIcon = document.getElementById("plus-line");
+export const minusIcon = document.getElementById("plus-line");
 
-const buyProduct = document.getElementById("buy");
-const basket = document.getElementById("basket");
+export const buyProduct = document.getElementById("buy");
+export const basket = document.getElementById("basket");
 
 
 // login
