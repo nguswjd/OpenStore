@@ -9,7 +9,7 @@ import {
   buyerBtn, sellerBtn 
 } from "./DOM.js";
 
-// 선택된 사용자
+// 전역 변수
 let selectedUserType = "BUYER";
 
 function showMsg(parentElement, text, color = "#EB5757") {
@@ -60,7 +60,16 @@ function loginSubmit(e) {
           localStorage.setItem("userInfo", JSON.stringify(data.user));
           console.log(data.user);
 
-          history.back();
+          const referrer = document.referrer;
+          const lastPath = new URL(referrer).pathname.split("/").pop();
+
+          if (lastPath === "join.html") {
+            history.go(-3);
+          } else {
+            history.back();
+          }
+
+
         } else {
           showMsg(loginContainer, "아이디 또는 비밀번호가 올바르지 않습니다.");
           userPwInput.value = "";
