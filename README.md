@@ -181,6 +181,17 @@ https://nguswjd.github.io/OpenStore/
 <br>
 
 #### 📜login.js
+<table style="width: 700px; margin: 0 auto;">
+  <tr>
+    <th style="text-align: center;">로그인</th>
+  </tr>
+  <tr>
+    <td style="text-align: center;">
+      <img src="./assets/readme-Image/screen/login.gif" width="500px"><br><br>
+      📌 사용자 로그인 API를 호출하여 입력값과 로그인 API를 비교하여 로그인을 합니다. <br> 이떄 다른 페이지에서 로그인 정보를 확인하기 위해 로그인 된 정보중 토큰과 사용자 정보가 `localStorage`가 저장됩니다.
+    </td>
+  </tr>
+</table>
 
 
 <br>
