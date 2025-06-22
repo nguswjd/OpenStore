@@ -5,24 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HODU</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/404.css">
+
+    <script type="module" src="js/login.js"></script>
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/join.js"></script>
+    <script type="module" src="js/product_details.js"></script>
 </head>
 <body>
     <img src="assets/icons/icon-404.png" alt="404 오류">
 
-    <section>
+    <section id="box-container">
       <h1>페이지를 찾을 수 없습니다.</h1>
       <p>페이지가 존재하지 않거나 사용할 수 없는 페이지입니다.<br>웹 주소가 올바른지 확인해 주세요.</p>
 
-      <div>
-        <ul>
-          <li>
-            <a href="#index.html">메인으로</a>
-          </li>
-          <li>
-            <button>이전 페이지</button>
-          </li>
-        </ul>
-      </div>
+      <ul>
+        <li id="gohome">
+          <a href="#index.html">메인으로</a>
+        </li>
+        <li id="goback">
+          <button>이전 페이지</button>
+        </li>
+      </ul>
     </section>
 </body>
 </html>
