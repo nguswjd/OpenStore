@@ -51,6 +51,17 @@ https://nguswjd.github.io/OpenStore/
 
 ### 📂 js 파일
 #### 📜main.js
+|사용자 종류에 따른 header 변경|
+|:---:|
+|<img src="./assets/readme-Image/screen/비사용자-헤더.png" width = "450px;">|
+|만약 localStorage가 빈 상태일 때 장바구니/마이페이지가 비사용자 모드|
+|:---:|
+|<img src="./assets/readme-Image/screen/구매자-헤더.png" width = "450px;">|
+|만약 localStorage에서 불러온 `user_type`이 `BUYER`인 상태일 때 장바구니/마이페이지 상태를 변경|
+|:---:|
+|<img src="./assets/readme-Image/screen/판매자-헤더.png" width = "450px;">|
+|만약 localStorage에서 불러온 `user_type`이 `SELLER`인 상태일 때 장바구니/마이페이지 상태를 변경|
+
 
 #### 📜product_details.js
 
