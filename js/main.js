@@ -166,6 +166,8 @@ if (userInfo && userInfo.user_type === "BUYER") {
   }
 }
 
+// console.log(userInfo);
+
 // 로그아웃
 function logout() {
   localStorage.removeItem("userInfo");
