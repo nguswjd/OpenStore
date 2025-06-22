@@ -148,7 +148,7 @@ https://nguswjd.github.io/OpenStore/
   <tr>
     <td style="text-align: center;">
       <img src="./assets/readme-Image/screen/dec-incBtn.gif" width="500px"><br><br>
-      📌 제품 구매 페이지에서 수량을 선택하면 `js/main.js`에서 얻어온 상세 정보중 `stock`의 갯수만큼 `plus` 버튼이 비활성화 됩니다. <br>
+      📌 제품 구매 페이지에서 수량을 선택하면 `js/main.js`에서 얻어온 상세 정보 중 <br> `stock`의 갯수만큼 `plus` 버튼이 비활성화 됩니다. <br>
       또한 마이너스/플러스 버튼을 클릭할시 구매 수량을 선택할 수 있습니다. <br> 수량을 선택할 때마다 상품의 금액과 수량이 변경됩니다.
     </td>
   </tr>
@@ -188,7 +188,7 @@ https://nguswjd.github.io/OpenStore/
   <tr>
     <td style="text-align: center;">
       <img src="./assets/readme-Image/screen/login.gif" width="500px"><br><br>
-      📌 사용자 로그인 API를 호출하여 입력값과 로그인 API를 비교하여 로그인을 합니다. <br> 이떄 다른 페이지에서 로그인 정보를 확인하기 위해 로그인 된 정보중 토큰과 사용자 정보가 `localStorage`가 저장됩니다.
+      📌 사용자 로그인 API를 호출하여 입력값과 로그인 API를 비교하여 로그인을 합니다. <br> 이때 다른 페이지에서 로그인 정보를 확인하기 위해<br> 로그인 된 정보중 토큰과 사용자 정보가 `localStorage`가 저장됩니다. <br> 로그인 성공시 로그인 전 페이지로 이동하게 됩니다.
     </td>
   </tr>
 </table>
@@ -204,7 +204,7 @@ https://nguswjd.github.io/OpenStore/
   <tr>
     <td style="text-align: center;">
       <img src="./assets/readme-Image/screen/join-clickBtn.gif" width="500px"><br><br>
-      📌 판매자/구매자 선택을 클릭할때마다 `input`안에 있는 값이 다시 입력할 수있도록 지워지며 에러 메시지도 함께 지워집니다. <br> 또한 선택한 유형에 따라 `user_type`이 저장됩니다.
+      📌 판매자/구매자 선택을 클릭할때마다 <br>`input`안에 있는 값이 다시 입력할 수있도록 지워지며 에러 메시지도 함께 지워집니다. <br> 또한 선택한 유형에 따라 `user_type`이 저장됩니다.
     </td>
   </tr>
 </table>
