@@ -51,24 +51,79 @@ https://nguswjd.github.io/OpenStore/
 
 ### 📂 js 파일
 #### 📜main.js
-| 사용자 종류에 따른 Header 변경 |
-|:---:|
-| 🧑‍💻 **비사용자 (비로그인 상태)**<br><br><img src="./assets/readme-Image/screen/비사용자-헤더.png" width="500px"><br><br>📌 `localStorage`가 빈 상태일 때 장바구니/마이페이지가 비사용자 모드로 변경됩니다. |
-| 🛍️ **구매자 (BUYER)**<br><br><img src="./assets/readme-Image/screen/구매자-헤더.png" width="500px"><br><br>📌 `localStorage.user_type`이 `BUYER`일 경우, <br>장바구니/마이페이지가 구매자용으로 변경됩니다. |
-| 🏪 **판매자 (SELLER)**<br><br><img src="./assets/readme-Image/screen/판매자-헤더.png" width="500px"><br><br>📌 `localStorage.user_type`이 `SELLER`일 경우, <br>장바구니/마이페이지가 판매자용으로 변경됩니다. |
+<table style="width: 700px; margin: 0 auto;">
+  <tr>
+    <th style="text-align: center;">사용자 종류에 따른 Header 변경</th>
+  </tr>
+  <tr>
+    <td style="text-align: center;">
+      🧑‍💻 <strong>비사용자 (비로그인 상태)</strong><br><br>
+      <img src="./assets/readme-Image/screen/비사용자-헤더.png" width="500px"><br><br>
+      📌 <code>localStorage</code>가 빈 상태일 때 장바구니/마이페이지가 비사용자 모드로 변경됩니다.
+    </td>
+  </tr>
+  <tr>
+    <td style="text-align: center;">
+      🛍️ <strong>구매자 (BUYER)</strong><br><br>
+      <img src="./assets/readme-Image/screen/구매자-헤더.png" width="500px"><br><br>
+      📌 <code>localStorage.user_type</code>이 <code>BUYER</code>일 경우,<br>
+      장바구니/마이페이지가 구매자용으로 변경됩니다.
+    </td>
+  </tr>
+  <tr>
+    <td style="text-align: center;">
+      🏪 <strong>판매자 (SELLER)</strong><br><br>
+      <img src="./assets/readme-Image/screen/판매자-헤더.png" width="500px"><br><br>
+      📌 <code>localStorage.user_type</code>이 <code>SELLER</code>일 경우,<br>
+      장바구니/마이페이지가 판매자용으로 변경됩니다.
+    </td>
+  </tr>
+</table>
 
-| 모달 |
-|:---:|
-|<img src="./assets/readme-Image/screen/modalOpen.gif" width="500px"><br><br>📌 비사용자 모드인 상태에서 장바구니 및 제품상세 페이지의 바로구매 버튼을 클릭시 모달이 표시됩니다. |
+<br>
 
-| 메인 페이지 제품 목록 |
-|:---:|
-|<img src="./assets/readme-Image/screen/index-product.png" width="500px"><br><br>📌 상품 API을 호출하여 메인 페이지 `<main>`안에 제품 리스트를 보여줍니다. 리스트의 있는 제품을 클릭시 `localStorage`로 클릭 된 제품의 정보를 저장합니다.|
+<table style="width: 700px; margin: 0 auto;">
+  <tr>
+    <th style="text-align: center;">모달</th>
+  </tr>
+  <tr>
+    <td style="text-align: center;">
+      <img src="./assets/readme-Image/screen/modalOpen.gif" width="500px"><br><br>
+      📌 비사용자 모드인 상태에서 장바구니 및 제품상세 페이지의 바로구매 버튼을 클릭시 모달이 표시됩니다.
+    </td>
+  </tr>
+</table>
 
-| 로그아웃 |
-|:---:|
-|<img src="./assets/readme-Image/screen/logout-userInfo.gif" width="500px"><br><br>📌 로그아웃 버튼을 클릭하면 localStorage에 저장된 사용자 정보가 삭제되어 로그아웃이 완료됩니다.<br>
-※ 첨부된 영상 및 콘솔창에 표시된 사용자 정보는 이해를 돕기 위한 예시일 뿐이며, 실제 배포된 URL에서는 콘솔창에 사용자 정보가 출력되지 않습니다.|
+<br>
+
+<table style="width: 700px; margin: 0 auto;">
+  <tr>
+    <th style="text-align: center;">메인 페이지 제품 목록</th>
+  </tr>
+  <tr>
+    <td style="text-align: center;">
+      <img src="./assets/readme-Image/screen/index-product.png" width="500px"><br><br>
+      📌 상품 API을 호출하여 메인 페이지 <code>&lt;main&gt;</code>안에 제품 리스트를 보여줍니다.<br>
+      리스트의 있는 제품을 클릭시 <code>localStorage</code>로 클릭 된 제품의 정보를 저장합니다.
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<table style="width: 700px; margin: 0 auto;">
+  <tr>
+    <th style="text-align: center;">로그아웃</th>
+  </tr>
+  <tr>
+    <td style="text-align: center;">
+      <img src="./assets/readme-Image/screen/logout-userInfo.gif" width="500px"><br><br>
+      📌 로그아웃 버튼을 클릭하면 localStorage에 저장된 사용자 정보가 삭제되어 로그아웃이 완료됩니다.<br><br>
+      ※ 첨부된 영상 및 콘솔창에 표시된 사용자 정보는 이해를 돕기 위한 예시일 뿐이며,<br>
+      실제 배포된 URL에서는 콘솔창에 사용자 정보가 출력되지 않습니다.
+    </td>
+  </tr>
+</table>
 
 
 #### 📜product_details.js
