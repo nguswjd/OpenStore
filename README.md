@@ -229,6 +229,5 @@ https://nguswjd.github.io/OpenStore/
 
 ## ⚒️ 추후에 구현할 부분
 - SPA(Single Page Application) 방식 적용
-- login.js > 94번 째 줄, 108번 쨰 줄 css 로 수정 필요
-- 제품 구매 페이지 하단 버튼/리뷰/QnA/반품 교환정보의 내용 수정 코드 구현 필요
+- login.js > 94번 째 줄, 108번 쨰 줄 css로 수정 필요
 - 세부적인 css 검토 필요

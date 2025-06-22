@@ -29,13 +29,6 @@ header h1 img {
   border: 1px solid #c4c4c4;
   border-radius: 10px;
   background-color: #f2f2f2;
-  
-  transition: all 0.1s ease;
-  cursor: pointer;
-}
-
-.choice-info button:active {
-  transform: translateY(2px);
 }
 
 .choice-info button.focusBtn {
@@ -49,10 +42,6 @@ header h1 img {
 
   position: relative;
   z-index: 20;
-}
-
-.choice-info button.focusBtn:active {
-  transform: translateY(1px);
 }
 
 /* ===== 공통 컨테이너 ===== */
