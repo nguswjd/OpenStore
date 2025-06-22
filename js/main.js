@@ -15,6 +15,15 @@ const userInfo = userInfoString ? JSON.parse(userInfoString) : null;
 
 // console.log(localStorage);
 
+const accessToken = localStorage.getItem("accessToken");
+const currentPath = window.location.pathname; // 현재 URL 경로
+
+// index.html 경로나 '/' 경로인 경우는 리다이렉트하지 않도록 분기
+if (!accessToken && currentPath !== "/index.html" && currentPath !== "/") {
+  window.location.href = "index.html";
+}
+
+
 if (userInfo && userInfo.user_type === "BUYER") {
   userMenu.innerHTML = `
         <h2 class="sr-only">장바구니 및 로그인</h2>
@@ -248,4 +257,4 @@ function backPage() {
   history.back();
 }
 
-gobackPage.addEventListener("click", backPage);
+
