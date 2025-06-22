@@ -11,7 +11,8 @@ import {
   minusBtn, plusBtn, quantityInput,
   totalPrice, totalQuantity, tabButtons,
   plusIcon, minusIcon,
-  buyProduct, basket
+  buyProduct, basket,
+  modal
 } from "./DOM.js";
 
 // 전역변수
