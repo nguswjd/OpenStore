@@ -3,6 +3,8 @@
 ## 배포 URL
 https://nguswjd.github.io/OpenStore/
 
+<hr>
+
 ## ⚙️ 기술 스택
 ### Front-end
 <div>
@@ -15,6 +17,8 @@ https://nguswjd.github.io/OpenStore/
   <img src="./assets/readme-Image/Github.png" width="80">
   <img src="./assets/readme-Image/Notion.png" width="80">
 </div>
+
+<hr>
 
 ## 📁 프로젝트 구조
 ```
@@ -53,6 +57,9 @@ https://nguswjd.github.io/OpenStore/
 #### 📜login.js
 
 #### 📜join.js
+
+
+<hr>
 
 ## ⚒️ 추후에 구현할 부분
 - SPA(Single Page Application) 방식 적용
