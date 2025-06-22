@@ -72,8 +72,11 @@ form input {
   width: 100%;
   height: 60px;
   margin-bottom: 20px;
-  padding-left: 10px;
   border-bottom: 1px solid #c4c4c4;
+}
+
+form input:not(#user-number-mid):not(#user-number-end) {
+  padding-left: 20px;
 }
 
 /* ===== 로그인 폼 ===== */
@@ -130,7 +133,6 @@ form input {
 #join-id,
 #join-businessNum,
 .clickBtn {
-  /* font-size: 16px; */
   height: 54px;
   border-radius: 5px;
 }
