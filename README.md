@@ -89,7 +89,7 @@ https://nguswjd.github.io/OpenStore/
   </tr>
   <tr>
     <td style="text-align: center;">
-      <img src="./assets/readme-Image/screen/modalOpen.gif" width="500px"><br><br>
+      <img src="./assets/readme-Image/screen/openModal.gif" width="500px"><br><br>
       📌 비사용자 모드인 상태에서 장바구니 클릭시 모달이 표시됩니다.
     </td>
   </tr>
