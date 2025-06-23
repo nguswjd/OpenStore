@@ -66,7 +66,7 @@ https://nguswjd.github.io/OpenStore/
   <tr>
     <td style="text-align: center;">
       🛍️ <strong>구매자 (BUYER)</strong><br><br>
-      <img src="./sets/readme-Image/screen/구매자-헤더.png" width="500px"><br><br>
+      <img src="./readme-Image/screen/구매자-헤더.png" width="500px"><br><br>
       📌 <code>localStorage.user_type</code>이 <code>BUYER</code>일 경우,<br>
       장바구니/마이페이지가 구매자용으로 변경됩니다.
     </td>
