@@ -52,7 +52,7 @@ https://nguswjd.github.io/OpenStore/
 
 ### 📂 js 파일
 #### 📜main.js
-<table style="width: 700px; margin: 0 auto;">
+<table style="width: 700px; min-width: 700px; table-layout: fixed; margin: 0 auto;">
   <tr>
     <th style="text-align: center;">사용자 종류에 따른 Header 변경</th>
   </tr>
@@ -83,7 +83,7 @@ https://nguswjd.github.io/OpenStore/
 
 <br>
 
-<table style="width: 700px; margin: 0 auto;">
+<table style="width: 700px; min-width: 700px; table-layout: fixed; margin: 0 auto;">
   <tr>
     <th style="text-align: center;">모달</th>
   </tr>
@@ -97,7 +97,7 @@ https://nguswjd.github.io/OpenStore/
 
 <br>
 
-<table style="width: 700px; margin: 0 auto;">
+<table style="width: 700px; min-width: 700px; table-layout: fixed; margin: 0 auto;">
   <tr>
     <th style="text-align: center;">메인 페이지 제품 목록</th>
   </tr>
@@ -112,7 +112,7 @@ https://nguswjd.github.io/OpenStore/
 
 <br>
 
-<table style="width: 700px; margin: 0 auto;">
+<table style="width: 700px; min-width: 700px; table-layout: fixed; margin: 0 auto;">
   <tr>
     <th style="text-align: center;">로그아웃</th>
   </tr>
@@ -130,7 +130,7 @@ https://nguswjd.github.io/OpenStore/
 
 #### 📜product_details.js
 
-<table style="width: 700px; margin: 0 auto;">
+<table style="width: 700px; min-width: 700px; table-layout: fixed; margin: 0 auto;">
   <tr>
     <th style="text-align: center;">제품 상세 정보</th>
   </tr>
@@ -142,7 +142,7 @@ https://nguswjd.github.io/OpenStore/
   </tr>
 </table>
 
-<table style="width: 700px; margin: 0 auto;">
+<table style="width: 700px; min-width: 700px; table-layout: fixed; margin: 0 auto;">
   <tr>
     <th style="text-align: center;">제품 구매 정보</th>
   </tr>
@@ -155,7 +155,7 @@ https://nguswjd.github.io/OpenStore/
   </tr>
 </table>
 
-<table style="width: 700px; margin: 0 auto;">
+<table style="width: 700px; min-width: 700px; table-layout: fixed; margin: 0 auto;">
   <tr>
     <th style="text-align: center;">모달</th>
   </tr>
@@ -167,7 +167,7 @@ https://nguswjd.github.io/OpenStore/
   </tr>
 </table>
 
-<table style="width: 700px; margin: 0 auto;">
+<table style="width: 700px; min-width: 700px; table-layout: fixed; margin: 0 auto;">
   <tr>
     <th style="text-align: center;">리뷰 / QnA / 반품 교환 정보</th>
   </tr>
@@ -182,7 +182,7 @@ https://nguswjd.github.io/OpenStore/
 <br>
 
 #### 📜login.js
-<table style="width: 700px; margin: 0 auto;">
+<table style="width: 700px; min-width: 700px; table-layout: fixed; margin: 0 auto;">
   <tr>
     <th style="text-align: center;">로그인</th>
   </tr>
@@ -198,7 +198,7 @@ https://nguswjd.github.io/OpenStore/
 <br>
 
 #### 📜join.js
-<table style="width: 700px; margin: 0 auto;">
+<table style="width: 700px; min-width: 700px; table-layout: fixed; margin: 0 auto;">
   <tr>
     <th style="text-align: center;">판매자/구매자 선택</th>
   </tr>
@@ -210,7 +210,7 @@ https://nguswjd.github.io/OpenStore/
   </tr>
 </table>
 
-<table style="width: 700px; margin: 0 auto;">
+<table style="width: 700px; min-width: 700px; table-layout: fixed; margin: 0 auto;">
   <tr>
     <th style="text-align: center;">회원가입</th>
   </tr>
@@ -222,7 +222,6 @@ https://nguswjd.github.io/OpenStore/
     </td>
   </tr>
 </table>
-
 
 <br>
 
