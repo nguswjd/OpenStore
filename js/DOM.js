@@ -54,7 +54,6 @@ export const phoneEnd = document.getElementById("user-number-end");
 
 export const businessNum = document.getElementById("join-businessNum");
 export const verifybusinessNum = document.querySelector(".verify-business");
-export const businessInput = document.getElementById("join-businessNum");
 
 export const inputStore = document.getElementById("InputStoreName");
 

@@ -8,7 +8,7 @@ import {
   userPw, pwCheck, idCheckBtn,
   userName,
   phoneNumberContainer, phoneFirst, phoneMid, phoneEnd,
-  businessNum, verifybusinessNum, businessInput,
+  businessNum, verifybusinessNum,
   inputStore
 } from "./DOM.js";
 
