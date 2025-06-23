@@ -12,7 +12,7 @@ import {
 const userInfoString = localStorage.getItem("userInfo");
 const userInfo = userInfoString ? JSON.parse(userInfoString) : null;
 
-// 뒤로가기 버튼 이벤트 - 모든 사용자 타입에 대해 적용
+// 뒤로가기 버튼 - 모든 사용자 타입에 대해 적용
 const goBackBtn = document.querySelector("#goback button");
 if (goBackBtn) {
   goBackBtn.addEventListener("click", () => history.back());

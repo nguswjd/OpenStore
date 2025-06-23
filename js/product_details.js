@@ -1,9 +1,5 @@
 import { API } from "./api.js";
 
-// localStorage
-const product = JSON.parse(localStorage.getItem("clickProduct"));
-const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-
 // DOM
 import { 
   storeName, productName, price,
@@ -14,6 +10,10 @@ import {
   buyProduct, basket,
   modal
 } from "./DOM.js";
+
+// localStorage
+const product = JSON.parse(localStorage.getItem("clickProduct"));
+const userInfo = JSON.parse(localStorage.getItem("userInfo"));
 
 // 전역변수
 let productPrice = product.price;
