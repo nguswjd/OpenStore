@@ -169,10 +169,7 @@ function clickIdVerify() {
       }
     })
     .catch((error) => {
-      window.location.href = "404.html";
-      // console.error("Fetch Error:", error);
-      // showMsg(userId.parentNode.parentNode, "서버 연결에 문제가 있습니다. 다시 시도해주세요.");
-      // isIdChecked = false;
+        console.log(error);
     });
 }
 
@@ -206,10 +203,7 @@ function clickBusinessVerify() {
       }
     })
     .catch((error) => {
-      window.location.href = "404.html";
-      // showMsg(businessNum.parentNode.parentNode, "오류가 발생했습니다. 다시 시도해주세요.");
-      // console.error("Fetch Error:", error);
-      // isBusinessNumChecked = false;
+        console.log(error);
     });
 }
 
@@ -421,8 +415,7 @@ function joinSubmit(e) {
         }
       })
       .catch((error) => {
-        window.location.href = "404.html";
-        // console.error("Fetch Error:", error);
+        console.log(error);
       });
       
   } else if (selectedUserType === "SELLER") {
@@ -459,8 +452,7 @@ function joinSubmit(e) {
         }
       })
       .catch((error) => {
-        window.location.href = "404.html";
-        // console.error("Fetch Error:", error);
+        console.error("Fetch Error:", error);
       });
   }
 }
@@ -486,3 +478,4 @@ verifybusinessNum.addEventListener("click", clickBusinessVerify);
 inputStore.addEventListener("input", inputStoreName);
 
 joinForm.addEventListener("submit", joinSubmit);
+

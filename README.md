@@ -233,3 +233,4 @@ https://nguswjd.github.io/OpenStore/
 - login.js > 94번 째 줄, 108번 쨰 줄 css로 수정 필요
 - 세부적인 css 검토 필요
 - 토큰이 필요하거나 로그인 유저만 접근하는 페이지 구현 (장바구니)
+- css 미디어쿼리 적용

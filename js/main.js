@@ -5,15 +5,18 @@ import {
   productContainer, 
   modal, 
   userMenu, 
-  shoppingBag,
-  gobackPage
+  shoppingBag
 } from "./DOM.js";
 
 // localStorage
 const userInfoString = localStorage.getItem("userInfo");
 const userInfo = userInfoString ? JSON.parse(userInfoString) : null;
 
-// console.log(localStorage);
+// 뒤로가기 버튼 이벤트 - 모든 사용자 타입에 대해 적용
+const goBackBtn = document.querySelector("#goback button");
+if (goBackBtn) {
+  goBackBtn.addEventListener("click", () => history.back());
+}
 
 if (userInfo && userInfo.user_type === "BUYER") {
   userMenu.innerHTML = `
@@ -187,8 +190,6 @@ if (userInfo && userInfo.user_type === "BUYER") {
   }
 }
 
-// console.log(userInfo);
-
 // 로그아웃
 function logout() {
   localStorage.removeItem("userInfo");
@@ -239,14 +240,6 @@ if (productContainer) {
       }
     })
     .catch((error) => {
-      window.location.href = "404.html";
-      // console.log("error:", error);
+      console.error("API 호출 에러:", error);
     });
 }
-
-// function backPage() {
-//   history.back();
-// }
-
-
-

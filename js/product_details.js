@@ -127,3 +127,4 @@ for (let i = 0; i < tabButtons.length; i++) {
 
 receipt();
 updateButtonState();
+
