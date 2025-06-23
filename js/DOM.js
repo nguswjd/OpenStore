@@ -56,6 +56,3 @@ export const businessNum = document.getElementById("join-businessNum");
 export const verifybusinessNum = document.querySelector(".verify-business");
 
 export const inputStore = document.getElementById("InputStoreName");
-
-// 404
-// export const goBackBtn = document.getElementById("goback > button");
